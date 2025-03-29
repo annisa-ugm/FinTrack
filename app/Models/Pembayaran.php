@@ -1,0 +1,49 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class Pembayaran extends Model
+{
+    use HasFactory;
+
+    // Menentukan nama tabel
+    protected $table = 'pembayaran';
+
+    // Menonaktifkan auto-increment karena id_pembayaran adalah string
+    public $incrementing = false;
+
+    // Menentukan tipe primary key sebagai string
+    protected $keyType = 'string';
+
+    // Field yang bisa diisi (mass assignment)
+    protected $fillable = [
+        'id_pembayaran',
+        'id_siswa',
+        'id_user',
+        'tanggal_pembayaran',
+        'jenis_pembayaran',
+        'nominal',
+        'catatan',
+    ];
+
+    /**
+     * Relasi ke tabel siswa (Many to One).
+     * Satu pembayaran hanya dimiliki oleh satu siswa.
+     */
+    public function siswa()
+    {
+        return $this->belongsTo(Siswa::class, 'id_siswa', 'id_siswa');
+    }
+
+    /**
+     * Relasi ke tabel users (Many to One).
+     * Satu pembayaran dilakukan oleh satu user.
+     */
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'id_user', 'id');
+    }
+}

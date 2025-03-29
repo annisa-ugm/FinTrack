@@ -1,0 +1,43 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class Siswa extends Model
+{
+    use HasFactory;
+
+    // Menentukan nama tabel secara eksplisit
+    protected $table = 'siswa';
+
+    // Menonaktifkan auto-increment pada primary key karena id_siswa adalah string
+    public $incrementing = false;
+
+    // Menentukan tipe primary key sebagai string
+    protected $keyType = 'string';
+
+    // Field yang bisa diisi (mass assignment)
+    protected $fillable = [
+        'id_siswa',
+        'nama_siswa',
+        'nisn',
+        'level',
+        'kategori',
+        'akademik',
+        'nama_wali',
+        'no_hp_wali',
+        'file_kontrak',
+    ];
+
+    public function pembayaran()
+    {
+        return $this->hasMany(Pembayaran::class, 'id_siswa', 'id_siswa');
+    }
+
+    public function tagihan()
+    {
+        return $this->hasMany(Tagihan::class, 'id_siswa', 'id_siswa');
+    }
+}
