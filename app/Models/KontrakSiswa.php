@@ -39,4 +39,11 @@ class KontrakSiswa extends Model
     {
         return $this->belongsTo(Siswa::class, 'id_siswa', 'id_siswa');
     }
+
+    public static function generateId()
+    {
+        $last = self::orderByRaw('CAST(id_kontrak_siswa AS UNSIGNED) DESC')->first();
+        return $last ? (string)((int)$last->id_kontrak_siswa + 1) : '1';
+    }
+
 }

@@ -46,4 +46,10 @@ class Pembayaran extends Model
     {
         return $this->belongsTo(User::class, 'id_user', 'id');
     }
+
+    public static function generateId()
+    {
+        $last = self::orderByRaw('CAST(id_pembayaran AS UNSIGNED) DESC')->first();
+        return $last ? (string)((int)$last->id_pembayaran + 1) : '1';
+    }
 }

@@ -24,4 +24,10 @@ class Ekstra extends Model
         'nama_ekstra',
         'harga_ekstra',
     ];
+
+    public static function generateId()
+    {
+        $last = self::orderByRaw('CAST(id_ekstra AS UNSIGNED) DESC')->first();
+        return $last ? (string)((int)$last->id_ekstra + 1) : '1';
+    }
 }

@@ -20,6 +20,7 @@ return new class extends Migration
             $table->integer('nominal');
             $table->text('kelompok_pengeluaran');
             $table->text('catatan')->nullable();
+            $table->json('lampiran')->nullable();
             $table->timestamps();
 
             $table->foreign('id_user')->references('id_user')->on('users')->onDelete('restrict');

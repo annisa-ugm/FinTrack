@@ -11,12 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('uang_saku', function (Blueprint $table) {
-            // $table->id();
-            $table->string('id_uang_saku', 10)->primary();
+        Schema::create('konsumsi_siswa', function (Blueprint $table) {
+            $table->string('id_konsumsi_siswa', 10)->primary();
             $table->string('id_siswa', 10);
-            $table->integer('saldo');
-            $table->integer('durasi');
+            $table->date('tanggal_mulai');
+            $table->date('tanggal_selesai');
+            $table->integer('tagihan_konsumsi');
             $table->text('catatan')->nullable();
             $table->timestamps();
 
@@ -29,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('uang_saku');
+        Schema::dropIfExists('konsumsi_siswa');
     }
 };

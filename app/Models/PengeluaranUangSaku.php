@@ -32,4 +32,10 @@ class PengeluaranUangSaku extends Model
     {
         return $this->belongsTo(Siswa::class, 'id_siswa', 'id_siswa');
     }
+
+    public static function generateId()
+    {
+        $last = self::orderByRaw('CAST(id_pengeluaran_uang_saku AS UNSIGNED) DESC')->first();
+        return $last ? (string)((int)$last->id_pengeluaran_uang_saku + 1) : '1';
+    }
 }

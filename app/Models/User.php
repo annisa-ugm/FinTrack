@@ -96,4 +96,10 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public static function generateId()
+    {
+        $last = self::orderByRaw('CAST(id_user AS UNSIGNED) DESC')->first();
+        return $last ? (string)((int)$last->id_user + 1) : '1';
+    }
 }

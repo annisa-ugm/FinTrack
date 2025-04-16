@@ -38,4 +38,10 @@ class PembayaranEkstra extends Model
     {
         return $this->belongsTo(Ekstra::class, 'id_ekstra', 'id_ekstra');
     }
+
+    public static function generateId()
+    {
+        $last = self::orderByRaw('CAST(id_pembayaran_ekstra AS UNSIGNED) DESC')->first();
+        return $last ? (string)((int)$last->id_pembayaran_ekstra + 1) : '1';
+    }
 }

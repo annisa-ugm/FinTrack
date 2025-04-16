@@ -40,4 +40,24 @@ class Siswa extends Model
     {
         return $this->hasMany(Tagihan::class, 'id_siswa', 'id_siswa');
     }
+
+
+    public function boardingSiswa()
+    {
+        return $this->hasMany(BoardingSiswa::class, 'id_siswa', 'id_siswa');
+    }
+
+    public function konsumsiSiswa()
+    {
+        return $this->hasMany(KonsumsiSiswa::class, 'id_siswa', 'id_siswa');
+    }
+
+
+    public static function generateId()
+    {
+        $last = self::orderByRaw('CAST(id_siswa AS UNSIGNED) DESC')->first();
+        return $last ? (string)((int)$last->id_siswa + 1) : '1';
+    }
+
+
 }

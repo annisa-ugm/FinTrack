@@ -12,6 +12,8 @@ class Tagihan extends Model
     // Menentukan nama tabel
     protected $table = 'tagihan';
 
+    protected $primaryKey = 'id_tagihan';
+
     // Menonaktifkan auto-increment karena id_tagihan adalah string
     public $incrementing = false;
 
@@ -38,4 +40,11 @@ class Tagihan extends Model
     {
         return $this->belongsTo(Siswa::class, 'id_siswa', 'id_siswa');
     }
+
+    public static function generateId()
+    {
+        $last = self::orderByRaw('CAST(id_tagihan AS UNSIGNED) DESC')->first();
+        return $last ? (string)((int)$last->id_tagihan + 1) : '1';
+    }
+
 }

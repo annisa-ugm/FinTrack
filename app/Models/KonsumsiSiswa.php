@@ -5,12 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class EkstraSiswa extends Model
+class KonsumsiSiswa extends Model
 {
     use HasFactory;
 
     // Menentukan nama tabel
-    protected $table = 'ekstra_siswa';
+    protected $table = 'konsumsi_siswa';
 
     // Menonaktifkan auto-increment karena id_ekstra_siswa adalah string
     public $incrementing = false;
@@ -20,11 +20,11 @@ class EkstraSiswa extends Model
 
     // Field yang bisa diisi (mass assignment)
     protected $fillable = [
-        'id_ekstra_siswa',
+        'id_konsumsi_siswa',
         'id_siswa',
-        'id_ekstra',
-        'kontrak_ekstra',
-        'tagihan_ekstra',
+        'tanggal_mulai',
+        'tanggal_selesai',
+        'tagihan_konsumsi',
         'catatan',
     ];
 
@@ -34,15 +34,9 @@ class EkstraSiswa extends Model
         return $this->belongsTo(Siswa::class, 'id_siswa', 'id_siswa');
     }
 
-    // Relasi dengan tabel Ekstra
-    public function ekstra()
-    {
-        return $this->belongsTo(Ekstra::class, 'id_ekstra', 'id_ekstra');
-    }
-
     public static function generateId()
     {
-        $last = self::orderByRaw('CAST(id_ekstra_siswa AS UNSIGNED) DESC')->first();
-        return $last ? (string)((int)$last->id_ekstra_siswa + 1) : '1';
+        $last = self::orderByRaw('CAST(id_konsumsi_siswa AS UNSIGNED) DESC')->first();
+        return $last ? (string)((int)$last->id_konsumsi_siswa + 1) : '1';
     }
 }

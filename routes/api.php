@@ -4,11 +4,14 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\KontrakController;
+use App\Http\Controllers\Umum\MonitoringUmumController;
+use App\Http\Controllers\Umum\PembayaranUmumController;
+use App\Http\Controllers\BoardingKonsumsi\TambahSiswaBoardingKonsumsiController;
+use App\Http\Controllers\BoardingKonsumsi\MonitoringBKController;
 
 Route::post('/login', [LoginController::class, 'login']);
-
 Route::middleware('auth:sanctum')->post('/logout', [LoginController::class, 'logout']);
-
 Route::middleware('auth:sanctum')->get('/me', [LoginController::class, 'me']);
 
 Route::prefix('auth')->group(function () {
@@ -24,4 +27,12 @@ Route::prefix('auth')->group(function () {
 
 Route::middleware('auth:sanctum')->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index']);
+    Route::post('/kontrak', [KontrakController::class, 'createKontrak']);
+    Route::get('/monitoring', [MonitoringUmumController::class, 'index']);
+    Route::post('/pembayaran', [PembayaranUmumController::class, 'createPembayaran']);
+    Route::post('/create/siswa/boarding', [TambahSiswaBoardingKonsumsiController::class, 'createSiswaBoarding']);
+    Route::post('/create/siswa/konsumsi', [TambahSiswaBoardingKonsumsiController::class, 'createSiswaKonsumsi']);
+    Route::get('/monitoring/bk', [MonitoringBKController::class, 'index']);
+
+
 });
