@@ -50,10 +50,10 @@ class PembayaranUmumController extends Controller
         try {
             $idUser = auth()->user()->id_user;
             $jenisPembayaranList = [
-                'uang_kbm' => 'Uang KBM',
-                'uang_pemeliharaan' => 'Uang Pemeliharaan',
-                'uang_spp' => 'Uang SPP',
-                'uang_sumbangan' => 'Uang Sumbangan',
+                'uang_kbm' => 'KBM',
+                'uang_pemeliharaan' => 'Pemeliharaan',
+                'uang_spp' => 'SPP',
+                'uang_sumbangan' => 'Sumbangan',
             ];
 
             $dataTersimpan = [];

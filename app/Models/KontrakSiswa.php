@@ -9,16 +9,10 @@ class KontrakSiswa extends Model
 {
     use HasFactory;
 
-    // Menentukan nama tabel
     protected $table = 'kontrak_siswa';
-
-    // Menonaktifkan auto-increment karena id_kontrak_siswa adalah string
     public $incrementing = false;
-
-    // Menentukan tipe primary key sebagai string
     protected $keyType = 'string';
 
-    // Field yang bisa diisi (mass assignment)
     protected $fillable = [
         'id_kontrak_siswa',
         'id_siswa',

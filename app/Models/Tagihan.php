@@ -9,18 +9,11 @@ class Tagihan extends Model
 {
     use HasFactory;
 
-    // Menentukan nama tabel
     protected $table = 'tagihan';
-
     protected $primaryKey = 'id_tagihan';
-
-    // Menonaktifkan auto-increment karena id_tagihan adalah string
     public $incrementing = false;
-
-    // Menentukan tipe primary key sebagai string
     protected $keyType = 'string';
 
-    // Field yang bisa diisi (mass assignment)
     protected $fillable = [
         'id_tagihan',
         'id_siswa',

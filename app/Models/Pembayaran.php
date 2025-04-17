@@ -9,16 +9,10 @@ class Pembayaran extends Model
 {
     use HasFactory;
 
-    // Menentukan nama tabel
     protected $table = 'pembayaran';
-
-    // Menonaktifkan auto-increment karena id_pembayaran adalah string
     public $incrementing = false;
-
-    // Menentukan tipe primary key sebagai string
     protected $keyType = 'string';
 
-    // Field yang bisa diisi (mass assignment)
     protected $fillable = [
         'id_pembayaran',
         'id_siswa',

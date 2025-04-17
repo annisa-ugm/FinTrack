@@ -9,6 +9,7 @@ use App\Http\Controllers\Umum\MonitoringUmumController;
 use App\Http\Controllers\Umum\PembayaranUmumController;
 use App\Http\Controllers\BoardingKonsumsi\TambahSiswaBoardingKonsumsiController;
 use App\Http\Controllers\BoardingKonsumsi\MonitoringBKController;
+use App\Http\Controllers\BoardingKonsumsi\PembayaranBKController;
 
 Route::post('/login', [LoginController::class, 'login']);
 Route::middleware('auth:sanctum')->post('/logout', [LoginController::class, 'logout']);
@@ -33,6 +34,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('/create/siswa/boarding', [TambahSiswaBoardingKonsumsiController::class, 'createSiswaBoarding']);
     Route::post('/create/siswa/konsumsi', [TambahSiswaBoardingKonsumsiController::class, 'createSiswaKonsumsi']);
     Route::get('/monitoring/bk', [MonitoringBKController::class, 'index']);
+    Route::post('/pembayaran/bk', [PembayaranBKController::class, 'createPembayaran']);
 
 
 });

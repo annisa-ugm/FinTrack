@@ -76,7 +76,7 @@ class PembayaranBKController extends Controller
                     'id_siswa' => $request->id_siswa,
                     'id_user' => $idUser,
                     'tanggal_pembayaran' => $request->tanggal_pembayaran,
-                    'jenis_pembayaran' => 'Uang Boarding',
+                    'jenis_pembayaran' => 'Boarding',
                     'nominal' => $request->uang_boarding,
                     'catatan' => $request->catatan,
                 ]);
@@ -111,7 +111,7 @@ class PembayaranBKController extends Controller
                     'id_siswa' => $request->id_siswa,
                     'id_user' => $idUser,
                     'tanggal_pembayaran' => $request->tanggal_pembayaran,
-                    'jenis_pembayaran' => 'Uang Konsumsi',
+                    'jenis_pembayaran' => 'Konsumsi',
                     'nominal' => $request->uang_konsumsi,
                     'catatan' => $request->catatan,
                 ]);

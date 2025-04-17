@@ -9,16 +9,10 @@ class Pengeluaran extends Model
 {
     use HasFactory;
 
-    // Menentukan nama tabel
     protected $table = 'pengeluaran';
-
-    // Menonaktifkan auto-increment karena id_pengeluaran adalah string
     public $incrementing = false;
-
-    // Menentukan tipe primary key sebagai string
     protected $keyType = 'string';
 
-    // Field yang bisa diisi (mass assignment)
     protected $fillable = [
         'id_pengeluaran',
         'id_user',

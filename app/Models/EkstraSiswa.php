@@ -9,16 +9,10 @@ class EkstraSiswa extends Model
 {
     use HasFactory;
 
-    // Menentukan nama tabel
     protected $table = 'ekstra_siswa';
-
-    // Menonaktifkan auto-increment karena id_ekstra_siswa adalah string
     public $incrementing = false;
-
-    // Menentukan tipe primary key sebagai string
     protected $keyType = 'string';
 
-    // Field yang bisa diisi (mass assignment)
     protected $fillable = [
         'id_ekstra_siswa',
         'id_siswa',
