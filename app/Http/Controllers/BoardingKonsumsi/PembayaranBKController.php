@@ -7,8 +7,6 @@ use Illuminate\Http\Request;
 use App\Models\Pembayaran;
 use App\Models\BoardingSiswa;
 use App\Models\KonsumsiSiswa;
-use App\Models\Siswa;
-use App\Models\User;
 use Illuminate\Support\Facades\Validator;
 
 class PembayaranBKController extends Controller
@@ -33,11 +31,7 @@ class PembayaranBKController extends Controller
             ], 422);
         }
 
-        // Minimal satu jenis pembayaran harus diisi
-        if (
-            is_null($request->uang_boarding) &&
-            is_null($request->uang_konsumsi)
-        ) {
+        if (is_null($request->uang_boarding) && is_null($request->uang_konsumsi)) {
             return response()->json([
                 'status' => 'error',
                 'message' => 'Minimal satu jenis pembayaran harus diisi.'
@@ -46,65 +40,88 @@ class PembayaranBKController extends Controller
 
         try {
             $idUser = auth()->user()->id_user;
-            $jenisPembayaranList = [
-                'uang_boarding' => 'Uang Boarding',
-                'uang_konsumsi' => 'Uang Konsumsi',
-            ];
-
             $dataTersimpan = [];
 
+            // Ambil tagihan boarding dan konsumsi
             $tagihanBoarding = BoardingSiswa::where('id_siswa', $request->id_siswa)->first();
             $tagihanKonsumsi = KonsumsiSiswa::where('id_siswa', $request->id_siswa)->first();
 
-            if (!$tagihanBoarding || !$tagihanKonsumsi) {
+            if (!$tagihanBoarding && !$tagihanKonsumsi) {
                 return response()->json([
                     'status' => 'error',
-                    'message' => 'Tagihan untuk siswa ini tidak ditemukan.'
+                    'message' => 'Tagihan siswa tidak ditemukan.'
                 ], 404);
             }
 
-            // Validasi dulu semua jenis pembayaran: tidak boleh melebihi tagihan
-            foreach ($jenisPembayaranList as $key => $label) {
-                $nominal = $request->$key;
-                if (!is_null($nominal)) {
-                    $kolomTagihan = 'tagihan_' . $key;
-                    $sisaTagihan = $tagihan->$kolomTagihan ?? 0;
-
-                    if ($nominal > $sisaTagihan) {
-                        return response()->json([
-                            'status' => 'error',
-                            'message' => "Pembayaran tidak bisa dilakukan karena nominal pembayaran {$label} ({$nominal}) lebih besar daripada sisa tagihan {$label} ({$sisaTagihan})."
-                        ], 422);
-                    }
+            // Cek dan proses pembayaran uang boarding
+            if (!is_null($request->uang_boarding)) {
+                if (!$tagihanBoarding) {
+                    return response()->json([
+                        'status' => 'error',
+                        'message' => 'Data tagihan boarding siswa tidak ditemukan.'
+                    ], 404);
                 }
+
+                if ($request->uang_boarding > $tagihanBoarding->tagihan_boarding) {
+                    return response()->json([
+                        'status' => 'error',
+                        'message' => 'Nominal pembayaran boarding melebihi sisa tagihan.'
+                    ], 422);
+                }
+
+                $idPembayaran = Pembayaran::generateId();
+
+                $pembayaran = Pembayaran::create([
+                    'id_pembayaran' => $idPembayaran,
+                    'id_siswa' => $request->id_siswa,
+                    'id_user' => $idUser,
+                    'tanggal_pembayaran' => $request->tanggal_pembayaran,
+                    'jenis_pembayaran' => 'Uang Boarding',
+                    'nominal' => $request->uang_boarding,
+                    'catatan' => $request->catatan,
+                ]);
+
+                // Kurangi tagihan boarding
+                $tagihanBoarding->tagihan_boarding -= $request->uang_boarding;
+                $tagihanBoarding->save();
+
+                $dataTersimpan[] = $pembayaran;
             }
 
-            // Lakukan pembayaran dan update tagihan
-            foreach ($jenisPembayaranList as $key => $label) {
-                $nominal = $request->$key;
-                if (!is_null($nominal)) {
-                    $idPembayaran = Pembayaran::generateId();
-
-                    $pembayaran = Pembayaran::create([
-                        'id_pembayaran' => $idPembayaran,
-                        'id_siswa' => $request->id_siswa,
-                        'id_user' => $idUser,
-                        'tanggal_pembayaran' => $request->tanggal_pembayaran,
-                        'jenis_pembayaran' => $label,
-                        'nominal' => $nominal,
-                        'catatan' => $request->catatan,
-                    ]);
-
-                    $dataTersimpan[] = $pembayaran;
-
-                    $kolomTagihan = 'tagihan_' . $key;
-                    if (!is_null($tagihan->$kolomTagihan)) {
-                        $tagihan->$kolomTagihan -= $nominal;
-                    }
+            // Cek dan proses pembayaran uang konsumsi
+            if (!is_null($request->uang_konsumsi)) {
+                if (!$tagihanKonsumsi) {
+                    return response()->json([
+                        'status' => 'error',
+                        'message' => 'Data tagihan konsumsi siswa tidak ditemukan.'
+                    ], 404);
                 }
-            }
 
-            $tagihan->save();
+                if ($request->uang_konsumsi > $tagihanKonsumsi->tagihan_konsumsi) {
+                    return response()->json([
+                        'status' => 'error',
+                        'message' => 'Nominal pembayaran konsumsi melebihi sisa tagihan.'
+                    ], 422);
+                }
+
+                $idPembayaran = Pembayaran::generateId();
+
+                $pembayaran = Pembayaran::create([
+                    'id_pembayaran' => $idPembayaran,
+                    'id_siswa' => $request->id_siswa,
+                    'id_user' => $idUser,
+                    'tanggal_pembayaran' => $request->tanggal_pembayaran,
+                    'jenis_pembayaran' => 'Uang Konsumsi',
+                    'nominal' => $request->uang_konsumsi,
+                    'catatan' => $request->catatan,
+                ]);
+
+                // Kurangi tagihan konsumsi
+                $tagihanKonsumsi->tagihan_konsumsi -= $request->uang_konsumsi;
+                $tagihanKonsumsi->save();
+
+                $dataTersimpan[] = $pembayaran;
+            }
 
             return response()->json([
                 'status' => 'success',
@@ -120,5 +137,4 @@ class PembayaranBKController extends Controller
             ], 500);
         }
     }
-
 }
