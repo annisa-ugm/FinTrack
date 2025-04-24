@@ -33,9 +33,13 @@ class Siswa extends Model
 
     public function tagihan()
     {
-        return $this->hasMany(Tagihan::class, 'id_siswa', 'id_siswa');
+        return $this->hasOne(Tagihan::class, 'id_siswa', 'id_siswa');
     }
 
+    public function kontrak()
+    {
+        return $this->hasOne(KontrakSiswa::class, 'id_siswa', 'id_siswa');
+    }
 
     public function boardingSiswa()
     {
