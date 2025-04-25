@@ -22,8 +22,8 @@ class KontrakController extends Controller
             'uang_kbm' => 'required|integer|regex:/^\d+$/',
             'uang_spp' => 'required|integer|regex:/^\d+$/',
             'uang_pemeliharaan' => 'required|integer|regex:/^\d+$/',
-            'uang_boarding' => 'nullable|integer|regex:/^\d+$/',
-            'uang_konsumsi' => 'nullable|integer|regex:/^\d+$/',
+            // 'uang_boarding' => 'nullable|integer|regex:/^\d+$/',
+            // 'uang_konsumsi' => 'nullable|integer|regex:/^\d+$/',
             'uang_sumbangan' => 'required|integer|regex:/^\d+$/',
             'catatan' => 'nullable|string',
             'file_kontrak' => 'required|mimes:pdf|max:10240'
@@ -68,8 +68,8 @@ class KontrakController extends Controller
                 'uang_kbm' => $request->uang_kbm,
                 'uang_spp' => $request->uang_spp,
                 'uang_pemeliharaan' => $request->uang_pemeliharaan,
-                'uang_boarding' => $request->uang_boarding,
-                'uang_konsumsi' => $request->uang_konsumsi,
+                // 'uang_boarding' => $request->uang_boarding,
+                // 'uang_konsumsi' => $request->uang_konsumsi,
                 'uang_sumbangan' => $request->uang_sumbangan,
                 'catatan' => $request->catatan,
                 'file_kontrak' => $filePath,
@@ -82,8 +82,8 @@ class KontrakController extends Controller
                 'tagihan_uang_kbm' => $request->uang_kbm,
                 'tagihan_uang_spp' => $request->uang_spp,
                 'tagihan_uang_pemeliharaan' => $request->uang_pemeliharaan,
-                'tagihan_uang_konsumsi' => $request->uang_konsumsi ?? 0,
-                'tagihan_uang_boarding' => $request->uang_boarding ?? 0,
+                // 'tagihan_uang_konsumsi' => $request->uang_konsumsi ?? 0,
+                // 'tagihan_uang_boarding' => $request->uang_boarding ?? 0,
                 'tagihan_uang_sumbangan' => $request->uang_sumbangan,
             ]);
 

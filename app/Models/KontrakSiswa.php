@@ -19,8 +19,8 @@ class KontrakSiswa extends Model
         'uang_kbm',
         'uang_spp',
         'uang_pemeliharaan',
-        'uang_konsumsi',
-        'uang_boarding',
+        // 'uang_konsumsi',
+        // 'uang_boarding',
         'uang_sumbangan',
         'catatan',
     ];

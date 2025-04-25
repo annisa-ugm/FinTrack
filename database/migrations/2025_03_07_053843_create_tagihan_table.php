@@ -18,8 +18,8 @@ return new class extends Migration
             $table->integer('tagihan_uang_kbm');
             $table->integer('tagihan_uang_spp');
             $table->integer('tagihan_uang_pemeliharaan');
-            $table->integer('tagihan_uang_konsumsi');
-            $table->integer('tagihan_uang_boarding');
+            // $table->integer('tagihan_uang_konsumsi');
+            // $table->integer('tagihan_uang_boarding');
             $table->integer('tagihan_uang_sumbangan');
             $table->timestamps();
 

@@ -20,8 +20,8 @@ class Tagihan extends Model
         'tagihan_uang_kbm',
         'tagihan_uang_spp',
         'tagihan_uang_pemeliharaan',
-        'tagihan_uang_konsumsi',
-        'tagihan_uang_boarding',
+        // 'tagihan_uang_konsumsi',
+        // 'tagihan_uang_boarding',
         'tagihan_uang_sumbangan',
     ];
 
