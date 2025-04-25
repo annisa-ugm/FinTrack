@@ -36,6 +36,16 @@ class Siswa extends Model
         return $this->hasOne(Tagihan::class, 'id_siswa', 'id_siswa');
     }
 
+    public function boarding()
+    {
+        return $this->hasOne(BoardingSiswa::class, 'id_siswa', 'id_siswa');
+    }
+
+    public function konsumsi()
+    {
+        return $this->hasOne(KonsumsiSiswa::class, 'id_siswa', 'id_siswa');
+    }
+
     public function kontrak()
     {
         return $this->hasOne(KontrakSiswa::class, 'id_siswa', 'id_siswa');

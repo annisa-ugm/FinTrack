@@ -15,10 +15,11 @@ class TambahSiswaBoardingKonsumsiController extends Controller
     public function createSiswaBoarding(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'id_siswa' => 'required|string|max:10|exists:siswa,id_siswa',
+            // 'id_siswa' => 'required|string|max:10|exists:siswa,id_siswa',
+            'nisn' => 'required|string|exists:siswa,nisn',
             'tanggal_mulai' => 'required|date',
             'tanggal_selesai' => 'required|date',
-            'tagihan_boarding' => 'required|integer|regex:/^\d+$/',
+            'tagihan' => 'required|integer|regex:/^\d+$/',
             'catatan' => 'nullable|string',
         ], [
             'regex' => 'Kolom :attribute tidak boleh mengandung titik atau koma.',
@@ -33,13 +34,23 @@ class TambahSiswaBoardingKonsumsiController extends Controller
         }
 
         try {
+            // Cari siswa dulu berdasarkan NISN
+            $siswa = Siswa::where('nisn', $request->nisn)->first();
+
+            if (!$siswa) {
+                return response()->json([
+                    'status' => 'error',
+                    'message' => 'Siswa dengan NISN tersebut tidak ditemukan.'
+                ], 404);
+            }
+
             $idBoardingSiswa = BoardingSiswa::generateId();
             $boardingSiswa = BoardingSiswa::create([
                 'id_boarding_siswa' => $idBoardingSiswa,
-                'id_siswa' => $request->id_siswa,
+                'id_siswa' => $siswa->id_siswa,
                 'tanggal_mulai' => $request->tanggal_mulai,
                 'tanggal_selesai' => $request->tanggal_selesai,
-                'tagihan_boarding' => $request->tagihan_boarding,
+                'tagihan_boarding' => $request->tagihan,
                 'catatan' => $request->catatan,
             ]);
 
@@ -61,10 +72,11 @@ class TambahSiswaBoardingKonsumsiController extends Controller
     public function createSiswaKonsumsi(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'id_siswa' => 'required|string|max:10|exists:siswa,id_siswa',
+            // 'id_siswa' => 'required|string|max:10|exists:siswa,id_siswa',
+            'nisn' => 'required|string|exists:siswa,nisn',
             'tanggal_mulai' => 'required|date',
             'tanggal_selesai' => 'required|date',
-            'tagihan_konsumsi' => 'required|integer|regex:/^\d+$/',
+            'tagihan' => 'required|integer|regex:/^\d+$/',
             'catatan' => 'nullable|string',
         ], [
             'regex' => 'Kolom :attribute tidak boleh mengandung titik atau koma.',
@@ -79,13 +91,23 @@ class TambahSiswaBoardingKonsumsiController extends Controller
         }
 
         try {
+            // Cari siswa dulu berdasarkan NISN
+            $siswa = Siswa::where('nisn', $request->nisn)->first();
+
+            if (!$siswa) {
+                return response()->json([
+                    'status' => 'error',
+                    'message' => 'Siswa dengan NISN tersebut tidak ditemukan.'
+                ], 404);
+            }
+
             $idKonsumsiSiswa = KonsumsiSiswa::generateId();
             $konsumsiSiswa = KonsumsiSiswa::create([
                 'id_konsumsi_siswa' => $idKonsumsiSiswa,
-                'id_siswa' => $request->id_siswa,
+                'id_siswa' => $siswa->id_siswa,
                 'tanggal_mulai' => $request->tanggal_mulai,
                 'tanggal_selesai' => $request->tanggal_selesai,
-                'tagihan_konsumsi' => $request->tagihan_konsumsi,
+                'tagihan_konsumsi' => $request->tagihan,
                 'catatan' => $request->catatan,
             ]);
 
