@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('id_siswa', 10)->nullable();
             $table->string('id_user', 10);
             $table->date('tanggal_pembayaran');
-            $table->string('jenis_pembayaran', 10);
+            $table->string('jenis_pembayaran', 20);
             $table->integer('nominal');
             $table->text('catatan')->nullable();
             $table->timestamps();

@@ -31,9 +31,20 @@ class MonitoringUmumController extends Controller
         return response()->json($data);
     }
 
-    public function show($id)
+    public function showKontrak($id)
     {
         // Ambil siswa dan kontraknya saja (gapake tagihan)
+        $siswa = Siswa::with('kontrak')->find($id);
+
+        if (!$siswa) {
+            return response()->json(['message' => 'Siswa tidak ditemukan'], 404);
+        }
+
+        return response()->json($siswa);
+    }
+
+    public function show($id)
+    {
         $siswa = Siswa::with('kontrak')->find($id);
 
         if (!$siswa) {

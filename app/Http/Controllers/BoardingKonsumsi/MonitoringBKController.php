@@ -39,4 +39,15 @@ class MonitoringBKController extends Controller
             'data' => $siswa,
         ]);
     }
+
+    public function show($id)
+    {
+        $siswa = Siswa::find($id);
+
+        if (!$siswa) {
+            return response()->json(['message' => 'Siswa tidak ditemukan'], 404);
+        }
+
+        return response()->json($siswa);
+    }
 }

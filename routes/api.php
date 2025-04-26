@@ -30,11 +30,12 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index']);
     Route::post('/kontrak', [KontrakController::class, 'createKontrak']);
     Route::get('/monitoring', [MonitoringUmumController::class, 'index']);
-    Route::get('/monitoring/detail-kontrak/{id}', [MonitoringUmumController::class, 'show']);
+    Route::get('/monitoring/detail-kontrak/{id}', [MonitoringUmumController::class, 'showKontrak']);
+    Route::get('/monitoring/pembayaran-siswa/{id}', [MonitoringUmumController::class, 'show']);
     Route::post('/pembayaran', [PembayaranUmumController::class, 'createPembayaran']);
     Route::post('/create/siswa/boarding', [TambahSiswaBoardingKonsumsiController::class, 'createSiswaBoarding']);
     Route::post('/create/siswa/konsumsi', [TambahSiswaBoardingKonsumsiController::class, 'createSiswaKonsumsi']);
     Route::get('/monitoring/bk', [MonitoringBKController::class, 'index']);
+    Route::get('/monitoring/bk/pembayaran-siswa/{id}', [MonitoringBKController::class, 'show']);
     Route::post('/pembayaran/bk', [PembayaranBKController::class, 'createPembayaran']);
-
 });
