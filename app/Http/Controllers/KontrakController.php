@@ -54,26 +54,53 @@ class KontrakController extends Controller
             $idTagihan = Tagihan::generateId();
 
             $filePath = null;
-            if ($request->hasFile('file_kontrak')) {
+            // if ($request->hasFile('file_kontrak')) {
+            //     $file = $request->file('file_kontrak');
+            //     $extension = $file->getClientOriginalExtension();
+            //     // $filePath = "kontrak_siswa/kontrak_{$siswa->id_siswa}.{$extension}";
+            //     $filePath = "kontrak_siswa/kontrak_{$siswa->id_siswa}_" . time() . ".{$extension}";
+            //     $file->storeAs('public', $filePath);
+            // }
+            if ($request->hasFile('file_kontrak') && $request->file('file_kontrak')->isValid()) {
                 $file = $request->file('file_kontrak');
                 $extension = $file->getClientOriginalExtension();
-                // $filePath = "kontrak_siswa/kontrak_{$request->id_siswa}.{$extension}";
-                $filePath = "kontrak_siswa/kontrak_{$siswa->id_siswa}.{$extension}";
-                $file->storeAs('public', $filePath);
+                $fileName = "kontrak_{$siswa->id_siswa}" . ".{$extension}";
+                $filePath = $file->storeAs('public/kontrak_siswa', $fileName);
+
+                // Sesuaikan path yang akan disimpan di database, contoh hapus "public/"
+                $filePath = str_replace('public/', '', $filePath);
             }
 
-            $kontrak = KontrakSiswa::create([
+
+            // $kontrak = KontrakSiswa::create([
+            //     'id_kontrak_siswa' => $idKontrak,
+            //     'id_siswa' => $siswa->id_siswa,
+            //     'uang_kbm' => $request->uang_kbm,
+            //     'uang_spp' => $request->uang_spp,
+            //     'uang_pemeliharaan' => $request->uang_pemeliharaan,
+            //     'uang_sumbangan' => $request->uang_sumbangan,
+            //     'catatan' => $request->catatan,
+            //     // 'file_kontrak' => $filePath,
+            // ]);
+
+            $kontrakData = [
                 'id_kontrak_siswa' => $idKontrak,
                 'id_siswa' => $siswa->id_siswa,
                 'uang_kbm' => $request->uang_kbm,
                 'uang_spp' => $request->uang_spp,
                 'uang_pemeliharaan' => $request->uang_pemeliharaan,
-                // 'uang_boarding' => $request->uang_boarding,
-                // 'uang_konsumsi' => $request->uang_konsumsi,
                 'uang_sumbangan' => $request->uang_sumbangan,
                 'catatan' => $request->catatan,
-                'file_kontrak' => $filePath,
-            ]);
+            ];
+
+            if ($filePath) {
+                $kontrakData['file_kontrak'] = $filePath;
+            }
+            $kontrak = KontrakSiswa::create($kontrakData);
+            $kontrak->refresh();
+            $kontrak = KontrakSiswa::find($kontrak->id_kontrak_siswa);
+
+
 
             // Simpan tagihan
             Tagihan::create([

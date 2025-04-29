@@ -10,6 +10,7 @@ class KontrakSiswa extends Model
     use HasFactory;
 
     protected $table = 'kontrak_siswa';
+    protected $primaryKey = 'id_kontrak_siswa';
     public $incrementing = false;
     protected $keyType = 'string';
 

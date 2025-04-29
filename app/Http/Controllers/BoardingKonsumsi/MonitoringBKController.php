@@ -50,4 +50,18 @@ class MonitoringBKController extends Controller
 
         return response()->json($siswa);
     }
+
+    public function showPaymentHistory($id)
+    {
+        $siswa = Siswa::with(['pembayaran' => function ($query) {
+            $query->whereIn('jenis_pembayaran', ['Boarding', 'Konsumsi']);
+        }])->find($id);
+
+        if (!$siswa) {
+            return response()->json(['message' => 'Siswa tidak ditemukan'], 404);
+        }
+
+        return response()->json($siswa);
+    }
+
 }

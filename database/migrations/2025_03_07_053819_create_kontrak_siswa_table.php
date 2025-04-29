@@ -22,7 +22,7 @@ return new class extends Migration
             // $table->integer('uang_konsumsi')->nullable();
             $table->integer('uang_sumbangan');
             $table->text('catatan')->nullable();
-            $table->text('file_kontrak')->nullable();
+            $table->text('file_kontrak');
             $table->timestamps();
 
             $table->foreign('id_siswa')->references('id_siswa')->on('siswa')->onDelete('cascade');

@@ -26,11 +26,11 @@ class DashboardController extends Controller
         // Ambil total tagihan berdasarkan akademik siswa
         $tagihanPraxis = Tagihan::whereHas('siswa', function ($query) {
             $query->where('akademik', 'Praxis');
-        })->sum(\DB::raw('tagihan_uang_kbm + tagihan_uang_spp + tagihan_uang_pemeliharaan + tagihan_uang_konsumsi + tagihan_uang_boarding + tagihan_uang_sumbangan'));
+        })->sum(\DB::raw('tagihan_uang_kbm + tagihan_uang_spp + tagihan_uang_pemeliharaan + tagihan_uang_sumbangan'));
 
         $tagihanTechno = Tagihan::whereHas('siswa', function ($query) {
             $query->where('akademik', 'Techno');
-        })->sum(\DB::raw('tagihan_uang_kbm + tagihan_uang_spp + tagihan_uang_pemeliharaan + tagihan_uang_konsumsi + tagihan_uang_boarding + tagihan_uang_sumbangan'));
+        })->sum(\DB::raw('tagihan_uang_kbm + tagihan_uang_spp + tagihan_uang_pemeliharaan + tagihan_uang_sumbangan'));
 
         // Ambil total saldo ekstra
         $saldoEkstra = PembayaranEkstra::sum('nominal');
