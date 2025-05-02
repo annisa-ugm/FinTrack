@@ -16,8 +16,8 @@ return new class extends Migration
             $table->string('id_pengeluaran_uang_saku', 10)->primary();
             $table->string('id_siswa', 10)->nullable();
             $table->integer('nominal');
-            $table->text('nama_pengeluaran');
             $table->date('tanggal_pengeluaran');
+            $table->text('catatan');
             $table->timestamps();
 
             $table->foreign('id_siswa')->references('id_siswa')->on('siswa')->onDelete('set null');

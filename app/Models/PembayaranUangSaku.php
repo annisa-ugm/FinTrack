@@ -17,7 +17,7 @@ class PembayaranUangSaku extends Model
         'id_pembayaran_uang_saku',
         'id_siswa',
         'nominal',
-        'kontrak_uang_saku',
+        'tanggal_pembayaran',
         'catatan',
     ];
 

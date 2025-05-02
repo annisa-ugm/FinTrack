@@ -17,7 +17,7 @@ class PembayaranUangSakuSeeder extends Seeder
             'id_pembayaran_uang_saku' => '1',
             'id_siswa' => '1',
             'nominal' => 500000,
-            // 'kontrak_uang_saku' => 12,
+            'tanggal_pembayaran' => '25-05-02',
             'catatan' => 'Pembayaran uang saku bulan pertama',
         ]);
 

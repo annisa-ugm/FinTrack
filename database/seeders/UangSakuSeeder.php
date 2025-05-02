@@ -17,7 +17,7 @@ class UangSakuSeeder extends Seeder
             'id_uang_saku' => '1',
             'id_siswa' => '1',
             'saldo' => 1000000,
-            'durasi' => 12,
+            // 'durasi' => 12,
             'catatan' => 'Uang saku untuk tahun ajaran baru',
         ]);
 

@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('id_pembayaran_uang_saku', 10)->primary();
             $table->string('id_siswa', 10)->nullable();
             $table->integer('nominal');
-            // $table->integer('kontrak_uang_saku');
+            $table->date('tanggal_pembayaran');
             $table->text('catatan')->nullable();
             $table->timestamps();
 

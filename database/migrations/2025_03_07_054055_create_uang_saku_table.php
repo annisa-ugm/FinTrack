@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('id_uang_saku', 10)->primary();
             $table->string('id_siswa', 10);
             $table->integer('saldo');
-            $table->integer('durasi');
+            // $table->integer('durasi');
             $table->text('catatan')->nullable();
             $table->timestamps();
 

@@ -10,6 +10,7 @@ use App\Http\Controllers\Umum\PembayaranUmumController;
 use App\Http\Controllers\BoardingKonsumsi\TambahSiswaBoardingKonsumsiController;
 use App\Http\Controllers\BoardingKonsumsi\MonitoringBKController;
 use App\Http\Controllers\BoardingKonsumsi\PembayaranBKController;
+use App\Http\Controllers\UangSaku\MonitoringUangSakuController;
 
 Route::post('/login', [LoginController::class, 'login']);
 Route::middleware('auth:sanctum')->post('/logout', [LoginController::class, 'logout']);
@@ -48,4 +49,10 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('/pembayaran/bk', [PembayaranBKController::class, 'createPembayaran']);
 
     Route::get('/monitoring/bk/detail-pembayaran/{id}', [MonitoringBKController::class, 'showPaymentHistory']); //get data pembayaran bk aja
+
+    Route::get('/monitoring-uang-saku', [MonitoringUangSakuController::class, 'index']);
+    Route::get('/monitoring-uang-saku/topup/{id}', [MonitoringUangSakuController::class, 'show']);
+    Route::get('/monitoring-uang-saku/pengeluaran/{id}', [MonitoringUangSakuController::class, 'show']);
+    Route::post('/monitoring-uang-saku/topup', [TopupUangSakuController::class, 'createTopup']);
+    Route::post('/monitoring-uang-saku/topup', [PengeluaranUangSakuController::class, 'createPengeluaran']);
 });

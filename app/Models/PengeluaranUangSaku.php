@@ -17,8 +17,8 @@ class PengeluaranUangSaku extends Model
         'id_pengeluaran_uang_saku',
         'id_siswa',
         'nominal',
-        'nama_pengeluaran',
         'tanggal_pengeluaran',
+        'catatan',
     ];
 
     // Relasi dengan tabel Siswa

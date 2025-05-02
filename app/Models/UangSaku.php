@@ -10,6 +10,7 @@ class UangSaku extends Model
     use HasFactory;
 
     protected $table = 'uang_saku';
+    protected $primaryKey = 'id_uang_saku';
     public $incrementing = false;
     protected $keyType = 'string';
 
@@ -17,7 +18,7 @@ class UangSaku extends Model
         'id_uang_saku',
         'id_siswa',
         'saldo',
-        'kontrak_uang_saku',
+        // 'kontrak_uang_saku',
         'catatan',
     ];
 

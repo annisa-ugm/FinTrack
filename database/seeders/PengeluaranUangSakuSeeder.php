@@ -17,8 +17,8 @@ class PengeluaranUangSakuSeeder extends Seeder
             'id_pengeluaran_uang_saku' => '1',
             'id_siswa' => '1',
             'nominal' => 100000,
-            'nama_pengeluaran' => 'Beli Buku',
             'tanggal_pengeluaran' => '2024-03-13',
+            'catatan' => 'Beli Buku',
         ]);
 
     }
