@@ -10,13 +10,16 @@ class PembayaranEkstra extends Model
     use HasFactory;
 
     protected $table = 'pembayaran_ekstra';
+    protected $primaryKey = 'id_pembayaran_ekstra';
     public $incrementing = false;
     protected $keyType = 'string';
 
     protected $fillable = [
         'id_pembayaran_ekstra',
         'id_siswa',
-        'id_ekstra',
+        'id_user',
+        'id_ekstra_siswa',
+        'tanggal_pembayaran',
         'nominal',
         'catatan',
     ];
@@ -27,10 +30,15 @@ class PembayaranEkstra extends Model
         return $this->belongsTo(Siswa::class, 'id_siswa', 'id_siswa');
     }
 
-    // Relasi dengan tabel Ekstra
-    public function ekstra()
+    public function user()
     {
-        return $this->belongsTo(Ekstra::class, 'id_ekstra', 'id_ekstra');
+        return $this->belongsTo(Siswa::class, 'id_user', 'id_user');
+    }
+
+    // Relasi dengan tabel Ekstra
+    public function ekstraSiswa()
+    {
+        return $this->belongsTo(EkstraSiswa::class, 'id_ekstra_siswa', 'id_ekstra_siswa');
     }
 
     public static function generateId()

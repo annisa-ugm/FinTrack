@@ -16,7 +16,8 @@ return new class extends Migration
             $table->string('id_ekstra_siswa', 10)->primary();
             $table->string('id_siswa', 10);
             $table->string('id_ekstra', 10)->nullable();
-            $table->integer('durasi');
+            $table->date('tanggal_mulai');
+            $table->date('tanggal_selesai');
             $table->integer('tagihan_ekstra');
             $table->text('catatan')->nullable();
             $table->timestamps();

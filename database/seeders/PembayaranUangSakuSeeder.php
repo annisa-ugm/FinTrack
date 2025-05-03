@@ -16,6 +16,7 @@ class PembayaranUangSakuSeeder extends Seeder
         PembayaranUangSaku::create([
             'id_pembayaran_uang_saku' => '1',
             'id_siswa' => '1',
+            'id_user' => '1',
             'nominal' => 500000,
             'tanggal_pembayaran' => '25-05-02',
             'catatan' => 'Pembayaran uang saku bulan pertama',

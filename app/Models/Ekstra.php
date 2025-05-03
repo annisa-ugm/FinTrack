@@ -10,6 +10,7 @@ class Ekstra extends Model
     use HasFactory;
 
     protected $table = 'ekstra';
+    protected $primaryKey = 'id_ekstra';
     public $incrementing = false;
     protected $keyType = 'string';
 

@@ -15,13 +15,16 @@ return new class extends Migration
             // $table->id();
             $table->string('id_pembayaran_ekstra', 10)->primary();
             $table->string('id_siswa', 10)->nullable();
-            $table->string('id_ekstra', 10)->nullable();
+            $table->string('id_user', 10);
+            $table->string('id_ekstra_siswa', 10)->nullable();
+            $table->date('tanggal_pembayaran');
             $table->integer('nominal');
             $table->text('catatan')->nullable();
             $table->timestamps();
 
             $table->foreign('id_siswa')->references('id_siswa')->on('siswa')->onDelete('set null');
-            $table->foreign('id_ekstra')->references('id_ekstra')->on('ekstra')->onDelete('set null');
+            $table->foreign('id_ekstra_siswa')->references('id_ekstra_siswa')->on('ekstra_siswa')->onDelete('set null');
+            $table->foreign('id_user')->references('id_user')->on('users')->onDelete('restrict');
         });
     }
 

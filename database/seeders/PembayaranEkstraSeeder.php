@@ -16,9 +16,11 @@ class PembayaranEkstraSeeder extends Seeder
         PembayaranEkstra::create([
             'id_pembayaran_ekstra' => '1',
             'id_siswa' => '1',
-            'id_ekstra' => '1',
+            'id_user' => '1',
+            'id_ekstra_siswa' => '1',
+            'tanggal_pembayaran' => '2025-05-02',
             'nominal' => 500000,
-            'catatan' => 'Pembayaran ekstra futsal bulan September',
+            'catatan' => 'Pembayaran ekstra bulan ini',
         ]);
 
     }

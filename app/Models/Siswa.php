@@ -51,21 +51,30 @@ class Siswa extends Model
         return $this->hasOne(UangSaku::class, 'id_siswa', 'id_siswa');
     }
 
+    public function pembayaranUangSaku()
+    {
+        return $this->hasMany(PembayaranUangSaku::class, 'id_siswa', 'id_siswa');
+    }
+
+    public function pengeluaranUangSaku()
+    {
+        return $this->hasMany(PengeluaranUangSaku::class, 'id_siswa', 'id_siswa');
+    }
+
     public function kontrak()
     {
         return $this->hasOne(KontrakSiswa::class, 'id_siswa', 'id_siswa');
     }
 
-    // public function boardingSiswa()
-    // {
-    //     return $this->hasMany(BoardingSiswa::class, 'id_siswa', 'id_siswa');
-    // }
+    public function ekstraSiswa()
+    {
+        return $this->hasMany(EkstraSiswa::class, 'id_siswa', 'id_siswa');
+    }
 
-    // public function konsumsiSiswa()
-    // {
-    //     return $this->hasMany(KonsumsiSiswa::class, 'id_siswa', 'id_siswa');
-    // }
-
+    public function pembayaranEkstra()
+    {
+        return $this->hasMany(PembayaranEkstra::class, 'id_siswa', 'id_siswa');
+    }
 
     public static function generateId()
     {

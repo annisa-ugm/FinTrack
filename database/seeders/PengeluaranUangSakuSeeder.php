@@ -16,6 +16,7 @@ class PengeluaranUangSakuSeeder extends Seeder
         PengeluaranUangSaku::create([
             'id_pengeluaran_uang_saku' => '1',
             'id_siswa' => '1',
+            'id_user' => '1',
             'nominal' => 100000,
             'tanggal_pengeluaran' => '2024-03-13',
             'catatan' => 'Beli Buku',

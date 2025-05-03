@@ -1,23 +1,24 @@
 <?php
 
-namespace App\Http\Controllers\UangSaku;
+namespace App\Http\Controllers\Ekstra;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\PembayaranUangSaku;
-use App\Models\UangSaku;
+use App\Models\PembayaranEkstra;
+use App\Models\EkstraSiswa;
 use Illuminate\Support\Facades\Validator;
 
-class TopupUangSakuController extends Controller
+class PembayaranEkstraController extends Controller
 {
-    public function createTopup(Request $request)
+    public function createPembayaran(Request $request)
     {
         $validator = Validator::make($request->all(), [
             'id_siswa' => 'required|string|max:10|exists:siswa,id_siswa',
             'nama_siswa' => 'required|string|max:255|exists:siswa,nama_siswa',
+            'id_ekstra_siswa' => 'required|exists:ekstra_siswa,id_ekstra_siswa',
             'tanggal_pembayaran' => 'required|date',
             'nominal' => 'required|integer|regex:/^\d+$/',
-            'catatan' => 'nullable|string',
+            'catatan' => 'nullable|string'
         ], [
             'regex' => 'Kolom :attribute tidak boleh mengandung titik atau koma.',
         ]);
@@ -30,42 +31,44 @@ class TopupUangSakuController extends Controller
             ], 422);
         }
 
+        $ekstraSiswa = EkstraSiswa::find($request->id_ekstra_siswa);
+
+        if ($ekstraSiswa->id_siswa !== $request->id_siswa) {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'Ekstra siswa tidak sesuai dengan siswa yang dimaksud.'
+            ], 400);
+        }
+
+        if ($ekstraSiswa->tagihan_ekstra < $request->nominal) {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'Nominal pembayaran melebihi tagihan.'
+            ], 400);
+        }
+
         try {
             $idUser = auth()->user()->id_user;
-            $idPembayaranUangSaku = PembayaranUangSaku::generateId();
 
-            $pembayaran = PembayaranUangSaku::create([
-                'id_pembayaran_uang_saku' => $idPembayaranUangSaku,
-                'id_siswa' => $request->id_siswa,
+            $pembayaran = PembayaranEkstra::create([
+                'id_pembayaran_ekstra' => PembayaranEkstra::generateId(),
+                'id_siswa' => $ekstraSiswa->id_siswa,
                 'id_user' => $idUser,
+                'id_ekstra_siswa' => $request->id_ekstra_siswa,
                 'tanggal_pembayaran' => $request->tanggal_pembayaran,
                 'nominal' => $request->nominal,
-                'catatan' => $request->catatan,
+                'catatan' => $request->catatan
             ]);
 
-            // Cek apa siswa sudah punya record di tabel uang_saku
-            $uangSaku = UangSaku::where('id_siswa', $request->id_siswa)->first();
-
-            if ($uangSaku) {
-                // Tambah nominal lama dengan yang baru
-                $uangSaku->saldo += $request->nominal;
-                $uangSaku->save();
-            } else {
-                $idUangSaku = UangSaku::generateID();
-
-                UangSaku::create([
-                    'id_uang_saku' => $idUangSaku,
-                    'id_siswa' => $request->id_siswa,
-                    'saldo' => $request->nominal,
-                    'catatan' => $request->catatan,
-                ]);
-            }
+            // Update tagihan_ekstra
+            $ekstraSiswa->tagihan_ekstra -= $request->nominal;
+            $ekstraSiswa->save();
 
             return response()->json([
                 'status' => 'success',
-                'message' => 'Topup berhasil disimpan.',
+                'message' => 'Pembayaran berhasil dicatat dan tagihan berhasil diperbarui',
                 'data' => $pembayaran
-            ], 201);
+            ]);
 
         } catch (\Exception $e) {
             return response()->json([
@@ -74,5 +77,7 @@ class TopupUangSakuController extends Controller
                 'error_detail' => $e->getMessage()
             ], 500);
         }
+
     }
+
 }

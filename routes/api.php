@@ -11,6 +11,12 @@ use App\Http\Controllers\BoardingKonsumsi\TambahSiswaBoardingKonsumsiController;
 use App\Http\Controllers\BoardingKonsumsi\MonitoringBKController;
 use App\Http\Controllers\BoardingKonsumsi\PembayaranBKController;
 use App\Http\Controllers\UangSaku\MonitoringUangSakuController;
+use App\Http\Controllers\UangSaku\TopupUangSakuController;
+use App\Http\Controllers\UangSaku\PengeluaranUangSakuController;
+use App\Http\Controllers\Ekstra\EkstraController;
+use App\Http\Controllers\Ekstra\MonitoringEkstraController;
+use App\Http\Controllers\Ekstra\TambahSiswaEkstraController;
+use App\Http\Controllers\Ekstra\PembayaranEkstraController;
 
 Route::post('/login', [LoginController::class, 'login']);
 Route::middleware('auth:sanctum')->post('/logout', [LoginController::class, 'logout']);
@@ -47,12 +53,21 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/monitoring/bk', [MonitoringBKController::class, 'index']);
     Route::get('/monitoring/bk/pembayaran-siswa/{id}', [MonitoringBKController::class, 'show']);
     Route::post('/pembayaran/bk', [PembayaranBKController::class, 'createPembayaran']);
-
     Route::get('/monitoring/bk/detail-pembayaran/{id}', [MonitoringBKController::class, 'showPaymentHistory']); //get data pembayaran bk aja
 
     Route::get('/monitoring-uang-saku', [MonitoringUangSakuController::class, 'index']);
     Route::get('/monitoring-uang-saku/topup/{id}', [MonitoringUangSakuController::class, 'show']);
     Route::get('/monitoring-uang-saku/pengeluaran/{id}', [MonitoringUangSakuController::class, 'show']);
     Route::post('/monitoring-uang-saku/topup', [TopupUangSakuController::class, 'createTopup']);
-    Route::post('/monitoring-uang-saku/topup', [PengeluaranUangSakuController::class, 'createPengeluaran']);
+    Route::post('/monitoring-uang-saku/pengeluaran', [PengeluaranUangSakuController::class, 'createPengeluaran']);
+    Route::get('/monitoring-uang-saku/detail/{id}', [MonitoringUangSakuController::class, 'showUangSakuHistory']);
+
+    Route::get('/monitoring-ekstra/ekstra', [EkstraController::class, 'index']);
+    Route::post('/monitoring-ekstra/ekstra/create', [EkstraController::class, 'createEkstra']);
+    Route::get('/monitoring-ekstra', [MonitoringEkstraController::class, 'index']);
+    Route::get('/monitoring-ekstra/create-siswa', [TambahSiswaEkstraController::class, 'createSiswaEkstra']);
+    Route::get('/ekstra/list', [EkstraController::class, 'getAllEkstra']);
+    Route::get('/monitoring-ekstra/pembayaran/{id}', [MonitoringEkstraController::class, 'show']);
+    Route::post('/monitoring-ekstra/pembayaran', [PembayaranEkstraController::class, 'createPembayaran']);
+    Route::get('/monitoring-ekstra/detail/{id}', [MonitoringEkstraController::class, 'showPaymentHistory']);
 });

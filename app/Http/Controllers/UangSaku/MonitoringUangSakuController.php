@@ -39,4 +39,17 @@ class MonitoringUangSakuController extends Controller
         return response()->json($siswa);
     }
 
+    public function showUangSakuHistory($id)
+    {
+        $siswa = Siswa::with(['pembayaranUangSaku', 'pengeluaranUangSaku' => function ($query) {
+            // $query->whereIn('jenis_pembayaran', ['Boarding', 'Konsumsi']);
+        }])->find($id);
+
+        if (!$siswa) {
+            return response()->json(['message' => 'Siswa tidak ditemukan'], 404);
+        }
+
+        return response()->json($siswa);
+    }
+
 }

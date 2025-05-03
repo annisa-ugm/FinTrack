@@ -16,6 +16,7 @@ class PengeluaranUangSaku extends Model
     protected $fillable = [
         'id_pengeluaran_uang_saku',
         'id_siswa',
+        'id_user',
         'nominal',
         'tanggal_pengeluaran',
         'catatan',
@@ -25,6 +26,11 @@ class PengeluaranUangSaku extends Model
     public function siswa()
     {
         return $this->belongsTo(Siswa::class, 'id_siswa', 'id_siswa');
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'id_user', 'id_user');
     }
 
     public static function generateId()

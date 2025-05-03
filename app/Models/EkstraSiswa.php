@@ -10,6 +10,7 @@ class EkstraSiswa extends Model
     use HasFactory;
 
     protected $table = 'ekstra_siswa';
+    protected $primaryKey = 'id_ekstra_siswa';
     public $incrementing = false;
     protected $keyType = 'string';
 
@@ -17,7 +18,8 @@ class EkstraSiswa extends Model
         'id_ekstra_siswa',
         'id_siswa',
         'id_ekstra',
-        'kontrak_ekstra',
+        'tanggal_mulai',
+        'tanggal_selesai',
         'tagihan_ekstra',
         'catatan',
     ];
@@ -32,6 +34,11 @@ class EkstraSiswa extends Model
     public function ekstra()
     {
         return $this->belongsTo(Ekstra::class, 'id_ekstra', 'id_ekstra');
+    }
+
+    public function pembayaranEkstra()
+    {
+        return $this->hasMany(PembayaranEkstra::class, 'id_ekstra_siswa', 'id_ekstra_siswa');
     }
 
     public static function generateId()

@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('ekstra', function (Blueprint $table) {
             // $table->id();
             $table->string('id_ekstra', 10)->primary();
-            $table->string('nama_ekstra', 20);
+            $table->string('nama_ekstra', 255);
             $table->integer('harga_ekstra');
             $table->timestamps();
         });

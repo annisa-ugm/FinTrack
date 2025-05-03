@@ -16,6 +16,7 @@ class PembayaranUangSaku extends Model
     protected $fillable = [
         'id_pembayaran_uang_saku',
         'id_siswa',
+        'id_user',
         'nominal',
         'tanggal_pembayaran',
         'catatan',
@@ -25,6 +26,11 @@ class PembayaranUangSaku extends Model
     public function siswa()
     {
         return $this->belongsTo(Siswa::class, 'id_siswa', 'id_siswa');
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'id_user', 'id_user');
     }
 
     public static function generateId()

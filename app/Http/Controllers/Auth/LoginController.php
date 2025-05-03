@@ -77,7 +77,7 @@ class LoginController extends Controller
 
         // dd($user);
 
-        // Hapus semua token lama sebelum membuat yang baru (opsional)
+        // Hapus semua token lama sebelum membuat yang baru
         $user->tokens()->delete();
 
         // Buat token baru
