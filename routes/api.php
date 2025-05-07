@@ -17,6 +17,8 @@ use App\Http\Controllers\Ekstra\EkstraController;
 use App\Http\Controllers\Ekstra\MonitoringEkstraController;
 use App\Http\Controllers\Ekstra\TambahSiswaEkstraController;
 use App\Http\Controllers\Ekstra\PembayaranEkstraController;
+use App\Http\Controllers\Pengeluaran\MonitoringPengeluaranController;
+use App\Http\Controllers\Pengeluaran\KategoriPengeluaranController;
 
 Route::post('/login', [LoginController::class, 'login']);
 Route::middleware('auth:sanctum')->post('/logout', [LoginController::class, 'logout']);
@@ -70,4 +72,10 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/monitoring-ekstra/pembayaran/{id}', [MonitoringEkstraController::class, 'show']);
     Route::post('/monitoring-ekstra/pembayaran', [PembayaranEkstraController::class, 'createPembayaran']);
     Route::get('/monitoring-ekstra/detail/{id}', [MonitoringEkstraController::class, 'showPaymentHistory']);
+
+    Route::get('/monitoring-pengeluaran', [MonitoringPengeluaranController::class, 'index']);
+    Route::get('/monitoring-pengeluaran/kategori-pengeluaran', [KategoriPengeluaranController::class, 'index']);
+    Route::post('/monitoring-pengeluaran/kategori-pengeluaran/create', [KategoriPengeluaranController::class, 'createKategori']);
+
+
 });
