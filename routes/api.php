@@ -65,7 +65,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/monitoring-ekstra/ekstra', [EkstraController::class, 'index']);
     Route::post('/monitoring-ekstra/ekstra/create', [EkstraController::class, 'createEkstra']);
     Route::get('/monitoring-ekstra', [MonitoringEkstraController::class, 'index']);
-    Route::get('/monitoring-ekstra/create-siswa', [TambahSiswaEkstraController::class, 'createSiswaEkstra']);
+    Route::post('/monitoring-ekstra/create-siswa', [TambahSiswaEkstraController::class, 'createSiswaEkstra']);
     Route::get('/ekstra/list', [EkstraController::class, 'getAllEkstra']);
     Route::get('/monitoring-ekstra/pembayaran/{id}', [MonitoringEkstraController::class, 'show']);
     Route::post('/monitoring-ekstra/pembayaran', [PembayaranEkstraController::class, 'createPembayaran']);

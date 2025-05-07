@@ -19,7 +19,6 @@ class DatabaseSeeder extends Seeder
             SessionSeeder::class,
             SiswaSeeder::class,
             PembayaranSeeder::class,
-            PengeluaranSeeder::class,
             KontrakSiswaSeeder::class,
             TagihanSeeder::class,
             EkstraSeeder::class,
@@ -28,6 +27,10 @@ class DatabaseSeeder extends Seeder
             UangSakuSeeder::class,
             PembayaranUangSakuSeeder::class,
             PengeluaranUangSakuSeeder::class,
+            JenisPengeluaranSeeder::class,
+            KategoriPengeluaranSeeder::class,
+            PengeluaranSeeder::class,
+            SubPengeluaranSeeder::class,
         ]);
     }
 }

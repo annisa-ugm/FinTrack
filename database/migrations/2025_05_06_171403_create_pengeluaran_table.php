@@ -13,16 +13,14 @@ return new class extends Migration
     {
         Schema::create('pengeluaran', function (Blueprint $table) {
             // $table->id();
-            $table->string('id_pengeluaran', 10)->primary();
+            $table->string('id_pengeluaran')->primary();
+            $table->string('id_jenis_pengeluaran');
             $table->string('id_user', 10);
-            $table->date('tanggal_pengeluaran');
-            $table->text('nama_pengeluaran');
-            $table->integer('nominal');
-            $table->text('kelompok_pengeluaran');
-            $table->text('catatan')->nullable();
-            $table->json('lampiran')->nullable();
+            $table->string('nama_pengeluaran');
+            $table->integer('total_pengeluaran');
             $table->timestamps();
 
+            $table->foreign('id_jenis_pengeluaran')->references('id_jenis_pengeluaran')->on('jenis_pengeluaran')->onDelete('restrict');
             $table->foreign('id_user')->references('id_user')->on('users')->onDelete('restrict');
         });
     }
