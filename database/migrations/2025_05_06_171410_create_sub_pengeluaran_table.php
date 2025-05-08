@@ -21,7 +21,7 @@ return new class extends Migration
             $table->integer('nominal');
             $table->integer('jumlah_item');
             // $table->integer('total');
-            $table->text('file_nota');
+            $table->text('file_nota')->nullable();
             $table->date('tanggal_pengeluaran');
             $table->timestamps();
 

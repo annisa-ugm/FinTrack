@@ -10,6 +10,7 @@ class Pengeluaran extends Model
     use HasFactory;
 
     protected $table = 'pengeluaran';
+    protected $primaryKey = 'id_pengeluaran';
     public $incrementing = false;
     protected $keyType = 'string';
 
@@ -29,6 +30,11 @@ class Pengeluaran extends Model
     public function jenisPengeluaran()
     {
         return $this->belongsTo(JenisPengeluaran::class, 'id_jenis_pengeluaran', 'id_jenis_pengeluaran');
+    }
+
+    public function subPengeluaran()
+    {
+        return $this->hasMany(SubPengeluaran::class, 'id_pengeluaran', 'id_pengeluaran');
     }
 
     public static function generateId()

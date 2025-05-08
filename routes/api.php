@@ -19,6 +19,8 @@ use App\Http\Controllers\Ekstra\TambahSiswaEkstraController;
 use App\Http\Controllers\Ekstra\PembayaranEkstraController;
 use App\Http\Controllers\Pengeluaran\MonitoringPengeluaranController;
 use App\Http\Controllers\Pengeluaran\KategoriPengeluaranController;
+use App\Http\Controllers\Pengeluaran\TambahPengeluaranController;
+use App\Http\Controllers\Pengeluaran\UpdatePengeluaranController;
 
 Route::post('/login', [LoginController::class, 'login']);
 Route::middleware('auth:sanctum')->post('/logout', [LoginController::class, 'logout']);
@@ -76,6 +78,11 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/monitoring-pengeluaran', [MonitoringPengeluaranController::class, 'index']);
     Route::get('/monitoring-pengeluaran/kategori-pengeluaran', [KategoriPengeluaranController::class, 'index']);
     Route::post('/monitoring-pengeluaran/kategori-pengeluaran/create', [KategoriPengeluaranController::class, 'createKategori']);
+    Route::post('/monitoring-pengeluaran/create', [TambahPengeluaranController::class, 'createPengeluaran']);
+    Route::get('/monitoring-pengeluaran/detail/{id}', [MonitoringPengeluaranController::class, 'detailPengeluaran']);
+    Route::put('/monitoring-pengeluaran/pengeluaran/update/{id}', [UpdatePengeluaranController::class, 'updatePengeluaran']);
+    Route::post('/monitoring-pengeluaran/sub-pengeluaran/update/{id}', [UpdatePengeluaranController::class, 'updateSubPengeluaran']);
+    Route::delete('/monitoring-pengeluaran/sub-pengeluaran/delete/{id}', [UpdatePengeluaranController::class, 'deleteSubPengeluaran']);
 
 
 });

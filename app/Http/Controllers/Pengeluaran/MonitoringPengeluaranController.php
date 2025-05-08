@@ -24,4 +24,15 @@ class MonitoringPengeluaranController extends Controller
 
         return response()->json($data);
     }
+
+    public function detailPengeluaran($id)
+    {
+        $pengeluaran = Pengeluaran::with('subPengeluaran')->find($id);
+
+        if (!$pengeluaran) {
+            return response()->json(['message' => 'Pengeluaran tidak ditemukan'], 404);
+        }
+
+        return response()->json($pengeluaran);
+    }
 }

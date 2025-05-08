@@ -4,12 +4,15 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class SubPengeluaran extends Model
 {
     use HasFactory;
+    use SoftDeletes;
 
     protected $table = 'sub_pengeluaran';
+    protected $primaryKey = 'id_sub_pengeluaran';
     public $incrementing = false;
     protected $keyType = 'string';
 
@@ -40,6 +43,11 @@ class SubPengeluaran extends Model
     {
         return $this->belongsTo(KategoriPengeluaran::class, 'id_kategori_pengeluaran', 'id_kategori_pengeluaran');
     }
+
+    // public function getFileNotaUrlAttribute()
+    // {
+    //     return $this->file_nota ? asset($this->file_nota) : null;
+    // }
 
     public static function generateId()
     {

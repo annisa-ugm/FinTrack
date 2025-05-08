@@ -56,7 +56,7 @@ class KategoriPengeluaranController extends Controller
             $idJenisPengeluaran = $jenis->id_jenis_pengeluaran;
 
             $idKategoriPengeluaran = KategoriPengeluaran::generateId();
-            $ekstra = KategoriPengeluaran::create([
+            $kategoriPengeluaran = KategoriPengeluaran::create([
                 'id_kategori_pengeluaran' => $idKategoriPengeluaran,
                 'id_jenis_pengeluaran' => $idJenisPengeluaran,
                 'nama_kategori_pengeluaran' => $request->nama_kategori_pengeluaran,
@@ -65,7 +65,7 @@ class KategoriPengeluaranController extends Controller
             return response()->json([
                 'status' => 'success',
                 'message' => 'Kategori pengeluaran berhasil disimpan.',
-                'data' => $ekstra
+                'data' => $kategoriPengeluaran
             ], 201);
 
         } catch (\Exception $e) {
