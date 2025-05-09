@@ -21,6 +21,7 @@ use App\Http\Controllers\Pengeluaran\MonitoringPengeluaranController;
 use App\Http\Controllers\Pengeluaran\KategoriPengeluaranController;
 use App\Http\Controllers\Pengeluaran\TambahPengeluaranController;
 use App\Http\Controllers\Pengeluaran\UpdatePengeluaranController;
+use App\Http\Controllers\Tagihan\TagihanController;
 
 Route::post('/login', [LoginController::class, 'login']);
 Route::middleware('auth:sanctum')->post('/logout', [LoginController::class, 'logout']);
@@ -84,5 +85,6 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('/monitoring-pengeluaran/sub-pengeluaran/update/{id}', [UpdatePengeluaranController::class, 'updateSubPengeluaran']);
     Route::delete('/monitoring-pengeluaran/sub-pengeluaran/delete/{id}', [UpdatePengeluaranController::class, 'deleteSubPengeluaran']);
 
+    Route::get('/tagihan/{nisn}', [TagihanController::class, 'detailTagihan']);
 
 });

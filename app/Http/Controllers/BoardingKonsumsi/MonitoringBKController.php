@@ -16,6 +16,8 @@ class MonitoringBKController extends Controller
             ->select(
                 'siswa.id_siswa',
                 'siswa.nama_siswa',
+                'siswa.level',
+                'siswa.akademik',
                 \DB::raw('MAX(boarding_siswa.tagihan_boarding) as tagihan_boarding'),
                 \DB::raw('MAX(konsumsi_siswa.tagihan_konsumsi) as tagihan_konsumsi')
             )
@@ -27,7 +29,6 @@ class MonitoringBKController extends Controller
             ->orderBy('siswa.nama_siswa', 'asc')
             ->paginate(10); // Sesuaikan jumlah per halaman
 
-        // Format angka ke format rupiah-style
         $siswa->getCollection()->transform(function ($item) {
             $item->tagihan_boarding = $item->tagihan_boarding !== null ? number_format($item->tagihan_boarding, 0, ',', '.') : null;
             $item->tagihan_konsumsi = $item->tagihan_konsumsi !== null ? number_format($item->tagihan_konsumsi, 0, ',', '.') : null;

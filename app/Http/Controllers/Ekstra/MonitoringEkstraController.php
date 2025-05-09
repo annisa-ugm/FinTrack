@@ -24,6 +24,7 @@ class MonitoringEkstraController extends Controller
             return [
                 'id_siswa' => $siswa->id_siswa,
                 'nama_siswa' => $siswa->nama_siswa,
+                'level' => $siswa->level,
                 'ekstra' => $siswa->ekstraSiswa->map(function ($ekstraSiswa) {
                     return [
                         'id_ekstra_siswa' => $ekstraSiswa->id_ekstra_siswa,
