@@ -51,7 +51,12 @@ class SubPengeluaran extends Model
 
     public static function generateId()
     {
-        $last = self::orderByRaw('CAST(id_sub_pengeluaran AS UNSIGNED) DESC')->first();
-        return $last ? (string)((int)$last->id_sub_pengeluaran + 1) : '1';
+        // $last = self::orderByRaw('CAST(id_sub_pengeluaran AS UNSIGNED) DESC')->first();
+        // return $last ? (string)((int)$last->id_sub_pengeluaran + 1) : '1';
+
+        $last = self::withTrashed()->max(\DB::raw('CAST(id_sub_pengeluaran AS UNSIGNED)'));
+        return $last ? (string)($last + 1) : '1';
     }
+
+
 }

@@ -15,7 +15,7 @@ class User extends Authenticatable
 
     public $incrementing = false;
     protected $keyType = 'string';
-    protected $primaryKey = 'id_user'; // Menentukan primary key secara eksplisit
+    protected $primaryKey = 'id_user';
 
     public function getKeyName()
     {

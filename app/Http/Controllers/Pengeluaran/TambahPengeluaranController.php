@@ -34,7 +34,7 @@ class TambahPengeluaranController extends Controller
             ], 422);
         }
 
-        DB::beginTransaction();
+        // DB::beginTransaction();
 
         try {
             $jenis = JenisPengeluaran::where('nama_jenis_pengeluaran', $request->jenis_pengeluaran)->first();
@@ -91,7 +91,7 @@ class TambahPengeluaranController extends Controller
             }
 
 
-            DB::commit();
+            // DB::commit();
 
             return response()->json([
                 'status' => 'success',
@@ -100,7 +100,7 @@ class TambahPengeluaranController extends Controller
             ], 201);
 
         } catch (\Exception $e) {
-            DB::rollBack();
+            // DB::rollBack();
 
             return response()->json([
                 'status' => 'error',
