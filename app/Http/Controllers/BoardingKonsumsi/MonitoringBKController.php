@@ -25,9 +25,9 @@ class MonitoringBKController extends Controller
                 $query->whereNotNull('boarding_siswa.id_siswa')
                       ->orWhereNotNull('konsumsi_siswa.id_siswa');
             })
-            ->groupBy('siswa.id_siswa', 'siswa.nama_siswa')
+            ->groupBy('siswa.id_siswa', 'siswa.nama_siswa', 'siswa.level', 'siswa.akademik')
             ->orderBy('siswa.nama_siswa', 'asc')
-            ->paginate(10); // Sesuaikan jumlah per halaman
+            ->paginate(10);
 
         $siswa->getCollection()->transform(function ($item) {
             $item->tagihan_boarding = $item->tagihan_boarding !== null ? number_format($item->tagihan_boarding, 0, ',', '.') : null;
