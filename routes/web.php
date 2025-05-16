@@ -14,11 +14,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('/', function () {
+    return view('welcome');
+});
 
-// Auth::routes();
+Route::get('/test', function () {
+    return response()->json(['message' => 'this is open web.php, not api.php']);
+});
+
+Auth::routes();
 
 // Route::get('/home', 'HomeController@index')->name('home');
 
