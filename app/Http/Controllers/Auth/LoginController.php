@@ -62,6 +62,8 @@ class LoginController extends Controller
 
     public function login(Request $request)
     {
+        dd(app(\Illuminate\Routing\Route::class)->gatherMiddleware());
+
         $request->validate([
             'email' => 'required|email',
             'password' => 'required'
@@ -77,10 +79,8 @@ class LoginController extends Controller
 
         // dd($user);
 
-        // Hapus semua token lama sebelum membuat yang baru
         $user->tokens()->delete();
 
-        // Buat token baru
         $token = $user->createToken('auth_token')->plainTextToken;
 
         return response()->json([
