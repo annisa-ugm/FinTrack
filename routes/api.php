@@ -23,6 +23,10 @@ use App\Http\Controllers\Pengeluaran\TambahPengeluaranController;
 use App\Http\Controllers\Pengeluaran\UpdatePengeluaranController;
 use App\Http\Controllers\Tagihan\TagihanController;
 
+Route::get('/test', function () {
+    return response()->json(['message' => 'API is working']);
+});
+
 Route::post('/login', [LoginController::class, 'login']);
 Route::middleware('auth:sanctum')->post('/logout', [LoginController::class, 'logout']);
 Route::middleware('auth:sanctum')->get('/me', [LoginController::class, 'me']);
