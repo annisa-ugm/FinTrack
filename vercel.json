@@ -1,18 +1,18 @@
 {
     "version": 2,
-    "framework": null,
     "functions": {
-        "api/index.php": { "runtime": "vercel-php@0.6.0" }
+        "api/index.php": {
+        "runtime": "vercel-php@0.6.0"
+        }
     },
     "routes": [
-        { "src": "/build/(.*)", "dest": "/public/build/" },
-        { "src": "/(.*)", "dest": "/api/index.php" }
+        {
+        "src": "/(.*)",
+        "dest": "/api/index.php"
+        }
     ],
-    "public": true,
-    "buildCommand": "vite build",
-    "outputDirectory": "public",
     "env": {
-        "APP_ENV": "fintrack",
+        "APP_ENV": "production",
         "APP_DEBUG": "true",
         "APP_URL": "https://fintrack.com",
         "APP_KEY": "base64:/utvl4Z9KDRZ2H9S1ENGQlFPY+V44dzE8ZperakG9rs=",
@@ -25,10 +25,11 @@
         "CACHE_DRIVER": "array",
         "LOG_CHANNEL": "stack",
         "SESSION_DRIVER": "cookie",
-        "DB_CONNECTION": "mysql",
-        "DB_HOST": "4gg.h.filess.io",
-        "DB_PORT": "3306",
-        "DB_DATABASE": "db2025_fitrack",
-        "DB_USERNAME": "db2025_fitrack"
+        "DB_CONNECTION": "pgsql",
+        "DB_HOST": "aws-0-ap-southeast-1.pooler.supabase.com",
+        "DB_PORT": "5432",
+        "DB_DATABASE": "postgres",
+        "DB_USERNAME": "postgres.dxnkomvbxgmkpxlgfwib",
+        "DB_PASSWORD": "HEU3%#KS7cFH-Wk"
     }
 }
