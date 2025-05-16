@@ -13,7 +13,7 @@
     ],
     "env": {
         "APP_ENV": "production",
-        "APP_DEBUG": "false",
+        "APP_DEBUG": "true",
         "APP_URL": "https://fintrack.com",
         "APP_KEY": "base64:/utvl4Z9KDRZ2H9S1ENGQlFPY+V44dzE8ZperakG9rs=",
         "APP_CONFIG_CACHE": "/tmp/config.php",
