@@ -62,8 +62,6 @@ class LoginController extends Controller
 
     public function login(Request $request)
     {
-        dd(app(\Illuminate\Routing\Route::class)->gatherMiddleware());
-
         $request->validate([
             'email' => 'required|email',
             'password' => 'required'
