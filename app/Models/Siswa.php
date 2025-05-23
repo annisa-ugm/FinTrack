@@ -76,6 +76,11 @@ class Siswa extends Model
         return $this->hasMany(PembayaranEkstra::class, 'id_siswa', 'id_siswa');
     }
 
+    public function hasilTagihan()
+    {
+        return $this->hasMany(HasilTagihan::class, 'id_siswa', 'id_siswa');
+    }
+
     public static function generateId()
     {
         $last = self::orderByRaw('CAST(id_siswa AS UNSIGNED) DESC')->first();

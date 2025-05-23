@@ -4,7 +4,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\KontrakController;
+use App\Http\Controllers\Siswa\KontrakController;
+use App\Http\Controllers\Siswa\SiswaController;
 use App\Http\Controllers\Umum\MonitoringUmumController;
 use App\Http\Controllers\Umum\PembayaranUmumController;
 use App\Http\Controllers\BoardingKonsumsi\TambahSiswaBoardingKonsumsiController;
@@ -45,6 +46,7 @@ Route::prefix('auth')->group(function () {
 Route::middleware('auth:sanctum')->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index']);
 
+    Route::get('/cari-siswa', [SiswaController::class, 'searchSiswa']);
     Route::post('/kontrak', [KontrakController::class, 'createKontrak']);
     Route::post('/pembayaran', [PembayaranUmumController::class, 'createPembayaran']);
 
@@ -89,6 +91,8 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('/monitoring-pengeluaran/sub-pengeluaran/update/{id}', [UpdatePengeluaranController::class, 'updateSubPengeluaran']);
     Route::delete('/monitoring-pengeluaran/sub-pengeluaran/delete/{id}', [UpdatePengeluaranController::class, 'deleteSubPengeluaran']);
 
+    Route::get('/tagihan', [TagihanController::class, 'indexTagihan']);
     Route::get('/tagihan/{nisn}', [TagihanController::class, 'detailTagihan']);
+    Route::post('/tagihan/create', [TagihanController::class, 'createTagihan']);
 
 });
