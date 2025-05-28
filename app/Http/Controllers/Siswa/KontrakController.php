@@ -8,6 +8,7 @@ use App\Models\Siswa;
 use App\Models\Tagihan;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
+use App\Http\Controllers\Controller;
 
 class KontrakController extends Controller
 {

@@ -98,8 +98,6 @@ class LoginController extends Controller
 
     public function me(Request $request)
     {
-        Log::info('Fungsi me() dipanggil');
-
         $user = $request->user();
         if (!$user) {
             Log::error('User tidak ditemukan!');

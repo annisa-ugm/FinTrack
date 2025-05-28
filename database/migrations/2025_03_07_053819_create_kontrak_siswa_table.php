@@ -18,8 +18,6 @@ return new class extends Migration
             $table->integer('uang_kbm');
             $table->integer('uang_spp');
             $table->integer('uang_pemeliharaan');
-            // $table->integer('uang_boarding')->nullable();
-            // $table->integer('uang_konsumsi')->nullable();
             $table->integer('uang_sumbangan');
             $table->text('catatan')->nullable();
             $table->text('file_kontrak');
