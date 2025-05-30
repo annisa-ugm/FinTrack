@@ -55,7 +55,7 @@ Route::prefix('auth')->group(function () {
         Route::post('/logout', [LoginController::class, 'logout']);
 
         // Get current authenticated user
-        Route::get('/users', [LoginController::class, 'me']);
+        Route::get('/users', [LoginController::class, 'users']);
     });
 });
 
