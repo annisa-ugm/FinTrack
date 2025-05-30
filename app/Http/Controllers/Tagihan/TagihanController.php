@@ -18,7 +18,7 @@ class TagihanController extends Controller
 
         return response()->json([
             'status' => 'success',
-            'message' => 'Data tagihan berhasil diambil.',
+            'message' => 'Data hasil tagihan berhasil diambil.',
             'data' => $data
         ]);
 
@@ -50,13 +50,13 @@ class TagihanController extends Controller
             'tagihan_uang_spp' => number_format($siswa->tagihan->tagihan_uang_spp ?? 0, 0, ',', '.'),
             'tagihan_uang_pemeliharaan' => number_format($siswa->tagihan->tagihan_uang_pemeliharaan ?? 0, 0, ',', '.'),
             'tagihan_uang_sumbangan' => number_format($siswa->tagihan->tagihan_uang_sumbangan ?? 0, 0, ',', '.'),
-            'tagihan_konsumsi' => number_format($siswa->konsumsi->tagihan_konsumsi ?? 0, 0, ',', '.'),
-            'tagihan_ekstra' => number_format($total_ekstra, 0, ',', '.'),
-            'tagihan_boarding' => number_format($siswa->boarding->tagihan_boarding ?? 0, 0, ',', '.'),
-            'tagihan_uang_saku' => number_format($tagihan_uang_saku, 0, ',', '.'),
         ];
 
-        return response()->json($data);
+        return response()->json([
+            'status' => 'success',
+            'message' => 'Data tagihan siswa berhasil diambil.',
+            'data' => $data
+        ]);
     }
 
     public function createTagihan(Request $request)
@@ -117,7 +117,7 @@ class TagihanController extends Controller
 
             return response()->json([
                 'status' => 'success',
-                'message' => 'Hasil tagihan berhasil disimpan.',
+                'message' => 'Hasil pembuatan tagihan siswa berhasil disimpan.',
                 'data' => $hasilTagihan
             ], 201);
 

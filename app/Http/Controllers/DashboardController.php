@@ -32,30 +32,28 @@ class DashboardController extends Controller
             $query->where('akademik', 'Techno');
         })->sum(\DB::raw('tagihan_uang_kbm + tagihan_uang_spp + tagihan_uang_pemeliharaan + tagihan_uang_sumbangan'));
 
-        // Ambil total saldo ekstra
         $saldoEkstra = PembayaranEkstra::sum('nominal');
 
-        // Ambil total tagihan ekstra
         $tagihanEkstra = EkstraSiswa::sum('tagihan_ekstra');
 
-        // Ambil total tagihan uang saku (hanya saldo negatif)
         $tagihanUangSaku = UangSaku::where('saldo', '<', 0)->sum(\DB::raw('ABS(saldo)'));
 
         $rekapSaldo = $saldoPraxis + $saldoTechno + $saldoEkstra;
         $rekapTagihan = $tagihanPraxis + $tagihanTechno + $tagihanEkstra + $tagihanUangSaku;
 
         return response()->json([
+            'status' => 'success',
+            'message' => 'Data dashboard berhasil diambil.',
             'saldoPraxis' => $saldoPraxis,
             'saldoTechno' => $saldoTechno,
             'tagihanPraxis' => $tagihanPraxis,
             'tagihanTechno' => $tagihanTechno,
-
             'saldoEkstra' => $saldoEkstra,
             'tagihanEkstra' => $tagihanEkstra,
-
             'tagihanUangSaku' => $tagihanUangSaku,
             'rekapSaldo' => $rekapSaldo,
             'rekapTagihan' => $rekapTagihan
         ]);
+
     }
 }
