@@ -3,7 +3,7 @@
 namespace App\Exceptions;
 
 use Illuminate\Auth\AuthenticationException;
-use Illuminate\Validation\ValidationException;
+// use Illuminate\Validation\ValidationException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Throwable;
 
@@ -52,12 +52,12 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Throwable $exception)
     {
-        if ($e instanceof ValidationException) {
-            return response()->json([
-                'message' => 'Validation failed',
-                'errors'  => $e->errors()
-            ], 422);
-        }
+        // if ($e instanceof ValidationException) {
+        //     return response()->json([
+        //         'message' => 'Validation failed',
+        //         'errors'  => $e->errors()
+        //     ], 422);
+        // }
 
         // Error invalid or missing token
         if ($e instanceof AuthenticationException) {
