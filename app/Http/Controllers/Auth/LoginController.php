@@ -73,12 +73,21 @@ class LoginController extends Controller
 
     public function users(Request $request)
     {
-        $user = $request->user();
-        if (!$user) {
-            Log::error('User not found!');
-            return response()->json(['error' => 'Unauthorized'], 401);
+        try {
+            $user = $request->user();
+            if (!$user) {
+                Log::error('User not found!');
+                return response()->json(['error' => 'Unauthorized'], 401);
+            }
+
+            return response()->json(['user' => $user], 200);
+        } catch (\Throwable $e) {
+            \Log::error('User fetch failed: '.$e->getMessage());
+
+            return response()->json([
+                'error' => 'Something went wrong'
+            ], 500);
         }
 
-        return response()->json(['user' => $user], 200);
     }
 }
