@@ -70,23 +70,11 @@ class KontrakController extends Controller
                 ], 400);
             }
 
-            // if ($request->hasFile('file_kontrak') && $request->file('file_kontrak')->isValid()) {
-            //     $file = $request->file('file_kontrak');
-            //     $extension = $file->getClientOriginalExtension();
-            //     $fileName = "kontrak_{$siswa->id_siswa}" . ".{$extension}";
-            //     $filePath = $file->storeAs('public/kontrak_siswa', $fileName);
-
-            //     // Sesuaikan path yang akan disimpan di database, contoh hapus "public/"
-            //     $filePath = str_replace('public/', 'storage/', $filePath);
-            // }
-
             \Log::info('DEBUG FILE KONTRAK', [
                 'hasFile' => $request->hasFile('file_kontrak'),
                 'isValid' => $request->file('file_kontrak')?->isValid(),
                 'filePath' => $filePath,
             ]);
-
-
 
             $kontrak = KontrakSiswa::create([
                 'id_kontrak_siswa' => $idKontrak,
@@ -98,24 +86,6 @@ class KontrakController extends Controller
                 'catatan' => $request->catatan,
                 'file_kontrak' => $filePath,
             ]);
-
-            // $kontrakData = [
-            //     'id_kontrak_siswa' => $idKontrak,
-            //     'id_siswa' => $siswa->id_siswa,
-            //     'uang_kbm' => $request->uang_kbm,
-            //     'uang_spp' => $request->uang_spp,
-            //     'uang_pemeliharaan' => $request->uang_pemeliharaan,
-            //     'uang_sumbangan' => $request->uang_sumbangan,
-            //     'catatan' => $request->catatan,
-            // ];
-
-            // if ($filePath) {
-            //     $kontrakData['file_kontrak'] = $filePath;
-            // }
-            // $kontrak = KontrakSiswa::create($kontrakData);
-            // $kontrak->refresh();
-            // $kontrak = KontrakSiswa::find($kontrak->id_kontrak_siswa);
-
 
 
             // Simpan tagihan
@@ -134,13 +104,6 @@ class KontrakController extends Controller
                 'data' => $kontrak
             ], 201);
 
-        // } catch (\Exception $e) {
-        //     return response()->json([
-        //         'status' => 'error',
-        //         'message' => 'Terjadi kesalahan saat menyimpan data.',
-        //         'error_detail' => $e->getMessage()
-        //     ], 500);
-        // }
 
         } catch (\Exception $e) {
             \Log::error('ERROR CREATE KONTRAK', [
