@@ -16,7 +16,7 @@ class EkstraSeeder extends Seeder
         Ekstra::create([
             'id_ekstra' => '1',
             'nama_ekstra' => 'Piano',
-            'harga_ekstra' => 250000,
+            'biaya_ekstra' => 250000,
         ]);
 
     }

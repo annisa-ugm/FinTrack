@@ -17,7 +17,7 @@ class Ekstra extends Model
     protected $fillable = [
         'id_ekstra',
         'nama_ekstra',
-        'harga_ekstra',
+        'biaya_ekstra',
     ];
 
     public static function generateId()

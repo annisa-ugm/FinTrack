@@ -15,7 +15,7 @@ class EkstraController extends Controller
 
         $data->getCollection()->transform(function ($item) {
             if ($item) {
-                $item->harga_ekstra = number_format($item->harga_ekstra ?? 0, 0, ',', '.');
+                $item->biaya_ekstra = number_format($item->biaya_ekstra ?? 0, 0, ',', '.');
             }
             return $item;
         });
@@ -28,7 +28,7 @@ class EkstraController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'nama_ekstra' => 'required|string|max:255',
-            'harga_ekstra' => 'required|integer|regex:/^\d+$/',
+            'biaya_ekstra' => 'required|integer|regex:/^\d+$/',
         ], [
             'regex' => 'Kolom :attribute tidak boleh mengandung titik atau koma.',
         ]);
@@ -46,7 +46,7 @@ class EkstraController extends Controller
             $ekstra = Ekstra::create([
                 'id_ekstra' => $idEkstra,
                 'nama_ekstra' => $request->nama_ekstra,
-                'harga_ekstra' => $request->harga_ekstra,
+                'biaya_ekstra' => $request->biaya_ekstra,
             ]);
 
             return response()->json([
@@ -66,7 +66,7 @@ class EkstraController extends Controller
 
     public function getAllEkstra()
     {
-        $ekstraList = Ekstra::all(['id_ekstra', 'nama_ekstra', 'harga_ekstra']);
+        $ekstraList = Ekstra::all(['id_ekstra', 'nama_ekstra', 'biaya_ekstra']);
 
         return response()->json([
             'status' => 'success',

@@ -57,7 +57,7 @@ class TambahSiswaEkstraController extends Controller
                     'id_ekstra' => $ekstra->id_ekstra,
                     'tanggal_mulai' => $request->tanggal_mulai,
                     'tanggal_selesai' => $request->tanggal_selesai,
-                    'tagihan_ekstra' => $ekstra->harga_ekstra,
+                    'tagihan_ekstra' => $ekstra->biaya_ekstra,
                     'catatan' => $request->catatan,
                 ]);
 

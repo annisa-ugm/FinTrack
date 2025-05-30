@@ -44,25 +44,6 @@ class MonitoringEkstraController extends Controller
         ]);
     }
 
-
-
-    // public function index()
-    // {
-    //     $data = Siswa::with('ekstra')
-    //         ->orderBy('nama_siswa', 'asc')
-    //         ->paginate(10);
-
-    //     // Format nominal tagihan biar ada titik di setiap 3 angka
-    //     $data->getCollection()->transform(function ($item) {
-    //         if ($item->ekstra) {
-    //             $item->ekstra->tagihan_ekstra = number_format($item->ekstra->tagihan_ekstra ?? 0, 0, ',', '.');
-    //         }
-    //         return $item;
-    //     });
-
-    //     return response()->json($data);
-    // }
-
     public function show($id)
     {
         // Cari data ekstra_siswa berdasarkan id_ekstra_siswa
