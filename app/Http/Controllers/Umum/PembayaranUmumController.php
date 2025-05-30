@@ -116,7 +116,7 @@ class PembayaranUmumController extends Controller
                 'data' => $dataTersimpan
             ], 201);
 
-        } catch (\Exception $e) {
+        } catch (\Throwable $e) {
             return response()->json([
                 'status' => 'error',
                 'message' => 'Terjadi kesalahan saat menyimpan data.',
