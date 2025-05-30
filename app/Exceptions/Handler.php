@@ -3,6 +3,7 @@
 namespace App\Exceptions;
 
 use Illuminate\Auth\AuthenticationException;
+use Illuminate\Validation\ValidationException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Throwable;
 
@@ -51,10 +52,20 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Throwable $exception)
     {
-        // Error handler saat token invalid
-        if ($exception instanceof AuthenticationException) {
+        if ($e instanceof ValidationException) {
             return response()->json([
-                'error' => 'Unauthorized'
+                'message' => 'Validation failed',
+                'errors'  => $e->errors()
+            ], 422);
+        }
+
+        // Error invalid or missing token
+        if ($e instanceof AuthenticationException) {
+            return response()->json([
+                'message' => 'Unauthorized',
+                'errors'  => [
+                    'token' => [$e->getMessage() ?: 'Token is missing or invalid.']
+                ]
             ], 401);
         }
         return parent::render($request, $exception);
