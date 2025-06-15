@@ -44,6 +44,15 @@ class TambahSiswaBoardingKonsumsiController extends Controller
                 ], 404);
             }
 
+            $sudahTerdaftar = BoardingSiswa::where('id_siswa', $siswa->id_siswa)->exists();
+
+            if ($sudahTerdaftar) {
+                return response()->json([
+                    'status' => 'error',
+                    'message' => 'Siswa ini sudah terdaftar sebagai peserta boarding.'
+                ], 409);
+            }
+
             $idBoardingSiswa = BoardingSiswa::generateId();
             $boardingSiswa = BoardingSiswa::create([
                 'id_boarding_siswa' => $idBoardingSiswa,
@@ -99,6 +108,15 @@ class TambahSiswaBoardingKonsumsiController extends Controller
                     'status' => 'error',
                     'message' => 'Siswa dengan NISN tersebut tidak ditemukan.'
                 ], 404);
+            }
+
+            $sudahTerdaftar = KonsumsiSiswa::where('id_siswa', $siswa->id_siswa)->exists();
+
+            if ($sudahTerdaftar) {
+                return response()->json([
+                    'status' => 'error',
+                    'message' => 'Siswa ini sudah terdaftar sebagai peserta konsumsi.'
+                ], 409);
             }
 
             $idKonsumsiSiswa = KonsumsiSiswa::generateId();
