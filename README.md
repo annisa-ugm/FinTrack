@@ -122,8 +122,8 @@ Authorization: Bearer <token>
 ## 📬 Kontak
 
 **Annisa Mutia Rahman**
-📧 [WhatsApp: 0857-1394-6691]
-📁 [GitHub](https://github.com/annisa-ugm)
+[WhatsApp: 0857-1394-6691]  
+[GitHub](https://github.com/annisa-ugm)
 
 ---
 
