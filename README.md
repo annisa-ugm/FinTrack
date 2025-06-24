@@ -122,7 +122,7 @@ Authorization: Bearer <token>
 
 ---
 
-## 📬 Kontak
+## Kontak
 
 **Annisa Mutia Rahman**
 [WhatsApp: 0857-1394-6691]  
