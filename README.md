@@ -63,7 +63,7 @@ Authorization: Bearer <token>
 ```
 ---
 
-## Endpoint API
+## Endpoint API Utama
 
 ### Dashboard
 
