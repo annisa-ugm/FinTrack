@@ -1,7 +1,10 @@
 # FinTrack Backend API
 
 **Deploy URL:**  
-[https://fitrack-production.up.railway.app/](https://fitrack-production.up.railway.app/)
+[Backend FinTrack](https://fitrack-production.up.railway.app/)
+
+**Dokumentasi API:**
+[Dokumentasi API](https://documenter.getpostman.com/view/37959814/2sB2qfBzgk#1223a049-2799-4675-a323-2cc5eb806bf8)
 
 ---
 
