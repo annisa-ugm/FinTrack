@@ -19,7 +19,7 @@ class EkstraSiswaSeeder extends Seeder
             'id_ekstra' => '1',
             'tanggal_mulai' => '2025-05-02',
             'tanggal_selesai' => '2025-11-02',
-            'tagihan_ekstra' => 500000,
+            'tagihan_ekstra' => 250000,
             'catatan' => 'Mengikuti ekstra',
         ]);
 
