@@ -15,12 +15,12 @@ return new class extends Migration
             // $table->id();
             $table->string('id_siswa', 10)->primary();
             $table->string('nama_siswa', 255);
-            $table->string('nisn', 10);
-            $table->string('level', 10);
+            $table->string('nisn', 255);
+            $table->string('level', 20);
             $table->string('kategori', 20)->nullable();
             $table->string('akademik', 20);
             $table->string('nama_wali', 255);
-            $table->string('no_hp_wali', 15);
+            $table->string('no_hp_wali', 255);
             $table->timestamps();
         });
     }

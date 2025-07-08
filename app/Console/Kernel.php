@@ -21,7 +21,11 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule): void
     {
-        // $schedule->command('inspire')->hourly();
+        // Sync data siswa dasar (nama, wali, telepon)
+        $schedule->command('app:sync-siswa-from-akademik')->everyMinute();
+
+        // Sync level siswa
+        $schedule->command('app:sync-level-siswa-from-akademik')->everyMinute();
     }
 
     /**
