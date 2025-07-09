@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Siswa\KontrakController;
 use App\Http\Controllers\Siswa\SiswaController;
@@ -49,6 +50,7 @@ Route::get('/test', function () {
 Route::prefix('auth')->group(function () {
     // Login user
     Route::post('/login', [LoginController::class, 'login']);
+    Route::post('/register', [RegisterController::class, 'register']);
 
     Route::middleware('auth:sanctum')->group(function () {
         // Logout user
