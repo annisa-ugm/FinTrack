@@ -242,6 +242,8 @@ Route::middleware('auth:sanctum')->group(function () {
         Route::get('/detail/{id}', [MonitoringPengeluaranController::class, 'detailPengeluaran']);
         // Update pengeluaran utama
         Route::put('/pengeluaran/update/{id}', [UpdatePengeluaranController::class, 'updatePengeluaran']);
+        // Create sub pengeluaran di detail pengeluaran
+        Route::post('/pengeluaran/{id}/sub-pengeluaran', [UpdatePengeluaranController::class, 'storeSubPengeluaran']);
         // Update sub pengeluaran
         Route::post('/sub-pengeluaran/update/{id}', [UpdatePengeluaranController::class, 'updateSubPengeluaran']);
         // Delete sub pengeluaran
