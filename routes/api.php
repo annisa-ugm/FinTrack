@@ -12,6 +12,7 @@ use App\Http\Controllers\Umum\PembayaranUmumController;
 use App\Http\Controllers\BoardingKonsumsi\TambahSiswaBoardingKonsumsiController;
 use App\Http\Controllers\BoardingKonsumsi\MonitoringBKController;
 use App\Http\Controllers\BoardingKonsumsi\PembayaranBKController;
+use App\Http\Controllers\BoardingKonsumsi\UpdateBKController;
 use App\Http\Controllers\UangSaku\MonitoringUangSakuController;
 use App\Http\Controllers\UangSaku\TopupUangSakuController;
 use App\Http\Controllers\UangSaku\PengeluaranUangSakuController;
@@ -177,6 +178,10 @@ Route::middleware('auth:sanctum')->group(function () {
         Route::post('/create-siswa/boarding', [TambahSiswaBoardingKonsumsiController::class, 'createSiswaBoarding']);
         // Create new siswa konsumsi
         Route::post('/create-siswa/konsumsi', [TambahSiswaBoardingKonsumsiController::class, 'createSiswaKonsumsi']);
+        // Show detail siswa boarding konsumsi
+        Route::get('/detail/{id}', [UpdateBKController::class, 'show']);
+        // Update siswa boarding konsumsi
+        Route::put('/update/{id}', [UpdateBKController::class, 'update']);
     });
 
 
