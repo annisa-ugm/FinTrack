@@ -20,6 +20,7 @@ use App\Http\Controllers\Ekstra\EkstraController;
 use App\Http\Controllers\Ekstra\MonitoringEkstraController;
 use App\Http\Controllers\Ekstra\TambahSiswaEkstraController;
 use App\Http\Controllers\Ekstra\PembayaranEkstraController;
+use App\Http\Controllers\Ekstra\UpdateSiswaEkstraController;
 use App\Http\Controllers\Pengeluaran\MonitoringPengeluaranController;
 use App\Http\Controllers\Pengeluaran\KategoriPengeluaranController;
 use App\Http\Controllers\Pengeluaran\TambahPengeluaranController;
@@ -217,6 +218,10 @@ Route::middleware('auth:sanctum')->group(function () {
         Route::post('/pembayaran', [PembayaranEkstraController::class, 'createPembayaran']);
         // Show detail pembayaran history
         Route::get('/detail/{id}', [MonitoringEkstraController::class, 'showPaymentHistory']);
+        // Show detail ekstra siswa untuk form update
+        Route::get('/detail/ekstra-siswa/{id}', [UpdateSiswaEkstraController::class, 'detail']);
+        // Update ekstra siswa
+        Route::put('/update/{id}', [UpdateSiswaEkstraController::class, 'update']);
 
         /**
          * Master Data Ekstra
