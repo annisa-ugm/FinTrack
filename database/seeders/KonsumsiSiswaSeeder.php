@@ -4,9 +4,9 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\Models\EkstraSiswa;
+use App\Models\KonsumsiSiswa;
 
-class EkstraSiswaSeeder extends Seeder
+class KonsumsiSiswaSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,27 +15,25 @@ class EkstraSiswaSeeder extends Seeder
     {
         $data = [
             [
-                'id_ekstra_siswa' => 1,
+                'id_konsumsi_siswa' => 1,
                 'id_siswa' => 2,
-                'id_ekstra' => 1,  // Ekstra: Piano
                 'tanggal_mulai' => '2025-05-02',
                 'tanggal_selesai' => '2025-11-02',
-                'tagihan_ekstra' => 250000,
-                'catatan' => 'Mengikuti ekstra',
+                'tagihan_konsumsi' => 800000,
+                'catatan' => 'Mengikuti konsumsi',
             ],
             [
-                'id_ekstra_siswa' => 2,
-                'id_siswa' => 2,
-                'id_ekstra' => 2,  // Ekstra: Panahan
+                'id_konsumsi_siswa' => 2,
+                'id_siswa' => 21,
                 'tanggal_mulai' => '2025-05-02',
                 'tanggal_selesai' => '2025-11-02',
-                'tagihan_ekstra' => 200000,
-                'catatan' => 'Mengikuti ekstra',
+                'tagihan_konsumsi' => 800000,
+                'catatan' => 'Mengikuti konsumsi',
             ],
         ];
 
         foreach ($data as $item) {
-            EkstraSiswa::create($item);
+            KonsumsiSiswa::create($item);
         }
     }
 }

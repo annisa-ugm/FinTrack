@@ -20,11 +20,25 @@ class MonitoringEkstraController extends Controller
             ->orderBy('nama_siswa', 'asc')
             ->paginate(10);
 
+
         $siswaList->getCollection()->transform(function ($siswa) {
+            $tagihanArray = [];
+
+            foreach ($siswa->ekstraSiswa as $ekstraSiswa) {
+                $nominal = (int) $ekstraSiswa->tagihan_ekstra;
+                if ($nominal > 0) {
+                    $tagihanArray[] = [
+                        'nama_tagihan' => $ekstraSiswa->ekstra->nama_ekstra ?? 'Ekstra',
+                        'nominal' => $nominal
+                    ];
+                }
+            }
+
             return [
                 'id_siswa' => $siswa->id_siswa,
                 'nama_siswa' => $siswa->nama_siswa,
                 'level' => $siswa->level,
+                'akademik' => $siswa->akademik,
                 'ekstra' => $siswa->ekstraSiswa->map(function ($ekstraSiswa) {
                     return [
                         'id_ekstra_siswa' => $ekstraSiswa->id_ekstra_siswa,
@@ -34,7 +48,8 @@ class MonitoringEkstraController extends Controller
                             ? number_format($ekstraSiswa->tagihan_ekstra, 0, ',', '.')
                             : null
                     ];
-                })
+                }),
+                'tagihan' => $tagihanArray
             ];
         });
 

@@ -261,4 +261,18 @@ Route::middleware('auth:sanctum')->group(function () {
         // Create tagihan baru
         Route::post('/create', [TagihanController::class, 'createTagihan']);
     });
+
+
+    /**
+     * Tunggakan
+     */
+    Route::prefix('/tunggakan')->group(function () {
+        // Get all tunggakan
+        Route::get('/', [TunggakanController::class, 'index']);
+        // Create new tunggakan
+        Route::post('/create', [TunggakanController::class, 'store']);
+        Route::put('/update-status/{id}', [TunggakanController::class, 'updateStatus']); // Update status Lunas/Belum Lunas
+    });
+
+
 });

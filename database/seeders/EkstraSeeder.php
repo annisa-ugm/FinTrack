@@ -13,11 +13,26 @@ class EkstraSeeder extends Seeder
      */
     public function run(): void
     {
-        Ekstra::create([
-            'id_ekstra' => '1',
-            'nama_ekstra' => 'Piano',
-            'biaya_ekstra' => 250000,
-        ]);
+        $data = [
+            [
+                'id_ekstra' => 1,
+                'nama_ekstra' => 'Piano',
+                'biaya_ekstra' => 250000,
+            ],
+            [
+                'id_ekstra' => 2,
+                'nama_ekstra' => 'Panahan',
+                'biaya_ekstra' => 200000,
+            ],
+            [
+                'id_ekstra' => 3,
+                'nama_ekstra' => 'Voli',
+                'biaya_ekstra' => 150000,
+            ],
+        ];
 
+        foreach ($data as $item) {
+            Ekstra::create($item);
+        }
     }
 }

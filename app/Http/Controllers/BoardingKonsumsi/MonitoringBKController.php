@@ -30,10 +30,35 @@ class MonitoringBKController extends Controller
             ->paginate(10);
 
         $siswa->getCollection()->transform(function ($item) {
-            $item->tagihan_boarding = $item->tagihan_boarding !== null ? number_format($item->tagihan_boarding, 0, ',', '.') : null;
-            $item->tagihan_konsumsi = $item->tagihan_konsumsi !== null ? number_format($item->tagihan_konsumsi, 0, ',', '.') : null;
-            return $item;
+            $tagihanList = [];
+
+            $nominalBoarding = (int) str_replace('.', '', $item->tagihan_boarding ?? '0');
+            if ($nominalBoarding > 0) {
+                $tagihanList[] = [
+                    'nama_tagihan' => 'Boarding',
+                    'nominal' => $nominalBoarding
+                ];
+            }
+
+            $nominalKonsumsi = (int) str_replace('.', '', $item->tagihan_konsumsi ?? '0');
+            if ($nominalKonsumsi > 0) {
+                $tagihanList[] = [
+                    'nama_tagihan' => 'Konsumsi',
+                    'nominal' => $nominalKonsumsi
+                ];
+            }
+
+            return [
+                'id_siswa' => $item->id_siswa,
+                'nama_siswa' => $item->nama_siswa,
+                'level' => $item->level,
+                'akademik' => $item->akademik,
+                'tagihan_boarding' => $item->tagihan_boarding !== null ? $item->tagihan_boarding : null,
+                'tagihan_konsumsi' => $item->tagihan_konsumsi !== null ? $item->tagihan_konsumsi : null,
+                'tagihan' => $tagihanList
+            ];
         });
+
 
         return response()->json([
             'status' => 'success',
