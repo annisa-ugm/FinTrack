@@ -30,10 +30,11 @@ class TunggakanController extends Controller
             ], 422);
         }
 
-        $idTunggakan = Tunggakan::generateId();
         $nisn = Siswa::where('id_siswa', $request->id_siswa)->value('nisn');
 
         foreach ($request->tagihan as $tagihan) {
+            $idTunggakan = Tunggakan::generateId();
+
             Tunggakan::create([
                 'id_tunggakan' => $idTunggakan,
                 'nisn' => $nisn,
@@ -53,7 +54,7 @@ class TunggakanController extends Controller
         ]);
     }
 
-    private function resetTagihanAsal($id_siswa, $jenis_tagihan, $tagihanArray)
+    private function resetTagihanAsal($id_siswa, $jenis_tagihan)
     {
         switch (strtolower($jenis_tagihan)) {
             case 'boarding & konsumsi':
@@ -81,7 +82,7 @@ class TunggakanController extends Controller
                 break;
 
             case 'umum':
-                \DB::table('tagihan_siswa')
+                \DB::table('tagihan')
                     ->where('id_siswa', $id_siswa)
                     ->update([
                         'tagihan_uang_spp' => 0,
@@ -96,11 +97,29 @@ class TunggakanController extends Controller
     // List semua tunggakan
     public function index()
     {
-        $data = Tunggakan::orderBy('tanggal_snapshot', 'desc')->paginate(10);
+        $data = Tunggakan::orderBy('created_at', 'desc')->paginate(10);
 
         return response()->json([
             'status' => 'success',
             'data' => $data
+        ]);
+    }
+
+    // Update status tunggakan (misalnya jadi Lunas)
+    public function updateStatus(Request $request, $id)
+    {
+        $request->validate([
+            'status' => 'required|in:Lunas,Belum Lunas',
+        ]);
+
+        $tunggakan = Tunggakan::findOrFail($id);
+        $tunggakan->status = $request->status;
+        $tunggakan->save();
+
+        return response()->json([
+            'status' => 'success',
+            'message' => 'Status tunggakan diperbarui.',
+            'data' => $tunggakan
         ]);
     }
 

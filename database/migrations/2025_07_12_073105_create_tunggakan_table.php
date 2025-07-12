@@ -20,6 +20,7 @@ return new class extends Migration
             $table->integer('nominal')->default(0);
             $table->string('periode'); // Contoh: Tahun ajaran 2024/2025
             $table->string('status')->default('Belum Lunas'); // Belum Lunas / Lunas
+            $table->text('catatan')->nullable(); // Keterangan tambahan jika ada
             $table->timestamps();
         });
     }

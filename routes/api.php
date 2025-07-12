@@ -24,6 +24,7 @@ use App\Http\Controllers\Pengeluaran\KategoriPengeluaranController;
 use App\Http\Controllers\Pengeluaran\TambahPengeluaranController;
 use App\Http\Controllers\Pengeluaran\UpdatePengeluaranController;
 use App\Http\Controllers\Tagihan\TagihanController;
+use App\Http\Controllers\Tunggakan\TunggakanController;
 
 Route::get('/test', function () {
     return response()->json(['message' => 'API is working']);
@@ -271,7 +272,8 @@ Route::middleware('auth:sanctum')->group(function () {
         Route::get('/', [TunggakanController::class, 'index']);
         // Create new tunggakan
         Route::post('/create', [TunggakanController::class, 'store']);
-        Route::put('/update-status/{id}', [TunggakanController::class, 'updateStatus']); // Update status Lunas/Belum Lunas
+        // Update status tunggakan
+        Route::put('/update-status/{id}', [TunggakanController::class, 'updateStatus']);
     });
 
 
