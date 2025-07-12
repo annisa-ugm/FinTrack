@@ -37,7 +37,7 @@ class KontrakController extends Controller
         }
 
         try {
-            // Cari siswa dulu berdasarkan NISN
+            // Cari siswa berdasarkan NISN
             $siswa = Siswa::where('nisn', $request->nisn)->first();
 
             if (!$siswa) {
@@ -47,6 +47,29 @@ class KontrakController extends Controller
                 ], 404);
             }
 
+            // Cek apakah siswa sudah punya kontrak dan tagihan
+            $existingKontrak = KontrakSiswa::where('id_siswa', $siswa->id_siswa)->first();
+            $existingTagihan = Tagihan::where('id_siswa', $siswa->id_siswa)->first();
+
+            if ($existingKontrak && $existingTagihan) {
+                // Jika ada tagihan aktif (belum lunas) -> tolak
+                if (
+                    $existingTagihan->tagihan_uang_kbm > 0 ||
+                    $existingTagihan->tagihan_uang_spp > 0 ||
+                    $existingTagihan->tagihan_uang_pemeliharaan > 0 ||
+                    $existingTagihan->tagihan_uang_sumbangan > 0
+                ) {
+                    return response()->json([
+                        'status' => 'error',
+                        'message' => 'Tagihan siswa masih aktif. Harap lunasi terlebih dahulu.',
+                    ], 400);
+                }
+
+                // Kalau sudah lunas (semua = 0), hapus tagihan dan kontrak lama
+                $existingTagihan->delete();
+                $existingKontrak->delete();
+            }
+
             $idKontrak = KontrakSiswa::generateId();
             $idTagihan = Tagihan::generateId();
 
@@ -54,9 +77,6 @@ class KontrakController extends Controller
             if ($request->hasFile('file_kontrak')) {
                 $file = $request->file('file_kontrak');
                 $extension = $file->getClientOriginalExtension();
-                // $filePath = "kontrak_siswa/kontrak_{$siswa->id_siswa}.{$extension}";
-                // $file->storeAs('public', $filePath);
-
                 $fileName = "kontrak_{$siswa->id_siswa}.{$extension}";
                 $storedPath = $file->storeAs('public/kontrak_siswa', $fileName);
                 $filePath = str_replace('public/', 'storage/', $storedPath);
@@ -69,12 +89,6 @@ class KontrakController extends Controller
                     'message' => 'File kontrak gagal diunggah.',
                 ], 400);
             }
-
-            \Log::info('DEBUG FILE KONTRAK', [
-                'hasFile' => $request->hasFile('file_kontrak'),
-                'isValid' => $request->file('file_kontrak')?->isValid(),
-                'filePath' => $filePath,
-            ]);
 
             $kontrak = KontrakSiswa::create([
                 'id_kontrak_siswa' => $idKontrak,
