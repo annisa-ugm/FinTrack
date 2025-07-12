@@ -52,8 +52,8 @@ class SyncSiswaFromAkademik extends Command
                         $siswa['wali']['no_telepon'] ?? '-';
 
             // Default kelas & kategori
-            $level = '-';
-            $kategori = '-';
+            // $level = '-';
+            // $kategori = '-';
 
             // Simpan/update ke tabel siswa
             Siswa::updateOrCreate(
@@ -61,8 +61,8 @@ class SyncSiswaFromAkademik extends Command
                 [
                     'nisn'       => $siswa['nisn'] ?? '-',
                     'nama_siswa' => $siswa['nama'] ?? '-',
-                    'level'      => $level,
-                    'kategori'   => $kategori,
+                    // 'level'      => $level,
+                    // 'kategori'   => $kategori,
                     'akademik'   => 'Praxis',
                     'nama_wali'  => $namaWali,
                     'no_hp_wali' => $noHpWali,

@@ -61,8 +61,8 @@ class SyncLevelSiswaFromAkademik extends Command
 
             $level = '-';
             if ($semesterTerbaru && isset($semesterTerbaru['semester']['kelas']['tingkat'])) {
-                $namaKelas = $semesterTerbaru['semester']['kelas']['tingkat'];
-                $level = 'Level ' . $namaKelas;
+                $namaLevel = $semesterTerbaru['semester']['kelas']['tingkat'];
+                $level = $this->toRoman($namaLevel);
             }
 
             // Update ke siswa lokal
@@ -73,4 +73,16 @@ class SyncLevelSiswaFromAkademik extends Command
 
         $this->info('Sync level siswa selesai.');
     }
+
+    private function toRoman($number)
+    {
+        $map = [
+            '10' => 'X',
+            '11' => 'XI',
+            '12' => 'XII',
+        ];
+
+        return $map[$number] ?? $number;
+    }
+
 }

@@ -17,7 +17,7 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             PasswordResetTokenSeeder::class,
             SessionSeeder::class,
-            // SiswaSeeder::class,
+            SiswaSeeder::class,
             // PembayaranSeeder::class,
             KontrakSiswaSeeder::class,
             TagihanSeeder::class,

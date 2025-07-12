@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('id_siswa', 10)->primary();
             $table->string('nama_siswa', 255);
             $table->string('nisn', 255);
-            $table->string('level', 20);
+            $table->string('level', 20)->nullable();
             $table->string('kategori', 20)->nullable();
             $table->string('akademik', 20);
             $table->string('nama_wali', 255);
