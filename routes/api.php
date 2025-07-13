@@ -282,8 +282,12 @@ Route::middleware('auth:sanctum')->group(function () {
         Route::get('/', [TunggakanController::class, 'index']);
         // Create new tunggakan
         Route::post('/create', [TunggakanController::class, 'store']);
-        // Update status tunggakan
-        Route::put('/update-status/{id}', [TunggakanController::class, 'updateStatus']);
+        // Show detail tunggakan by ID
+        Route::get('/detail/{id}', [TunggakanController::class, 'show']);
+        // Update tunggakan
+        Route::put('/update/{id}', [TunggakanController::class, 'update']);
+        // Delete tunggakan
+        Route::delete('/delete/{id}', [TunggakanController::class, 'destroy']);
     });
 
 

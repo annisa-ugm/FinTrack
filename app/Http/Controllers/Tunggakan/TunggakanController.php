@@ -105,22 +105,82 @@ class TunggakanController extends Controller
         ]);
     }
 
-    // Update status tunggakan (misalnya jadi Lunas)
-    public function updateStatus(Request $request, $id)
+    public function show($id)
     {
-        $request->validate([
-            'status' => 'required|in:Lunas,Belum Lunas',
-        ]);
+        try {
+            $tunggakan = Tunggakan::findOrFail($id);
 
-        $tunggakan = Tunggakan::findOrFail($id);
-        $tunggakan->status = $request->status;
-        $tunggakan->save();
-
-        return response()->json([
-            'status' => 'success',
-            'message' => 'Status tunggakan diperbarui.',
-            'data' => $tunggakan
-        ]);
+            return response()->json([
+                'status' => 'success',
+                'data' => $tunggakan
+            ]);
+        } catch (\Exception $e) {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'Data tunggakan tidak ditemukan.',
+                'error_detail' => $e->getMessage()
+            ], 404);
+        }
     }
+
+
+    // Update tunggakan
+    public function update(Request $request, $id)
+    {
+        $validator = Validator::make($request->all(), [
+            'nominal' => 'sometimes|required|numeric|min:0',
+            'status' => 'sometimes|required|in:Lunas,Belum Lunas',
+            'catatan' => 'nullable|string'
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'Data tidak valid',
+                'errors' => $validator->errors()
+            ], 422);
+        }
+
+        try {
+            $tunggakan = Tunggakan::findOrFail($id);
+
+            // Hanya update kolom yang boleh diubah
+            $tunggakan->fill($request->only(['nominal', 'status', 'catatan']));
+            $tunggakan->save();
+
+            return response()->json([
+                'status' => 'success',
+                'message' => 'Tunggakan berhasil diperbarui.',
+                'data' => $tunggakan
+            ]);
+        } catch (\Exception $e) {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'Gagal memperbarui tunggakan.',
+                'error_detail' => $e->getMessage()
+            ], 500);
+        }
+    }
+
+
+    public function destroy($id)
+    {
+        try {
+            $tunggakan = Tunggakan::findOrFail($id);
+            $tunggakan->delete();
+
+            return response()->json([
+                'status' => 'success',
+                'message' => 'Tunggakan berhasil dihapus.'
+            ]);
+        } catch (\Exception $e) {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'Gagal menghapus tunggakan.',
+                'error_detail' => $e->getMessage()
+            ], 500);
+        }
+    }
+
 
 }
