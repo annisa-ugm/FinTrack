@@ -31,15 +31,26 @@ class TagihanController extends Controller
             ->first();
 
         if (!$siswa) {
-            return response()->json(['message' => 'Nisn siswa tidak ditemukan'], 404);
+            return response()->json(['message' => 'NISN siswa tidak ditemukan'], 404);
         }
 
+        // Hitung total ekstra
         $total_ekstra = $siswa->ekstraSiswa->sum('tagihan_ekstra');
 
+        // Hitung tagihan uang saku (hanya jika saldo < 0)
         $tagihan_uang_saku = 0;
         if ($siswa->uangSaku && $siswa->uangSaku->saldo < 0) {
             $tagihan_uang_saku = abs($siswa->uangSaku->saldo);
         }
+
+        // Ambil tagihan boarding & konsumsi
+        $tagihan_boarding = $siswa->boarding->tagihan_boarding ?? 0;
+        $tagihan_konsumsi = $siswa->konsumsi->tagihan_konsumsi ?? 0;
+
+        // Hitung total tunggakan
+        $tagihan_tunggakan = Tunggakan::where('nisn', $nisn)
+            ->where('status', 'Belum Lunas')
+            ->sum('nominal');
 
         $data = [
             'nama_siswa' => $siswa->nama_siswa,
@@ -50,6 +61,11 @@ class TagihanController extends Controller
             'tagihan_uang_spp' => number_format($siswa->tagihan->tagihan_uang_spp ?? 0, 0, ',', '.'),
             'tagihan_uang_pemeliharaan' => number_format($siswa->tagihan->tagihan_uang_pemeliharaan ?? 0, 0, ',', '.'),
             'tagihan_uang_sumbangan' => number_format($siswa->tagihan->tagihan_uang_sumbangan ?? 0, 0, ',', '.'),
+            'tagihan_boarding' => number_format($tagihan_boarding, 0, ',', '.'),
+            'tagihan_konsumsi' => number_format($tagihan_konsumsi, 0, ',', '.'),
+            'tagihan_ekstra' => number_format($total_ekstra, 0, ',', '.'),
+            'tagihan_uang_saku' => number_format($tagihan_uang_saku, 0, ',', '.'),
+            'tagihan_tunggakan' => number_format($tagihan_tunggakan, 0, ',', '.'),
         ];
 
         return response()->json([
@@ -58,6 +74,7 @@ class TagihanController extends Controller
             'data' => $data
         ]);
     }
+
 
     public function createTagihan(Request $request)
     {
