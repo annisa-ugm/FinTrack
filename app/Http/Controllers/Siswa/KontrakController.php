@@ -23,7 +23,7 @@ class KontrakController extends Controller
             'uang_pemeliharaan' => 'required|integer|regex:/^\d+$/',
             'uang_sumbangan' => 'required|integer|regex:/^\d+$/',
             'catatan' => 'nullable|string',
-            'file_kontrak' => 'required|mimes:pdf|max:10240'
+            'file_kontrak' =>'required|file|mimes:pdf,jpg,jpeg,png|max:10240'
         ], [
             'regex' => 'Kolom :attribute tidak boleh mengandung titik atau koma.',
         ]);
