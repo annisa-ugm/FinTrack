@@ -23,7 +23,7 @@ class Siswa extends Model
         'akademik',
         'nama_wali',
         'no_hp_wali',
-        'file_kontrak',
+        // 'file_kontrak',
     ];
 
     public function pembayaran()
