@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Siswa;
 use App\Models\HasilTagihan;
+use App\Models\Tunggakan;
 use Illuminate\Support\Facades\Validator;
 
 class TagihanController extends Controller
