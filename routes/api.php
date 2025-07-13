@@ -258,3 +258,11 @@ Route::middleware('auth:sanctum')->group(function () {
         Route::post('/create', [TagihanController::class, 'createTagihan']);
     });
 });
+
+// Siswa Techno
+Route::prefix('techno/siswa')->group(function () {
+    Route::get('/search', [SiswaTechnoController::class, 'searchSiswa']);
+    Route::post('/', [SiswaTechnoController::class, 'store']);
+    Route::put('/{id}', [SiswaTechnoController::class, 'update']);
+    Route::delete('/{id}', [SiswaTechnoController::class, 'destroy']);
+});
