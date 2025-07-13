@@ -13,16 +13,35 @@ class TagihanSeeder extends Seeder
      */
     public function run(): void
     {
-        Tagihan::create([
-            'id_tagihan' => '1',
-            'id_siswa' => '1',
-            'tagihan_uang_kbm' => 500000,
-            'tagihan_uang_spp' => 300000,
-            'tagihan_uang_pemeliharaan' => 200000,
-            // 'tagihan_uang_konsumsi' => 250000,
-            // 'tagihan_uang_boarding' => 400000,
-            'tagihan_uang_sumbangan' => 150000,
-        ]);
+        $data = [
+            [
+                'id_tagihan' => 1,
+                'id_siswa' => 2,
+                'tagihan_uang_kbm' => 500000,
+                'tagihan_uang_spp' => 300000,
+                'tagihan_uang_pemeliharaan' => 200000,
+                'tagihan_uang_sumbangan' => 150000,
+            ],
+            [
+                'id_tagihan' => 2,
+                'id_siswa' => 24,
+                'tagihan_uang_kbm' => 600000,
+                'tagihan_uang_spp' => 350000,
+                'tagihan_uang_pemeliharaan' => 250000,
+                'tagihan_uang_sumbangan' => 100000,
+            ],
+            [
+                'id_tagihan' => 3,
+                'id_siswa' => 18,
+                'tagihan_uang_kbm' => 550000,
+                'tagihan_uang_spp' => 320000,
+                'tagihan_uang_pemeliharaan' => 0,
+                'tagihan_uang_sumbangan' => 0,
+            ],
+        ];
 
+        foreach ($data as $item) {
+            Tagihan::create($item);
+        }
     }
 }

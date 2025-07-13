@@ -10,23 +10,51 @@ use Illuminate\Support\Facades\Validator;
 
 class MonitoringUangSakuController extends Controller
 {
-    // Fungsi index untuk semua siswa di page monitoring pendapatan praxis
     public function index()
     {
         $data = Siswa::with('uangSaku')
             ->orderBy('nama_siswa', 'asc')
             ->paginate(10);
 
-        // Format nominal tagihan biar ada titik di setiap 3 angka
         $data->getCollection()->transform(function ($item) {
-            if ($item->uangSaku) {
-                $item->uangSaku->saldo = number_format($item->uangSaku->saldo ?? 0, 0, ',', '.');
+            $tagihan = [];
+
+            if ($item->uangSaku && $item->uangSaku->saldo < 0) {
+                $tagihan[] = [
+                    'nama_tagihan' => 'Uang Saku',
+                    'nominal' => abs($item->uangSaku->saldo)
+                ];
             }
-            return $item;
+
+            return [
+                'id_siswa' => $item->id_siswa,
+                'nama_siswa' => $item->nama_siswa,
+                'nisn' => $item->nisn,
+                'level' => $item->level,
+                // 'kategori' => $item->kategori,
+                'akademik' => $item->akademik,
+                // 'nama_wali' => $item->nama_wali,
+                // 'no_hp_wali' => $item->no_hp_wali,
+                // 'created_at' => $item->created_at,
+                // 'updated_at' => $item->updated_at,
+                'tagihan' => $tagihan,
+                'uang_saku' => $item->uangSaku ? [
+                    'id_uang_saku' => $item->uangSaku->id_uang_saku,
+                    'id_siswa' => $item->uangSaku->id_siswa,
+                    'saldo' => number_format($item->uangSaku->saldo ?? 0, 0, ',', '.'),
+                    'catatan' => $item->uangSaku->catatan,
+                    'created_at' => $item->uangSaku->created_at,
+                    'updated_at' => $item->uangSaku->updated_at,
+                ] : null
+            ];
         });
 
-        return response()->json($data);
+        return response()->json([
+            'status' => 'success',
+            'data' => $data,
+        ]);
     }
+
 
     public function show($id)
     {

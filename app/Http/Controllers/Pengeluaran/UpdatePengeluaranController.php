@@ -44,9 +44,74 @@ class UpdatePengeluaranController extends Controller
         ]);
     }
 
+    public function storeSubPengeluaran(Request $request, $id)
+    {
+        // \Log::info($request->all());
+
+        $validator = Validator::make($request->all(), [
+            'id_kategori_pengeluaran' => 'required|string',
+            'nama_sub_pengeluaran' => 'required|string|max:255',
+            'nominal' => 'required|numeric|min:0',
+            'jumlah_item' => 'required|integer|min:1',
+            'tanggal_pengeluaran' => 'required|date',
+            'file_nota' => 'nullable|mimes:jpg,jpeg,png,pdf|max:10240'
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'Data tidak valid.',
+                'errors' => $validator->errors()
+            ], 422);
+        }
+
+        // Simpan file nota jika ada
+        $filePath = null;
+        if ($request->hasFile('file_nota')) {
+            $file = $request->file('file_nota');
+            $extension = $file->getClientOriginalExtension();
+            $fileName = 'nota_' . uniqid() . '.' . $extension;
+            $storedPath = $file->storeAs('public/sub_pengeluaran', $fileName);
+            $filePath = str_replace('public/', 'storage/', $storedPath);
+        }
+
+        $idUser = auth()->user()->id_user;
+        $idSubPengeluaran = SubPengeluaran::generateId();
+
+        $subPengeluaran = SubPengeluaran::create([
+            'id_sub_pengeluaran' => $idSubPengeluaran,
+            'id_pengeluaran' => $id,
+            'id_kategori_pengeluaran' => $request->id_kategori_pengeluaran,
+            'nama_sub_pengeluaran' => $request->nama_sub_pengeluaran,
+            'id_user' => $idUser,
+            'nominal' => $request->nominal,
+            'jumlah_item' => $request->jumlah_item,
+            'tanggal_pengeluaran' => $request->tanggal_pengeluaran,
+            'file_nota' => $filePath
+        ]);
+
+        // Update total pengeluaran
+        $pengeluaran = Pengeluaran::find($id);
+        if ($pengeluaran) {
+            $total = $pengeluaran->subPengeluaran->sum(function ($item) {
+                return $item->nominal * $item->jumlah_item;
+            });
+            $pengeluaran->total_pengeluaran = $total;
+            $pengeluaran->save();
+        }
+
+        return response()->json([
+            'status' => 'success',
+            'message' => 'Sub pengeluaran berhasil ditambahkan.',
+            'data' => $subPengeluaran,
+            'total_pengeluaran' => $pengeluaran ? $pengeluaran->total_pengeluaran : null
+        ], 201);
+    }
+
+
     public function updateSubPengeluaran(Request $request, $id)
     {
-        \Log::info($request->all());
+        // \Log::info($request->all());
 
         $validator = Validator::make($request->all(), [
             'id_kategori_pengeluaran' => 'required|string',

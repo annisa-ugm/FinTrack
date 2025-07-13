@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Siswa\KontrakController;
 use App\Http\Controllers\Siswa\SiswaController;
@@ -11,6 +12,7 @@ use App\Http\Controllers\Umum\PembayaranUmumController;
 use App\Http\Controllers\BoardingKonsumsi\TambahSiswaBoardingKonsumsiController;
 use App\Http\Controllers\BoardingKonsumsi\MonitoringBKController;
 use App\Http\Controllers\BoardingKonsumsi\PembayaranBKController;
+use App\Http\Controllers\BoardingKonsumsi\UpdateBKController;
 use App\Http\Controllers\UangSaku\MonitoringUangSakuController;
 use App\Http\Controllers\UangSaku\TopupUangSakuController;
 use App\Http\Controllers\UangSaku\PengeluaranUangSakuController;
@@ -18,11 +20,13 @@ use App\Http\Controllers\Ekstra\EkstraController;
 use App\Http\Controllers\Ekstra\MonitoringEkstraController;
 use App\Http\Controllers\Ekstra\TambahSiswaEkstraController;
 use App\Http\Controllers\Ekstra\PembayaranEkstraController;
+use App\Http\Controllers\Ekstra\UpdateSiswaEkstraController;
 use App\Http\Controllers\Pengeluaran\MonitoringPengeluaranController;
 use App\Http\Controllers\Pengeluaran\KategoriPengeluaranController;
 use App\Http\Controllers\Pengeluaran\TambahPengeluaranController;
 use App\Http\Controllers\Pengeluaran\UpdatePengeluaranController;
 use App\Http\Controllers\Tagihan\TagihanController;
+use App\Http\Controllers\Tunggakan\TunggakanController;
 
 Route::get('/test', function () {
     return response()->json(['message' => 'API is working']);
@@ -49,6 +53,7 @@ Route::get('/test', function () {
 Route::prefix('auth')->group(function () {
     // Login user
     Route::post('/login', [LoginController::class, 'login']);
+    Route::post('/register', [RegisterController::class, 'register']);
 
     Route::middleware('auth:sanctum')->group(function () {
         // Logout user
@@ -174,6 +179,10 @@ Route::middleware('auth:sanctum')->group(function () {
         Route::post('/create-siswa/boarding', [TambahSiswaBoardingKonsumsiController::class, 'createSiswaBoarding']);
         // Create new siswa konsumsi
         Route::post('/create-siswa/konsumsi', [TambahSiswaBoardingKonsumsiController::class, 'createSiswaKonsumsi']);
+        // Show detail siswa boarding konsumsi
+        Route::get('/detail/{id}', [UpdateBKController::class, 'show']);
+        // Update siswa boarding konsumsi
+        Route::put('/update/{id}', [UpdateBKController::class, 'update']);
     });
 
 
@@ -209,6 +218,10 @@ Route::middleware('auth:sanctum')->group(function () {
         Route::post('/pembayaran', [PembayaranEkstraController::class, 'createPembayaran']);
         // Show detail pembayaran history
         Route::get('/detail/{id}', [MonitoringEkstraController::class, 'showPaymentHistory']);
+        // Show detail ekstra siswa untuk form update
+        Route::get('/detail/ekstra-siswa/{id}', [UpdateSiswaEkstraController::class, 'detail']);
+        // Update ekstra siswa
+        Route::put('/update/{id}', [UpdateSiswaEkstraController::class, 'update']);
 
         /**
          * Master Data Ekstra
@@ -240,6 +253,8 @@ Route::middleware('auth:sanctum')->group(function () {
         Route::get('/detail/{id}', [MonitoringPengeluaranController::class, 'detailPengeluaran']);
         // Update pengeluaran utama
         Route::put('/pengeluaran/update/{id}', [UpdatePengeluaranController::class, 'updatePengeluaran']);
+        // Create sub pengeluaran di detail pengeluaran
+        Route::post('/pengeluaran/{id}/sub-pengeluaran', [UpdatePengeluaranController::class, 'storeSubPengeluaran']);
         // Update sub pengeluaran
         Route::post('/sub-pengeluaran/update/{id}', [UpdatePengeluaranController::class, 'updateSubPengeluaran']);
         // Delete sub pengeluaran
@@ -257,6 +272,25 @@ Route::middleware('auth:sanctum')->group(function () {
         // Create tagihan baru
         Route::post('/create', [TagihanController::class, 'createTagihan']);
     });
+
+
+    /**
+     * Tunggakan
+     */
+    Route::prefix('/tunggakan')->group(function () {
+        // Get all tunggakan
+        Route::get('/', [TunggakanController::class, 'index']);
+        // Create new tunggakan
+        Route::post('/create', [TunggakanController::class, 'store']);
+        // Show detail tunggakan by ID
+        Route::get('/detail/{id}', [TunggakanController::class, 'show']);
+        // Update tunggakan
+        Route::put('/update/{id}', [TunggakanController::class, 'update']);
+        // Delete tunggakan
+        Route::delete('/delete/{id}', [TunggakanController::class, 'destroy']);
+    });
+
+
 });
 
 // Siswa Techno

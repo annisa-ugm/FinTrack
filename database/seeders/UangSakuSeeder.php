@@ -13,13 +13,23 @@ class UangSakuSeeder extends Seeder
      */
     public function run(): void
     {
-        UangSaku::create([
-            'id_uang_saku' => '1',
-            'id_siswa' => '1',
-            'saldo' => 1000000,
-            // 'durasi' => 12,
-            'catatan' => 'Uang saku untuk tahun ajaran baru',
-        ]);
+        $data = [
+            [
+                'id_uang_saku' => 1,
+                'id_siswa' => 2,
+                'saldo' => 1000000,
+                'catatan' => 'Uang saku untuk tahun ajaran baru',
+            ],
+            [
+                'id_uang_saku' => 2,
+                'id_siswa' => 14,
+                'saldo' => -1500000,
+                'catatan' => 'Uang saku tambahan (minus untuk testing) semester genap',
+            ],
+        ];
 
+        foreach ($data as $item) {
+            UangSaku::create($item);
+        }
     }
 }
