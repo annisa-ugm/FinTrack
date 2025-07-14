@@ -12,6 +12,11 @@ use Illuminate\Support\Facades\Log;
 
 class RegisterController extends Controller
 {
+    /**
+     * Register user.
+     *
+     * @unauthenticated
+     */
     public function register(Request $request)
     {
         try {

@@ -1,0 +1,4670 @@
+openapi: 3.0.3
+info:
+  title: 'Laravel API Documentation'
+  description: ''
+  version: 1.0.0
+servers:
+  -
+    url: 'http://localhost'
+tags:
+  -
+    name: Endpoints
+    description: ''
+components:
+  securitySchemes:
+    default:
+      type: http
+      scheme: bearer
+      description: 'You can retrieve your token by visiting your dashboard and clicking <b>Generate API token</b>.'
+security:
+  -
+    default: []
+paths:
+  /api/test:
+    get:
+      summary: ''
+      operationId: getApiTest
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'API is working'
+                properties:
+                  message:
+                    type: string
+                    example: 'API is working'
+      tags:
+        - Endpoints
+  /api/auth/login:
+    post:
+      summary: 'Login user.'
+      operationId: loginUser
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+  /api/auth/register:
+    post:
+      summary: 'Register user.'
+      operationId: registerUser
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+  /api/auth/logout:
+    post:
+      summary: ''
+      operationId: postApiAuthLogout
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+  /api/auth/users:
+    get:
+      summary: ''
+      operationId: getApiAuthUsers
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  user:
+                    id_user: '1'
+                    nama: Bendahara
+                    email: bendahara@example.com
+                    email_verified_at: '2025-07-12T12:44:20.000000Z'
+                    created_at: '2025-07-12T12:44:20.000000Z'
+                    updated_at: '2025-07-12T12:44:20.000000Z'
+                properties:
+                  user:
+                    type: object
+                    properties:
+                      id_user:
+                        type: string
+                        example: '1'
+                      nama:
+                        type: string
+                        example: Bendahara
+                      email:
+                        type: string
+                        example: bendahara@example.com
+                      email_verified_at:
+                        type: string
+                        example: '2025-07-12T12:44:20.000000Z'
+                      created_at:
+                        type: string
+                        example: '2025-07-12T12:44:20.000000Z'
+                      updated_at:
+                        type: string
+                        example: '2025-07-12T12:44:20.000000Z'
+      tags:
+        - Endpoints
+  /api/dashboard:
+    get:
+      summary: ''
+      operationId: getApiDashboard
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: success
+                  message: 'Data dashboard berhasil diambil.'
+                  saldoPraxis: '18999'
+                  saldoTechno: '4000379'
+                  tagihanPraxis: 0
+                  tagihanTechno: '28209620'
+                  saldoEkstra: '311000'
+                  tagihanEkstra: '3700000'
+                  tagihanUangSaku: '1500000'
+                  rekapSaldo: 4330378
+                  rekapTagihan: 33409620
+                properties:
+                  status:
+                    type: string
+                    example: success
+                  message:
+                    type: string
+                    example: 'Data dashboard berhasil diambil.'
+                  saldoPraxis:
+                    type: string
+                    example: '18999'
+                  saldoTechno:
+                    type: string
+                    example: '4000379'
+                  tagihanPraxis:
+                    type: integer
+                    example: 0
+                  tagihanTechno:
+                    type: string
+                    example: '28209620'
+                  saldoEkstra:
+                    type: string
+                    example: '311000'
+                  tagihanEkstra:
+                    type: string
+                    example: '3700000'
+                  tagihanUangSaku:
+                    type: string
+                    example: '1500000'
+                  rekapSaldo:
+                    type: integer
+                    example: 4330378
+                  rekapTagihan:
+                    type: integer
+                    example: 33409620
+      tags:
+        - Endpoints
+  /api/cari-siswa:
+    get:
+      summary: ''
+      operationId: getApiCariSiswa
+      description: ''
+      parameters: []
+      responses:
+        400:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: error
+                  message: 'Query kosong'
+                properties:
+                  status:
+                    type: string
+                    example: error
+                  message:
+                    type: string
+                    example: 'Query kosong'
+      tags:
+        - Endpoints
+  /api/kontrak:
+    post:
+      summary: ''
+      operationId: postApiKontrak
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                nisn:
+                  type: string
+                  description: 'The <code>nisn</code> of an existing record in the siswa table.'
+                  example: architecto
+                  nullable: false
+                uang_kbm:
+                  type: integer
+                  description: 'Must match the regex /^\d+$/.'
+                  example: '564'
+                  nullable: false
+                uang_spp:
+                  type: integer
+                  description: 'Must match the regex /^\d+$/.'
+                  example: '564'
+                  nullable: false
+                uang_pemeliharaan:
+                  type: integer
+                  description: 'Must match the regex /^\d+$/.'
+                  example: '564'
+                  nullable: false
+                uang_sumbangan:
+                  type: integer
+                  description: 'Must match the regex /^\d+$/.'
+                  example: '564'
+                  nullable: false
+                catatan:
+                  type: string
+                  description: ''
+                  example: architecto
+                  nullable: true
+                file_kontrak:
+                  type: string
+                  format: binary
+                  description: 'Must be a file. Must not be greater than 10240 kilobytes.'
+                  nullable: false
+              required:
+                - nisn
+                - uang_kbm
+                - uang_spp
+                - uang_pemeliharaan
+                - uang_sumbangan
+                - file_kontrak
+  /api/techno/siswa:
+    get:
+      summary: ''
+      operationId: getApiTechnoSiswa
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: success
+                  data:
+                    current_page: 1
+                    data:
+                      -
+                        id_siswa: '41'
+                        nama_siswa: 'Ahmad Budie'
+                        nisn: '1000012345'
+                        level: III
+                        kategori: 'Tidak boarding'
+                        akademik: Techno
+                        nama_wali: Budi
+                        no_hp_wali: '081234567001'
+                        created_at: '2025-07-12T12:44:21.000000Z'
+                        updated_at: '2025-07-13T07:31:52.000000Z'
+                      -
+                        id_siswa: '45'
+                        nama_siswa: 'Bambang Setiawan'
+                        nisn: '100005'
+                        level: VIII
+                        kategori: 'Tidak boarding'
+                        akademik: Techno
+                        nama_wali: Setiawan
+                        no_hp_wali: '081234567005'
+                        created_at: '2025-07-12T12:44:21.000000Z'
+                        updated_at: '2025-07-12T12:44:21.000000Z'
+                      -
+                        id_siswa: '52'
+                        nama_siswa: 'Belda Putri'
+                        nisn: '12345678888'
+                        level: V
+                        kategori: Reguler
+                        akademik: Techno
+                        nama_wali: Pramono
+                        no_hp_wali: '089673384911'
+                        created_at: '2025-07-13T11:39:57.000000Z'
+                        updated_at: '2025-07-13T11:39:57.000000Z'
+                      -
+                        id_siswa: '53'
+                        nama_siswa: 'Canaya Putri'
+                        nisn: '0000000089'
+                        level: VI
+                        kategori: Reguler
+                        akademik: Techno
+                        nama_wali: Pramono
+                        no_hp_wali: '08999863288'
+                        created_at: '2025-07-13T11:55:22.000000Z'
+                        updated_at: '2025-07-13T11:55:22.000000Z'
+                      -
+                        id_siswa: '42'
+                        nama_siswa: 'Dewi Lestari'
+                        nisn: '100002'
+                        level: VII
+                        kategori: 'Tidak boarding'
+                        akademik: Techno
+                        nama_wali: Lestari
+                        no_hp_wali: '081234567002'
+                        created_at: '2025-07-12T12:44:21.000000Z'
+                        updated_at: '2025-07-12T12:44:21.000000Z'
+                      -
+                        id_siswa: '50'
+                        nama_siswa: 'Fitriani Zahra'
+                        nisn: '100010'
+                        level: IX
+                        kategori: 'Tidak boarding'
+                        akademik: Techno
+                        nama_wali: Zahra
+                        no_hp_wali: '081234567010'
+                        created_at: '2025-07-12T12:44:22.000000Z'
+                        updated_at: '2025-07-12T12:44:22.000000Z'
+                      -
+                        id_siswa: '47'
+                        nama_siswa: 'Iqbal Ramadhan'
+                        nisn: '100007'
+                        level: IX
+                        kategori: 'Tidak boarding'
+                        akademik: Techno
+                        nama_wali: Ramadhan
+                        no_hp_wali: '081234567007'
+                        created_at: '2025-07-12T12:44:21.000000Z'
+                        updated_at: '2025-07-12T12:44:21.000000Z'
+                      -
+                        id_siswa: '46'
+                        nama_siswa: 'Nina Anggraini'
+                        nisn: '100006'
+                        level: VIII
+                        kategori: 'Tidak boarding'
+                        akademik: Techno
+                        nama_wali: Anggraini
+                        no_hp_wali: '081234567006'
+                        created_at: '2025-07-12T12:44:21.000000Z'
+                        updated_at: '2025-07-12T12:44:21.000000Z'
+                      -
+                        id_siswa: '43'
+                        nama_siswa: 'Rudi Hartono'
+                        nisn: '100003'
+                        level: VIII
+                        kategori: 'Tidak boarding'
+                        akademik: Techno
+                        nama_wali: Hartono
+                        no_hp_wali: '081234567003'
+                        created_at: '2025-07-12T12:44:21.000000Z'
+                        updated_at: '2025-07-12T12:44:21.000000Z'
+                      -
+                        id_siswa: '44'
+                        nama_siswa: 'Sari Melati'
+                        nisn: '100004'
+                        level: VIII
+                        kategori: 'Tidak boarding'
+                        akademik: Techno
+                        nama_wali: Melati
+                        no_hp_wali: '081234567004'
+                        created_at: '2025-07-12T12:44:21.000000Z'
+                        updated_at: '2025-07-12T12:44:21.000000Z'
+                    first_page_url: 'http://localhost/api/techno/siswa?page=1'
+                    from: 1
+                    last_page: 1
+                    last_page_url: 'http://localhost/api/techno/siswa?page=1'
+                    links:
+                      -
+                        url: null
+                        label: '&laquo; Previous'
+                        active: false
+                      -
+                        url: 'http://localhost/api/techno/siswa?page=1'
+                        label: '1'
+                        active: true
+                      -
+                        url: null
+                        label: 'Next &raquo;'
+                        active: false
+                    next_page_url: null
+                    path: 'http://localhost/api/techno/siswa'
+                    per_page: 10
+                    prev_page_url: null
+                    to: 10
+                    total: 10
+                properties:
+                  status:
+                    type: string
+                    example: success
+                  data:
+                    type: object
+                    properties:
+                      current_page:
+                        type: integer
+                        example: 1
+                      data:
+                        type: array
+                        example:
+                          -
+                            id_siswa: '41'
+                            nama_siswa: 'Ahmad Budie'
+                            nisn: '1000012345'
+                            level: III
+                            kategori: 'Tidak boarding'
+                            akademik: Techno
+                            nama_wali: Budi
+                            no_hp_wali: '081234567001'
+                            created_at: '2025-07-12T12:44:21.000000Z'
+                            updated_at: '2025-07-13T07:31:52.000000Z'
+                          -
+                            id_siswa: '45'
+                            nama_siswa: 'Bambang Setiawan'
+                            nisn: '100005'
+                            level: VIII
+                            kategori: 'Tidak boarding'
+                            akademik: Techno
+                            nama_wali: Setiawan
+                            no_hp_wali: '081234567005'
+                            created_at: '2025-07-12T12:44:21.000000Z'
+                            updated_at: '2025-07-12T12:44:21.000000Z'
+                          -
+                            id_siswa: '52'
+                            nama_siswa: 'Belda Putri'
+                            nisn: '12345678888'
+                            level: V
+                            kategori: Reguler
+                            akademik: Techno
+                            nama_wali: Pramono
+                            no_hp_wali: '089673384911'
+                            created_at: '2025-07-13T11:39:57.000000Z'
+                            updated_at: '2025-07-13T11:39:57.000000Z'
+                          -
+                            id_siswa: '53'
+                            nama_siswa: 'Canaya Putri'
+                            nisn: '0000000089'
+                            level: VI
+                            kategori: Reguler
+                            akademik: Techno
+                            nama_wali: Pramono
+                            no_hp_wali: '08999863288'
+                            created_at: '2025-07-13T11:55:22.000000Z'
+                            updated_at: '2025-07-13T11:55:22.000000Z'
+                          -
+                            id_siswa: '42'
+                            nama_siswa: 'Dewi Lestari'
+                            nisn: '100002'
+                            level: VII
+                            kategori: 'Tidak boarding'
+                            akademik: Techno
+                            nama_wali: Lestari
+                            no_hp_wali: '081234567002'
+                            created_at: '2025-07-12T12:44:21.000000Z'
+                            updated_at: '2025-07-12T12:44:21.000000Z'
+                          -
+                            id_siswa: '50'
+                            nama_siswa: 'Fitriani Zahra'
+                            nisn: '100010'
+                            level: IX
+                            kategori: 'Tidak boarding'
+                            akademik: Techno
+                            nama_wali: Zahra
+                            no_hp_wali: '081234567010'
+                            created_at: '2025-07-12T12:44:22.000000Z'
+                            updated_at: '2025-07-12T12:44:22.000000Z'
+                          -
+                            id_siswa: '47'
+                            nama_siswa: 'Iqbal Ramadhan'
+                            nisn: '100007'
+                            level: IX
+                            kategori: 'Tidak boarding'
+                            akademik: Techno
+                            nama_wali: Ramadhan
+                            no_hp_wali: '081234567007'
+                            created_at: '2025-07-12T12:44:21.000000Z'
+                            updated_at: '2025-07-12T12:44:21.000000Z'
+                          -
+                            id_siswa: '46'
+                            nama_siswa: 'Nina Anggraini'
+                            nisn: '100006'
+                            level: VIII
+                            kategori: 'Tidak boarding'
+                            akademik: Techno
+                            nama_wali: Anggraini
+                            no_hp_wali: '081234567006'
+                            created_at: '2025-07-12T12:44:21.000000Z'
+                            updated_at: '2025-07-12T12:44:21.000000Z'
+                          -
+                            id_siswa: '43'
+                            nama_siswa: 'Rudi Hartono'
+                            nisn: '100003'
+                            level: VIII
+                            kategori: 'Tidak boarding'
+                            akademik: Techno
+                            nama_wali: Hartono
+                            no_hp_wali: '081234567003'
+                            created_at: '2025-07-12T12:44:21.000000Z'
+                            updated_at: '2025-07-12T12:44:21.000000Z'
+                          -
+                            id_siswa: '44'
+                            nama_siswa: 'Sari Melati'
+                            nisn: '100004'
+                            level: VIII
+                            kategori: 'Tidak boarding'
+                            akademik: Techno
+                            nama_wali: Melati
+                            no_hp_wali: '081234567004'
+                            created_at: '2025-07-12T12:44:21.000000Z'
+                            updated_at: '2025-07-12T12:44:21.000000Z'
+                        items:
+                          type: object
+                          properties:
+                            id_siswa:
+                              type: string
+                              example: '41'
+                            nama_siswa:
+                              type: string
+                              example: 'Ahmad Budie'
+                            nisn:
+                              type: string
+                              example: '1000012345'
+                            level:
+                              type: string
+                              example: III
+                            kategori:
+                              type: string
+                              example: 'Tidak boarding'
+                            akademik:
+                              type: string
+                              example: Techno
+                            nama_wali:
+                              type: string
+                              example: Budi
+                            no_hp_wali:
+                              type: string
+                              example: '081234567001'
+                            created_at:
+                              type: string
+                              example: '2025-07-12T12:44:21.000000Z'
+                            updated_at:
+                              type: string
+                              example: '2025-07-13T07:31:52.000000Z'
+                      first_page_url:
+                        type: string
+                        example: 'http://localhost/api/techno/siswa?page=1'
+                      from:
+                        type: integer
+                        example: 1
+                      last_page:
+                        type: integer
+                        example: 1
+                      last_page_url:
+                        type: string
+                        example: 'http://localhost/api/techno/siswa?page=1'
+                      links:
+                        type: array
+                        example:
+                          -
+                            url: null
+                            label: '&laquo; Previous'
+                            active: false
+                          -
+                            url: 'http://localhost/api/techno/siswa?page=1'
+                            label: '1'
+                            active: true
+                          -
+                            url: null
+                            label: 'Next &raquo;'
+                            active: false
+                        items:
+                          type: object
+                          properties:
+                            url:
+                              type: string
+                              example: null
+                            label:
+                              type: string
+                              example: '&laquo; Previous'
+                            active:
+                              type: boolean
+                              example: false
+                      next_page_url:
+                        type: string
+                        example: null
+                      path:
+                        type: string
+                        example: 'http://localhost/api/techno/siswa'
+                      per_page:
+                        type: integer
+                        example: 10
+                      prev_page_url:
+                        type: string
+                        example: null
+                      to:
+                        type: integer
+                        example: 10
+                      total:
+                        type: integer
+                        example: 10
+      tags:
+        - Endpoints
+  /api/techno/siswa/create:
+    post:
+      summary: ''
+      operationId: postApiTechnoSiswaCreate
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+  '/api/techno/siswa/detail/{id}':
+    get:
+      summary: ''
+      operationId: getApiTechnoSiswaDetailId
+      description: ''
+      parameters: []
+      responses:
+        500:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: error
+                  message: 'Gagal menampilkan detail siswa.'
+                  error: 'No query results for model [App\Models\Siswa] architecto'
+                properties:
+                  status:
+                    type: string
+                    example: error
+                  message:
+                    type: string
+                    example: 'Gagal menampilkan detail siswa.'
+                  error:
+                    type: string
+                    example: 'No query results for model [App\Models\Siswa] architecto'
+      tags:
+        - Endpoints
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the detail.'
+        example: architecto
+        required: true
+        schema:
+          type: string
+  '/api/techno/siswa/update/{id}':
+    put:
+      summary: ''
+      operationId: putApiTechnoSiswaUpdateId
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the update.'
+        example: architecto
+        required: true
+        schema:
+          type: string
+  '/api/techno/siswa/delete/{id}':
+    delete:
+      summary: ''
+      operationId: deleteApiTechnoSiswaDeleteId
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the delete.'
+        example: architecto
+        required: true
+        schema:
+          type: string
+  /api/pembayaran:
+    post:
+      summary: ''
+      operationId: postApiPembayaran
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id_siswa:
+                  type: string
+                  description: 'The <code>id_siswa</code> of an existing record in the siswa table. Must not be greater than 10 characters.'
+                  example: bngzmi
+                  nullable: false
+                tanggal_pembayaran:
+                  type: string
+                  description: 'Must be a valid date.'
+                  example: '2025-07-14T14:54:02'
+                  nullable: false
+                uang_kbm:
+                  type: integer
+                  description: 'Must match the regex /^\d+$/.'
+                  example: '564'
+                  nullable: true
+                uang_pemeliharaan:
+                  type: integer
+                  description: 'Must match the regex /^\d+$/.'
+                  example: '564'
+                  nullable: true
+                uang_spp:
+                  type: integer
+                  description: 'Must match the regex /^\d+$/.'
+                  example: '564'
+                  nullable: true
+                uang_sumbangan:
+                  type: integer
+                  description: 'Must match the regex /^\d+$/.'
+                  example: '564'
+                  nullable: true
+                catatan:
+                  type: string
+                  description: ''
+                  example: architecto
+                  nullable: true
+              required:
+                - id_siswa
+                - tanggal_pembayaran
+  /api/monitoring-praxis:
+    get:
+      summary: ''
+      operationId: getApiMonitoringPraxis
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: success
+                  message: 'Data siswa Praxis berhasil diambil'
+                  data:
+                    current_page: 1
+                    data:
+                      -
+                        id_siswa: '5'
+                        nama_siswa: 'Agus Prasetyo'
+                        level: '-'
+                        tagihan: []
+                      -
+                        id_siswa: '33'
+                        nama_siswa: 'ASSIFA KHAIRU NISA'
+                        level: XI
+                        tagihan: []
+                      -
+                        id_siswa: '16'
+                        nama_siswa: Atika
+                        level: '-'
+                        tagihan: []
+                      -
+                        id_siswa: '29'
+                        nama_siswa: Budi
+                        level: X
+                        tagihan: []
+                      -
+                        id_siswa: '27'
+                        nama_siswa: Budi
+                        level: X
+                        tagihan: []
+                      -
+                        id_siswa: '28'
+                        nama_siswa: Budi
+                        level: X
+                        tagihan: []
+                      -
+                        id_siswa: '17'
+                        nama_siswa: 'Budi Budiman Mandibud'
+                        level: XI
+                        tagihan: []
+                      -
+                        id_siswa: '3'
+                        nama_siswa: 'Budi Santoso'
+                        level: X
+                        tagihan: []
+                      -
+                        id_siswa: '4'
+                        nama_siswa: 'Dewi Lestari'
+                        level: X
+                        tagihan: []
+                      -
+                        id_siswa: '32'
+                        nama_siswa: 'FAUZAN NASRUL'
+                        level: X
+                        tagihan: []
+                    first_page_url: 'http://localhost/api/monitoring-praxis?page=1'
+                    from: 1
+                    last_page: 3
+                    last_page_url: 'http://localhost/api/monitoring-praxis?page=3'
+                    links:
+                      -
+                        url: null
+                        label: '&laquo; Previous'
+                        active: false
+                      -
+                        url: 'http://localhost/api/monitoring-praxis?page=1'
+                        label: '1'
+                        active: true
+                      -
+                        url: 'http://localhost/api/monitoring-praxis?page=2'
+                        label: '2'
+                        active: false
+                      -
+                        url: 'http://localhost/api/monitoring-praxis?page=3'
+                        label: '3'
+                        active: false
+                      -
+                        url: 'http://localhost/api/monitoring-praxis?page=2'
+                        label: 'Next &raquo;'
+                        active: false
+                    next_page_url: 'http://localhost/api/monitoring-praxis?page=2'
+                    path: 'http://localhost/api/monitoring-praxis'
+                    per_page: 10
+                    prev_page_url: null
+                    to: 10
+                    total: 26
+                properties:
+                  status:
+                    type: string
+                    example: success
+                  message:
+                    type: string
+                    example: 'Data siswa Praxis berhasil diambil'
+                  data:
+                    type: object
+                    properties:
+                      current_page:
+                        type: integer
+                        example: 1
+                      data:
+                        type: array
+                        example:
+                          -
+                            id_siswa: '5'
+                            nama_siswa: 'Agus Prasetyo'
+                            level: '-'
+                            tagihan: []
+                          -
+                            id_siswa: '33'
+                            nama_siswa: 'ASSIFA KHAIRU NISA'
+                            level: XI
+                            tagihan: []
+                          -
+                            id_siswa: '16'
+                            nama_siswa: Atika
+                            level: '-'
+                            tagihan: []
+                          -
+                            id_siswa: '29'
+                            nama_siswa: Budi
+                            level: X
+                            tagihan: []
+                          -
+                            id_siswa: '27'
+                            nama_siswa: Budi
+                            level: X
+                            tagihan: []
+                          -
+                            id_siswa: '28'
+                            nama_siswa: Budi
+                            level: X
+                            tagihan: []
+                          -
+                            id_siswa: '17'
+                            nama_siswa: 'Budi Budiman Mandibud'
+                            level: XI
+                            tagihan: []
+                          -
+                            id_siswa: '3'
+                            nama_siswa: 'Budi Santoso'
+                            level: X
+                            tagihan: []
+                          -
+                            id_siswa: '4'
+                            nama_siswa: 'Dewi Lestari'
+                            level: X
+                            tagihan: []
+                          -
+                            id_siswa: '32'
+                            nama_siswa: 'FAUZAN NASRUL'
+                            level: X
+                            tagihan: []
+                        items:
+                          type: object
+                          properties:
+                            id_siswa:
+                              type: string
+                              example: '5'
+                            nama_siswa:
+                              type: string
+                              example: 'Agus Prasetyo'
+                            level:
+                              type: string
+                              example: '-'
+                            tagihan:
+                              type: array
+                              example: []
+                      first_page_url:
+                        type: string
+                        example: 'http://localhost/api/monitoring-praxis?page=1'
+                      from:
+                        type: integer
+                        example: 1
+                      last_page:
+                        type: integer
+                        example: 3
+                      last_page_url:
+                        type: string
+                        example: 'http://localhost/api/monitoring-praxis?page=3'
+                      links:
+                        type: array
+                        example:
+                          -
+                            url: null
+                            label: '&laquo; Previous'
+                            active: false
+                          -
+                            url: 'http://localhost/api/monitoring-praxis?page=1'
+                            label: '1'
+                            active: true
+                          -
+                            url: 'http://localhost/api/monitoring-praxis?page=2'
+                            label: '2'
+                            active: false
+                          -
+                            url: 'http://localhost/api/monitoring-praxis?page=3'
+                            label: '3'
+                            active: false
+                          -
+                            url: 'http://localhost/api/monitoring-praxis?page=2'
+                            label: 'Next &raquo;'
+                            active: false
+                        items:
+                          type: object
+                          properties:
+                            url:
+                              type: string
+                              example: null
+                            label:
+                              type: string
+                              example: '&laquo; Previous'
+                            active:
+                              type: boolean
+                              example: false
+                      next_page_url:
+                        type: string
+                        example: 'http://localhost/api/monitoring-praxis?page=2'
+                      path:
+                        type: string
+                        example: 'http://localhost/api/monitoring-praxis'
+                      per_page:
+                        type: integer
+                        example: 10
+                      prev_page_url:
+                        type: string
+                        example: null
+                      to:
+                        type: integer
+                        example: 10
+                      total:
+                        type: integer
+                        example: 26
+      tags:
+        - Endpoints
+  '/api/monitoring-praxis/detail-kontrak/{id}':
+    get:
+      summary: ''
+      operationId: getApiMonitoringPraxisDetailKontrakId
+      description: ''
+      parameters: []
+      responses:
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Siswa tidak ditemukan'
+                properties:
+                  message:
+                    type: string
+                    example: 'Siswa tidak ditemukan'
+      tags:
+        - Endpoints
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the detail kontrak.'
+        example: architecto
+        required: true
+        schema:
+          type: string
+  '/api/monitoring-praxis/pembayaran-siswa/{id}':
+    get:
+      summary: ''
+      operationId: getApiMonitoringPraxisPembayaranSiswaId
+      description: ''
+      parameters: []
+      responses:
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Siswa tidak ditemukan'
+                properties:
+                  message:
+                    type: string
+                    example: 'Siswa tidak ditemukan'
+      tags:
+        - Endpoints
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the pembayaran siswa.'
+        example: architecto
+        required: true
+        schema:
+          type: string
+  /api/monitoring-techno:
+    get:
+      summary: ''
+      operationId: getApiMonitoringTechno
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: success
+                  message: 'Data siswa Techno berhasil diambil'
+                  data:
+                    current_page: 1
+                    data:
+                      -
+                        id_siswa: '41'
+                        nama_siswa: 'Ahmad Budie'
+                        level: III
+                        tagihan:
+                          -
+                            nama_tagihan: SPP
+                            nominal: 10000000
+                          -
+                            nama_tagihan: KBM
+                            nominal: 10000000
+                          -
+                            nama_tagihan: Pemeliharaan
+                            nominal: 3000000
+                          -
+                            nama_tagihan: Sumbangan
+                            nominal: 4000000
+                      -
+                        id_siswa: '45'
+                        nama_siswa: 'Bambang Setiawan'
+                        level: VIII
+                        tagihan: []
+                      -
+                        id_siswa: '52'
+                        nama_siswa: 'Belda Putri'
+                        level: V
+                        tagihan: []
+                      -
+                        id_siswa: '53'
+                        nama_siswa: 'Canaya Putri'
+                        level: VI
+                        tagihan: []
+                      -
+                        id_siswa: '42'
+                        nama_siswa: 'Dewi Lestari'
+                        level: VII
+                        tagihan: []
+                      -
+                        id_siswa: '50'
+                        nama_siswa: 'Fitriani Zahra'
+                        level: IX
+                        tagihan:
+                          -
+                            nama_tagihan: SPP
+                            nominal: 99877
+                          -
+                            nama_tagihan: KBM
+                            nominal: 99990
+                          -
+                            nama_tagihan: Pemeliharaan
+                            nominal: 9877
+                          -
+                            nama_tagihan: Sumbangan
+                            nominal: 999876
+                      -
+                        id_siswa: '47'
+                        nama_siswa: 'Iqbal Ramadhan'
+                        level: IX
+                        tagihan: []
+                      -
+                        id_siswa: '46'
+                        nama_siswa: 'Nina Anggraini'
+                        level: VIII
+                        tagihan: []
+                      -
+                        id_siswa: '43'
+                        nama_siswa: 'Rudi Hartono'
+                        level: VIII
+                        tagihan: []
+                      -
+                        id_siswa: '44'
+                        nama_siswa: 'Sari Melati'
+                        level: VIII
+                        tagihan: []
+                    first_page_url: 'http://localhost/api/monitoring-techno?page=1'
+                    from: 1
+                    last_page: 1
+                    last_page_url: 'http://localhost/api/monitoring-techno?page=1'
+                    links:
+                      -
+                        url: null
+                        label: '&laquo; Previous'
+                        active: false
+                      -
+                        url: 'http://localhost/api/monitoring-techno?page=1'
+                        label: '1'
+                        active: true
+                      -
+                        url: null
+                        label: 'Next &raquo;'
+                        active: false
+                    next_page_url: null
+                    path: 'http://localhost/api/monitoring-techno'
+                    per_page: 10
+                    prev_page_url: null
+                    to: 10
+                    total: 10
+                properties:
+                  status:
+                    type: string
+                    example: success
+                  message:
+                    type: string
+                    example: 'Data siswa Techno berhasil diambil'
+                  data:
+                    type: object
+                    properties:
+                      current_page:
+                        type: integer
+                        example: 1
+                      data:
+                        type: array
+                        example:
+                          -
+                            id_siswa: '41'
+                            nama_siswa: 'Ahmad Budie'
+                            level: III
+                            tagihan:
+                              -
+                                nama_tagihan: SPP
+                                nominal: 10000000
+                              -
+                                nama_tagihan: KBM
+                                nominal: 10000000
+                              -
+                                nama_tagihan: Pemeliharaan
+                                nominal: 3000000
+                              -
+                                nama_tagihan: Sumbangan
+                                nominal: 4000000
+                          -
+                            id_siswa: '45'
+                            nama_siswa: 'Bambang Setiawan'
+                            level: VIII
+                            tagihan: []
+                          -
+                            id_siswa: '52'
+                            nama_siswa: 'Belda Putri'
+                            level: V
+                            tagihan: []
+                          -
+                            id_siswa: '53'
+                            nama_siswa: 'Canaya Putri'
+                            level: VI
+                            tagihan: []
+                          -
+                            id_siswa: '42'
+                            nama_siswa: 'Dewi Lestari'
+                            level: VII
+                            tagihan: []
+                          -
+                            id_siswa: '50'
+                            nama_siswa: 'Fitriani Zahra'
+                            level: IX
+                            tagihan:
+                              -
+                                nama_tagihan: SPP
+                                nominal: 99877
+                              -
+                                nama_tagihan: KBM
+                                nominal: 99990
+                              -
+                                nama_tagihan: Pemeliharaan
+                                nominal: 9877
+                              -
+                                nama_tagihan: Sumbangan
+                                nominal: 999876
+                          -
+                            id_siswa: '47'
+                            nama_siswa: 'Iqbal Ramadhan'
+                            level: IX
+                            tagihan: []
+                          -
+                            id_siswa: '46'
+                            nama_siswa: 'Nina Anggraini'
+                            level: VIII
+                            tagihan: []
+                          -
+                            id_siswa: '43'
+                            nama_siswa: 'Rudi Hartono'
+                            level: VIII
+                            tagihan: []
+                          -
+                            id_siswa: '44'
+                            nama_siswa: 'Sari Melati'
+                            level: VIII
+                            tagihan: []
+                        items:
+                          type: object
+                          properties:
+                            id_siswa:
+                              type: string
+                              example: '41'
+                            nama_siswa:
+                              type: string
+                              example: 'Ahmad Budie'
+                            level:
+                              type: string
+                              example: III
+                            tagihan:
+                              type: array
+                              example:
+                                -
+                                  nama_tagihan: SPP
+                                  nominal: 10000000
+                                -
+                                  nama_tagihan: KBM
+                                  nominal: 10000000
+                                -
+                                  nama_tagihan: Pemeliharaan
+                                  nominal: 3000000
+                                -
+                                  nama_tagihan: Sumbangan
+                                  nominal: 4000000
+                              items:
+                                type: object
+                                properties:
+                                  nama_tagihan:
+                                    type: string
+                                    example: SPP
+                                  nominal:
+                                    type: integer
+                                    example: 10000000
+                      first_page_url:
+                        type: string
+                        example: 'http://localhost/api/monitoring-techno?page=1'
+                      from:
+                        type: integer
+                        example: 1
+                      last_page:
+                        type: integer
+                        example: 1
+                      last_page_url:
+                        type: string
+                        example: 'http://localhost/api/monitoring-techno?page=1'
+                      links:
+                        type: array
+                        example:
+                          -
+                            url: null
+                            label: '&laquo; Previous'
+                            active: false
+                          -
+                            url: 'http://localhost/api/monitoring-techno?page=1'
+                            label: '1'
+                            active: true
+                          -
+                            url: null
+                            label: 'Next &raquo;'
+                            active: false
+                        items:
+                          type: object
+                          properties:
+                            url:
+                              type: string
+                              example: null
+                            label:
+                              type: string
+                              example: '&laquo; Previous'
+                            active:
+                              type: boolean
+                              example: false
+                      next_page_url:
+                        type: string
+                        example: null
+                      path:
+                        type: string
+                        example: 'http://localhost/api/monitoring-techno'
+                      per_page:
+                        type: integer
+                        example: 10
+                      prev_page_url:
+                        type: string
+                        example: null
+                      to:
+                        type: integer
+                        example: 10
+                      total:
+                        type: integer
+                        example: 10
+      tags:
+        - Endpoints
+  '/api/monitoring-techno/detail-kontrak/{id}':
+    get:
+      summary: ''
+      operationId: getApiMonitoringTechnoDetailKontrakId
+      description: ''
+      parameters: []
+      responses:
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Siswa tidak ditemukan'
+                properties:
+                  message:
+                    type: string
+                    example: 'Siswa tidak ditemukan'
+      tags:
+        - Endpoints
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the detail kontrak.'
+        example: architecto
+        required: true
+        schema:
+          type: string
+  '/api/monitoring-techno/pembayaran-siswa/{id}':
+    get:
+      summary: ''
+      operationId: getApiMonitoringTechnoPembayaranSiswaId
+      description: ''
+      parameters: []
+      responses:
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Siswa tidak ditemukan'
+                properties:
+                  message:
+                    type: string
+                    example: 'Siswa tidak ditemukan'
+      tags:
+        - Endpoints
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the pembayaran siswa.'
+        example: architecto
+        required: true
+        schema:
+          type: string
+  /api/monitoring-bk:
+    get:
+      summary: ''
+      operationId: getApiMonitoringBk
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: success
+                  data:
+                    current_page: 1
+                    data:
+                      -
+                        id_siswa: '33'
+                        nama_siswa: 'ASSIFA KHAIRU NISA'
+                        level: XI
+                        akademik: Praxis
+                        tagihan_boarding: 0
+                        tagihan_konsumsi: null
+                        tagihan: []
+                      -
+                        id_siswa: '18'
+                        nama_siswa: 'Rudi Kurniawan'
+                        level: XII
+                        akademik: Praxis
+                        tagihan_boarding: 3500000
+                        tagihan_konsumsi: null
+                        tagihan:
+                          -
+                            nama_tagihan: Boarding
+                            nominal: 3500000
+                      -
+                        id_siswa: '2'
+                        nama_siswa: 'Siti Aminah'
+                        level: X
+                        akademik: Praxis
+                        tagihan_boarding: 3500000
+                        tagihan_konsumsi: 800000
+                        tagihan:
+                          -
+                            nama_tagihan: Boarding
+                            nominal: 3500000
+                          -
+                            nama_tagihan: Konsumsi
+                            nominal: 800000
+                      -
+                        id_siswa: '21'
+                        nama_siswa: 'Tobirama ibn Senju'
+                        level: XI
+                        akademik: Praxis
+                        tagihan_boarding: null
+                        tagihan_konsumsi: 793000
+                        tagihan:
+                          -
+                            nama_tagihan: Konsumsi
+                            nominal: 793000
+                    first_page_url: 'http://localhost/api/monitoring-bk?page=1'
+                    from: 1
+                    last_page: 1
+                    last_page_url: 'http://localhost/api/monitoring-bk?page=1'
+                    links:
+                      -
+                        url: null
+                        label: '&laquo; Previous'
+                        active: false
+                      -
+                        url: 'http://localhost/api/monitoring-bk?page=1'
+                        label: '1'
+                        active: true
+                      -
+                        url: null
+                        label: 'Next &raquo;'
+                        active: false
+                    next_page_url: null
+                    path: 'http://localhost/api/monitoring-bk'
+                    per_page: 10
+                    prev_page_url: null
+                    to: 4
+                    total: 4
+                properties:
+                  status:
+                    type: string
+                    example: success
+                  data:
+                    type: object
+                    properties:
+                      current_page:
+                        type: integer
+                        example: 1
+                      data:
+                        type: array
+                        example:
+                          -
+                            id_siswa: '33'
+                            nama_siswa: 'ASSIFA KHAIRU NISA'
+                            level: XI
+                            akademik: Praxis
+                            tagihan_boarding: 0
+                            tagihan_konsumsi: null
+                            tagihan: []
+                          -
+                            id_siswa: '18'
+                            nama_siswa: 'Rudi Kurniawan'
+                            level: XII
+                            akademik: Praxis
+                            tagihan_boarding: 3500000
+                            tagihan_konsumsi: null
+                            tagihan:
+                              -
+                                nama_tagihan: Boarding
+                                nominal: 3500000
+                          -
+                            id_siswa: '2'
+                            nama_siswa: 'Siti Aminah'
+                            level: X
+                            akademik: Praxis
+                            tagihan_boarding: 3500000
+                            tagihan_konsumsi: 800000
+                            tagihan:
+                              -
+                                nama_tagihan: Boarding
+                                nominal: 3500000
+                              -
+                                nama_tagihan: Konsumsi
+                                nominal: 800000
+                          -
+                            id_siswa: '21'
+                            nama_siswa: 'Tobirama ibn Senju'
+                            level: XI
+                            akademik: Praxis
+                            tagihan_boarding: null
+                            tagihan_konsumsi: 793000
+                            tagihan:
+                              -
+                                nama_tagihan: Konsumsi
+                                nominal: 793000
+                        items:
+                          type: object
+                          properties:
+                            id_siswa:
+                              type: string
+                              example: '33'
+                            nama_siswa:
+                              type: string
+                              example: 'ASSIFA KHAIRU NISA'
+                            level:
+                              type: string
+                              example: XI
+                            akademik:
+                              type: string
+                              example: Praxis
+                            tagihan_boarding:
+                              type: integer
+                              example: 0
+                            tagihan_konsumsi:
+                              type: string
+                              example: null
+                            tagihan:
+                              type: array
+                              example: []
+                      first_page_url:
+                        type: string
+                        example: 'http://localhost/api/monitoring-bk?page=1'
+                      from:
+                        type: integer
+                        example: 1
+                      last_page:
+                        type: integer
+                        example: 1
+                      last_page_url:
+                        type: string
+                        example: 'http://localhost/api/monitoring-bk?page=1'
+                      links:
+                        type: array
+                        example:
+                          -
+                            url: null
+                            label: '&laquo; Previous'
+                            active: false
+                          -
+                            url: 'http://localhost/api/monitoring-bk?page=1'
+                            label: '1'
+                            active: true
+                          -
+                            url: null
+                            label: 'Next &raquo;'
+                            active: false
+                        items:
+                          type: object
+                          properties:
+                            url:
+                              type: string
+                              example: null
+                            label:
+                              type: string
+                              example: '&laquo; Previous'
+                            active:
+                              type: boolean
+                              example: false
+                      next_page_url:
+                        type: string
+                        example: null
+                      path:
+                        type: string
+                        example: 'http://localhost/api/monitoring-bk'
+                      per_page:
+                        type: integer
+                        example: 10
+                      prev_page_url:
+                        type: string
+                        example: null
+                      to:
+                        type: integer
+                        example: 4
+                      total:
+                        type: integer
+                        example: 4
+      tags:
+        - Endpoints
+  '/api/monitoring-bk/pembayaran-siswa/{id}':
+    get:
+      summary: ''
+      operationId: getApiMonitoringBkPembayaranSiswaId
+      description: ''
+      parameters: []
+      responses:
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Siswa tidak ditemukan'
+                properties:
+                  message:
+                    type: string
+                    example: 'Siswa tidak ditemukan'
+      tags:
+        - Endpoints
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the pembayaran siswa.'
+        example: architecto
+        required: true
+        schema:
+          type: string
+  '/api/monitoring-bk/detail-pembayaran/{id}':
+    get:
+      summary: ''
+      operationId: getApiMonitoringBkDetailPembayaranId
+      description: ''
+      parameters: []
+      responses:
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Siswa tidak ditemukan'
+                properties:
+                  message:
+                    type: string
+                    example: 'Siswa tidak ditemukan'
+      tags:
+        - Endpoints
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the detail pembayaran.'
+        example: architecto
+        required: true
+        schema:
+          type: string
+  /api/monitoring-bk/pembayaran:
+    post:
+      summary: ''
+      operationId: postApiMonitoringBkPembayaran
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id_siswa:
+                  type: string
+                  description: 'The <code>id_siswa</code> of an existing record in the siswa table. Must not be greater than 10 characters.'
+                  example: bngzmi
+                  nullable: false
+                tanggal_pembayaran:
+                  type: string
+                  description: 'Must be a valid date.'
+                  example: '2025-07-14T14:54:06'
+                  nullable: false
+                uang_boarding:
+                  type: integer
+                  description: 'Must match the regex /^\d+$/.'
+                  example: '564'
+                  nullable: true
+                uang_konsumsi:
+                  type: integer
+                  description: 'Must match the regex /^\d+$/.'
+                  example: '564'
+                  nullable: true
+                catatan:
+                  type: string
+                  description: ''
+                  example: architecto
+                  nullable: true
+              required:
+                - id_siswa
+                - tanggal_pembayaran
+  /api/monitoring-bk/create-siswa/boarding:
+    post:
+      summary: ''
+      operationId: postApiMonitoringBkCreateSiswaBoarding
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                nisn:
+                  type: string
+                  description: "'id_siswa' => 'required|string|max:10|exists:siswa,id_siswa',. The <code>nisn</code> of an existing record in the siswa table."
+                  example: architecto
+                  nullable: false
+                tanggal_mulai:
+                  type: string
+                  description: 'Must be a valid date.'
+                  example: '2025-07-14T14:54:06'
+                  nullable: false
+                tanggal_selesai:
+                  type: string
+                  description: 'Must be a valid date.'
+                  example: '2025-07-14T14:54:06'
+                  nullable: false
+                tagihan:
+                  type: integer
+                  description: 'Must match the regex /^\d+$/.'
+                  example: '564'
+                  nullable: false
+                catatan:
+                  type: string
+                  description: ''
+                  example: architecto
+                  nullable: true
+              required:
+                - nisn
+                - tanggal_mulai
+                - tanggal_selesai
+                - tagihan
+  /api/monitoring-bk/create-siswa/konsumsi:
+    post:
+      summary: ''
+      operationId: postApiMonitoringBkCreateSiswaKonsumsi
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                nisn:
+                  type: string
+                  description: "'id_siswa' => 'required|string|max:10|exists:siswa,id_siswa',. The <code>nisn</code> of an existing record in the siswa table."
+                  example: architecto
+                  nullable: false
+                tanggal_mulai:
+                  type: string
+                  description: 'Must be a valid date.'
+                  example: '2025-07-14T14:54:06'
+                  nullable: false
+                tanggal_selesai:
+                  type: string
+                  description: 'Must be a valid date.'
+                  example: '2025-07-14T14:54:06'
+                  nullable: false
+                tagihan:
+                  type: integer
+                  description: 'Must match the regex /^\d+$/.'
+                  example: '564'
+                  nullable: false
+                catatan:
+                  type: string
+                  description: ''
+                  example: architecto
+                  nullable: true
+              required:
+                - nisn
+                - tanggal_mulai
+                - tanggal_selesai
+                - tagihan
+  '/api/monitoring-bk/detail/{id}':
+    get:
+      summary: ''
+      operationId: getApiMonitoringBkDetailId
+      description: ''
+      parameters: []
+      responses:
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: error
+                  message: 'Siswa tidak ditemukan'
+                properties:
+                  status:
+                    type: string
+                    example: error
+                  message:
+                    type: string
+                    example: 'Siswa tidak ditemukan'
+      tags:
+        - Endpoints
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the detail.'
+        example: architecto
+        required: true
+        schema:
+          type: string
+  '/api/monitoring-bk/update/{id}':
+    put:
+      summary: ''
+      operationId: putApiMonitoringBkUpdateId
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the update.'
+        example: architecto
+        required: true
+        schema:
+          type: string
+  /api/monitoring-uang-saku:
+    get:
+      summary: ''
+      operationId: getApiMonitoringUangSaku
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: success
+                  data:
+                    current_page: 1
+                    data:
+                      -
+                        id_siswa: '5'
+                        nama_siswa: 'Agus Prasetyo'
+                        nisn: SIS000005
+                        level: '-'
+                        akademik: Praxis
+                        tagihan: []
+                        uang_saku: null
+                      -
+                        id_siswa: '41'
+                        nama_siswa: 'Ahmad Budie'
+                        nisn: '1000012345'
+                        level: III
+                        akademik: Techno
+                        tagihan: []
+                        uang_saku: null
+                      -
+                        id_siswa: '33'
+                        nama_siswa: 'ASSIFA KHAIRU NISA'
+                        nisn: '1234567890'
+                        level: XI
+                        akademik: Praxis
+                        tagihan: []
+                        uang_saku: null
+                      -
+                        id_siswa: '16'
+                        nama_siswa: Atika
+                        nisn: '0987654'
+                        level: '-'
+                        akademik: Praxis
+                        tagihan: []
+                        uang_saku: null
+                      -
+                        id_siswa: '45'
+                        nama_siswa: 'Bambang Setiawan'
+                        nisn: '100005'
+                        level: VIII
+                        akademik: Techno
+                        tagihan: []
+                        uang_saku: null
+                      -
+                        id_siswa: '52'
+                        nama_siswa: 'Belda Putri'
+                        nisn: '12345678888'
+                        level: V
+                        akademik: Techno
+                        tagihan: []
+                        uang_saku: null
+                      -
+                        id_siswa: '29'
+                        nama_siswa: Budi
+                        nisn: '6878679'
+                        level: X
+                        akademik: Praxis
+                        tagihan: []
+                        uang_saku: null
+                      -
+                        id_siswa: '27'
+                        nama_siswa: Budi
+                        nisn: '12345678978'
+                        level: X
+                        akademik: Praxis
+                        tagihan: []
+                        uang_saku: null
+                      -
+                        id_siswa: '28'
+                        nama_siswa: Budi
+                        nisn: '123456789878'
+                        level: X
+                        akademik: Praxis
+                        tagihan: []
+                        uang_saku: null
+                      -
+                        id_siswa: '17'
+                        nama_siswa: 'Budi Budiman Mandibud'
+                        nisn: '1234567898'
+                        level: XI
+                        akademik: Praxis
+                        tagihan: []
+                        uang_saku: null
+                    first_page_url: 'http://localhost/api/monitoring-uang-saku?page=1'
+                    from: 1
+                    last_page: 4
+                    last_page_url: 'http://localhost/api/monitoring-uang-saku?page=4'
+                    links:
+                      -
+                        url: null
+                        label: '&laquo; Previous'
+                        active: false
+                      -
+                        url: 'http://localhost/api/monitoring-uang-saku?page=1'
+                        label: '1'
+                        active: true
+                      -
+                        url: 'http://localhost/api/monitoring-uang-saku?page=2'
+                        label: '2'
+                        active: false
+                      -
+                        url: 'http://localhost/api/monitoring-uang-saku?page=3'
+                        label: '3'
+                        active: false
+                      -
+                        url: 'http://localhost/api/monitoring-uang-saku?page=4'
+                        label: '4'
+                        active: false
+                      -
+                        url: 'http://localhost/api/monitoring-uang-saku?page=2'
+                        label: 'Next &raquo;'
+                        active: false
+                    next_page_url: 'http://localhost/api/monitoring-uang-saku?page=2'
+                    path: 'http://localhost/api/monitoring-uang-saku'
+                    per_page: 10
+                    prev_page_url: null
+                    to: 10
+                    total: 36
+                properties:
+                  status:
+                    type: string
+                    example: success
+                  data:
+                    type: object
+                    properties:
+                      current_page:
+                        type: integer
+                        example: 1
+                      data:
+                        type: array
+                        example:
+                          -
+                            id_siswa: '5'
+                            nama_siswa: 'Agus Prasetyo'
+                            nisn: SIS000005
+                            level: '-'
+                            akademik: Praxis
+                            tagihan: []
+                            uang_saku: null
+                          -
+                            id_siswa: '41'
+                            nama_siswa: 'Ahmad Budie'
+                            nisn: '1000012345'
+                            level: III
+                            akademik: Techno
+                            tagihan: []
+                            uang_saku: null
+                          -
+                            id_siswa: '33'
+                            nama_siswa: 'ASSIFA KHAIRU NISA'
+                            nisn: '1234567890'
+                            level: XI
+                            akademik: Praxis
+                            tagihan: []
+                            uang_saku: null
+                          -
+                            id_siswa: '16'
+                            nama_siswa: Atika
+                            nisn: '0987654'
+                            level: '-'
+                            akademik: Praxis
+                            tagihan: []
+                            uang_saku: null
+                          -
+                            id_siswa: '45'
+                            nama_siswa: 'Bambang Setiawan'
+                            nisn: '100005'
+                            level: VIII
+                            akademik: Techno
+                            tagihan: []
+                            uang_saku: null
+                          -
+                            id_siswa: '52'
+                            nama_siswa: 'Belda Putri'
+                            nisn: '12345678888'
+                            level: V
+                            akademik: Techno
+                            tagihan: []
+                            uang_saku: null
+                          -
+                            id_siswa: '29'
+                            nama_siswa: Budi
+                            nisn: '6878679'
+                            level: X
+                            akademik: Praxis
+                            tagihan: []
+                            uang_saku: null
+                          -
+                            id_siswa: '27'
+                            nama_siswa: Budi
+                            nisn: '12345678978'
+                            level: X
+                            akademik: Praxis
+                            tagihan: []
+                            uang_saku: null
+                          -
+                            id_siswa: '28'
+                            nama_siswa: Budi
+                            nisn: '123456789878'
+                            level: X
+                            akademik: Praxis
+                            tagihan: []
+                            uang_saku: null
+                          -
+                            id_siswa: '17'
+                            nama_siswa: 'Budi Budiman Mandibud'
+                            nisn: '1234567898'
+                            level: XI
+                            akademik: Praxis
+                            tagihan: []
+                            uang_saku: null
+                        items:
+                          type: object
+                          properties:
+                            id_siswa:
+                              type: string
+                              example: '5'
+                            nama_siswa:
+                              type: string
+                              example: 'Agus Prasetyo'
+                            nisn:
+                              type: string
+                              example: SIS000005
+                            level:
+                              type: string
+                              example: '-'
+                            akademik:
+                              type: string
+                              example: Praxis
+                            tagihan:
+                              type: array
+                              example: []
+                            uang_saku:
+                              type: string
+                              example: null
+                      first_page_url:
+                        type: string
+                        example: 'http://localhost/api/monitoring-uang-saku?page=1'
+                      from:
+                        type: integer
+                        example: 1
+                      last_page:
+                        type: integer
+                        example: 4
+                      last_page_url:
+                        type: string
+                        example: 'http://localhost/api/monitoring-uang-saku?page=4'
+                      links:
+                        type: array
+                        example:
+                          -
+                            url: null
+                            label: '&laquo; Previous'
+                            active: false
+                          -
+                            url: 'http://localhost/api/monitoring-uang-saku?page=1'
+                            label: '1'
+                            active: true
+                          -
+                            url: 'http://localhost/api/monitoring-uang-saku?page=2'
+                            label: '2'
+                            active: false
+                          -
+                            url: 'http://localhost/api/monitoring-uang-saku?page=3'
+                            label: '3'
+                            active: false
+                          -
+                            url: 'http://localhost/api/monitoring-uang-saku?page=4'
+                            label: '4'
+                            active: false
+                          -
+                            url: 'http://localhost/api/monitoring-uang-saku?page=2'
+                            label: 'Next &raquo;'
+                            active: false
+                        items:
+                          type: object
+                          properties:
+                            url:
+                              type: string
+                              example: null
+                            label:
+                              type: string
+                              example: '&laquo; Previous'
+                            active:
+                              type: boolean
+                              example: false
+                      next_page_url:
+                        type: string
+                        example: 'http://localhost/api/monitoring-uang-saku?page=2'
+                      path:
+                        type: string
+                        example: 'http://localhost/api/monitoring-uang-saku'
+                      per_page:
+                        type: integer
+                        example: 10
+                      prev_page_url:
+                        type: string
+                        example: null
+                      to:
+                        type: integer
+                        example: 10
+                      total:
+                        type: integer
+                        example: 36
+      tags:
+        - Endpoints
+  '/api/monitoring-uang-saku/topup/{id}':
+    get:
+      summary: ''
+      operationId: getApiMonitoringUangSakuTopupId
+      description: ''
+      parameters: []
+      responses:
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Siswa tidak ditemukan'
+                properties:
+                  message:
+                    type: string
+                    example: 'Siswa tidak ditemukan'
+      tags:
+        - Endpoints
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the topup.'
+        example: architecto
+        required: true
+        schema:
+          type: string
+  '/api/monitoring-uang-saku/pengeluaran/{id}':
+    get:
+      summary: ''
+      operationId: getApiMonitoringUangSakuPengeluaranId
+      description: ''
+      parameters: []
+      responses:
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Siswa tidak ditemukan'
+                properties:
+                  message:
+                    type: string
+                    example: 'Siswa tidak ditemukan'
+      tags:
+        - Endpoints
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the pengeluaran.'
+        example: architecto
+        required: true
+        schema:
+          type: string
+  /api/monitoring-uang-saku/topup:
+    post:
+      summary: ''
+      operationId: postApiMonitoringUangSakuTopup
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id_siswa:
+                  type: string
+                  description: 'The <code>id_siswa</code> of an existing record in the siswa table. Must not be greater than 10 characters.'
+                  example: bngzmi
+                  nullable: false
+                nama_siswa:
+                  type: string
+                  description: 'The <code>nama_siswa</code> of an existing record in the siswa table. Must not be greater than 255 characters.'
+                  example: 'y'
+                  nullable: false
+                tanggal_pembayaran:
+                  type: string
+                  description: 'Must be a valid date.'
+                  example: '2025-07-14T14:54:08'
+                  nullable: false
+                nominal:
+                  type: integer
+                  description: 'Must match the regex /^\d+$/.'
+                  example: '564'
+                  nullable: false
+                catatan:
+                  type: string
+                  description: ''
+                  example: architecto
+                  nullable: true
+              required:
+                - id_siswa
+                - nama_siswa
+                - tanggal_pembayaran
+                - nominal
+  /api/monitoring-uang-saku/pengeluaran:
+    post:
+      summary: ''
+      operationId: postApiMonitoringUangSakuPengeluaran
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id_siswa:
+                  type: string
+                  description: 'The <code>id_siswa</code> of an existing record in the siswa table. Must not be greater than 10 characters.'
+                  example: bngzmi
+                  nullable: false
+                nama_siswa:
+                  type: string
+                  description: 'The <code>nama_siswa</code> of an existing record in the siswa table. Must not be greater than 255 characters.'
+                  example: 'y'
+                  nullable: false
+                tanggal_pengeluaran:
+                  type: string
+                  description: 'Must be a valid date.'
+                  example: '2025-07-14T14:54:08'
+                  nullable: false
+                nominal:
+                  type: integer
+                  description: 'Must match the regex /^\d+$/.'
+                  example: '564'
+                  nullable: false
+                catatan:
+                  type: string
+                  description: ''
+                  example: architecto
+                  nullable: true
+              required:
+                - id_siswa
+                - nama_siswa
+                - tanggal_pengeluaran
+                - nominal
+  '/api/monitoring-uang-saku/detail/{id}':
+    get:
+      summary: ''
+      operationId: getApiMonitoringUangSakuDetailId
+      description: ''
+      parameters: []
+      responses:
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Siswa tidak ditemukan'
+                properties:
+                  message:
+                    type: string
+                    example: 'Siswa tidak ditemukan'
+      tags:
+        - Endpoints
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the detail.'
+        example: architecto
+        required: true
+        schema:
+          type: string
+  /api/monitoring-ekstra:
+    get:
+      summary: ''
+      operationId: getApiMonitoringEkstra
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: success
+                  data:
+                    current_page: 1
+                    data:
+                      -
+                        id_siswa: '41'
+                        nama_siswa: 'Ahmad Budie'
+                        level: III
+                        akademik: Techno
+                        ekstra:
+                          -
+                            id_ekstra_siswa: '6'
+                            id_ekstra: '2'
+                            nama_ekstra: Panahan
+                            tagihan_ekstra: '0'
+                          -
+                            id_ekstra_siswa: '7'
+                            id_ekstra: '3'
+                            nama_ekstra: Voli
+                            tagihan_ekstra: '0'
+                          -
+                            id_ekstra_siswa: '8'
+                            id_ekstra: '1'
+                            nama_ekstra: Piano
+                            tagihan_ekstra: 3.000.000
+                        tagihan:
+                          -
+                            nama_tagihan: Piano
+                            nominal: 3000000
+                      -
+                        id_siswa: '33'
+                        nama_siswa: 'ASSIFA KHAIRU NISA'
+                        level: XI
+                        akademik: Praxis
+                        ekstra:
+                          -
+                            id_ekstra_siswa: '3'
+                            id_ekstra: '1'
+                            nama_ekstra: Piano
+                            tagihan_ekstra: '0'
+                          -
+                            id_ekstra_siswa: '4'
+                            id_ekstra: '3'
+                            nama_ekstra: Voli
+                            tagihan_ekstra: '0'
+                          -
+                            id_ekstra_siswa: '5'
+                            id_ekstra: '1'
+                            nama_ekstra: Piano
+                            tagihan_ekstra: '0'
+                        tagihan: []
+                      -
+                        id_siswa: '43'
+                        nama_siswa: 'Rudi Hartono'
+                        level: VIII
+                        akademik: Techno
+                        ekstra:
+                          -
+                            id_ekstra_siswa: '10'
+                            id_ekstra: '2'
+                            nama_ekstra: Panahan
+                            tagihan_ekstra: '100.000'
+                          -
+                            id_ekstra_siswa: '9'
+                            id_ekstra: '4'
+                            nama_ekstra: Gulat
+                            tagihan_ekstra: '200.000'
+                        tagihan:
+                          -
+                            nama_tagihan: Panahan
+                            nominal: 100000
+                          -
+                            nama_tagihan: Gulat
+                            nominal: 200000
+                      -
+                        id_siswa: '2'
+                        nama_siswa: 'Siti Aminah'
+                        level: X
+                        akademik: Praxis
+                        ekstra:
+                          -
+                            id_ekstra_siswa: '1'
+                            id_ekstra: '1'
+                            nama_ekstra: Piano
+                            tagihan_ekstra: '300.000'
+                          -
+                            id_ekstra_siswa: '2'
+                            id_ekstra: '2'
+                            nama_ekstra: Panahan
+                            tagihan_ekstra: '100.000'
+                        tagihan:
+                          -
+                            nama_tagihan: Piano
+                            nominal: 300000
+                          -
+                            nama_tagihan: Panahan
+                            nominal: 100000
+                    first_page_url: 'http://localhost/api/monitoring-ekstra?page=1'
+                    from: 1
+                    last_page: 1
+                    last_page_url: 'http://localhost/api/monitoring-ekstra?page=1'
+                    links:
+                      -
+                        url: null
+                        label: '&laquo; Previous'
+                        active: false
+                      -
+                        url: 'http://localhost/api/monitoring-ekstra?page=1'
+                        label: '1'
+                        active: true
+                      -
+                        url: null
+                        label: 'Next &raquo;'
+                        active: false
+                    next_page_url: null
+                    path: 'http://localhost/api/monitoring-ekstra'
+                    per_page: 10
+                    prev_page_url: null
+                    to: 4
+                    total: 4
+                properties:
+                  status:
+                    type: string
+                    example: success
+                  data:
+                    type: object
+                    properties:
+                      current_page:
+                        type: integer
+                        example: 1
+                      data:
+                        type: array
+                        example:
+                          -
+                            id_siswa: '41'
+                            nama_siswa: 'Ahmad Budie'
+                            level: III
+                            akademik: Techno
+                            ekstra:
+                              -
+                                id_ekstra_siswa: '6'
+                                id_ekstra: '2'
+                                nama_ekstra: Panahan
+                                tagihan_ekstra: '0'
+                              -
+                                id_ekstra_siswa: '7'
+                                id_ekstra: '3'
+                                nama_ekstra: Voli
+                                tagihan_ekstra: '0'
+                              -
+                                id_ekstra_siswa: '8'
+                                id_ekstra: '1'
+                                nama_ekstra: Piano
+                                tagihan_ekstra: 3.000.000
+                            tagihan:
+                              -
+                                nama_tagihan: Piano
+                                nominal: 3000000
+                          -
+                            id_siswa: '33'
+                            nama_siswa: 'ASSIFA KHAIRU NISA'
+                            level: XI
+                            akademik: Praxis
+                            ekstra:
+                              -
+                                id_ekstra_siswa: '3'
+                                id_ekstra: '1'
+                                nama_ekstra: Piano
+                                tagihan_ekstra: '0'
+                              -
+                                id_ekstra_siswa: '4'
+                                id_ekstra: '3'
+                                nama_ekstra: Voli
+                                tagihan_ekstra: '0'
+                              -
+                                id_ekstra_siswa: '5'
+                                id_ekstra: '1'
+                                nama_ekstra: Piano
+                                tagihan_ekstra: '0'
+                            tagihan: []
+                          -
+                            id_siswa: '43'
+                            nama_siswa: 'Rudi Hartono'
+                            level: VIII
+                            akademik: Techno
+                            ekstra:
+                              -
+                                id_ekstra_siswa: '10'
+                                id_ekstra: '2'
+                                nama_ekstra: Panahan
+                                tagihan_ekstra: '100.000'
+                              -
+                                id_ekstra_siswa: '9'
+                                id_ekstra: '4'
+                                nama_ekstra: Gulat
+                                tagihan_ekstra: '200.000'
+                            tagihan:
+                              -
+                                nama_tagihan: Panahan
+                                nominal: 100000
+                              -
+                                nama_tagihan: Gulat
+                                nominal: 200000
+                          -
+                            id_siswa: '2'
+                            nama_siswa: 'Siti Aminah'
+                            level: X
+                            akademik: Praxis
+                            ekstra:
+                              -
+                                id_ekstra_siswa: '1'
+                                id_ekstra: '1'
+                                nama_ekstra: Piano
+                                tagihan_ekstra: '300.000'
+                              -
+                                id_ekstra_siswa: '2'
+                                id_ekstra: '2'
+                                nama_ekstra: Panahan
+                                tagihan_ekstra: '100.000'
+                            tagihan:
+                              -
+                                nama_tagihan: Piano
+                                nominal: 300000
+                              -
+                                nama_tagihan: Panahan
+                                nominal: 100000
+                        items:
+                          type: object
+                          properties:
+                            id_siswa:
+                              type: string
+                              example: '41'
+                            nama_siswa:
+                              type: string
+                              example: 'Ahmad Budie'
+                            level:
+                              type: string
+                              example: III
+                            akademik:
+                              type: string
+                              example: Techno
+                            ekstra:
+                              type: array
+                              example:
+                                -
+                                  id_ekstra_siswa: '6'
+                                  id_ekstra: '2'
+                                  nama_ekstra: Panahan
+                                  tagihan_ekstra: '0'
+                                -
+                                  id_ekstra_siswa: '7'
+                                  id_ekstra: '3'
+                                  nama_ekstra: Voli
+                                  tagihan_ekstra: '0'
+                                -
+                                  id_ekstra_siswa: '8'
+                                  id_ekstra: '1'
+                                  nama_ekstra: Piano
+                                  tagihan_ekstra: 3.000.000
+                              items:
+                                type: object
+                                properties:
+                                  id_ekstra_siswa:
+                                    type: string
+                                    example: '6'
+                                  id_ekstra:
+                                    type: string
+                                    example: '2'
+                                  nama_ekstra:
+                                    type: string
+                                    example: Panahan
+                                  tagihan_ekstra:
+                                    type: string
+                                    example: '0'
+                            tagihan:
+                              type: array
+                              example:
+                                -
+                                  nama_tagihan: Piano
+                                  nominal: 3000000
+                              items:
+                                type: object
+                                properties:
+                                  nama_tagihan:
+                                    type: string
+                                    example: Piano
+                                  nominal:
+                                    type: integer
+                                    example: 3000000
+                      first_page_url:
+                        type: string
+                        example: 'http://localhost/api/monitoring-ekstra?page=1'
+                      from:
+                        type: integer
+                        example: 1
+                      last_page:
+                        type: integer
+                        example: 1
+                      last_page_url:
+                        type: string
+                        example: 'http://localhost/api/monitoring-ekstra?page=1'
+                      links:
+                        type: array
+                        example:
+                          -
+                            url: null
+                            label: '&laquo; Previous'
+                            active: false
+                          -
+                            url: 'http://localhost/api/monitoring-ekstra?page=1'
+                            label: '1'
+                            active: true
+                          -
+                            url: null
+                            label: 'Next &raquo;'
+                            active: false
+                        items:
+                          type: object
+                          properties:
+                            url:
+                              type: string
+                              example: null
+                            label:
+                              type: string
+                              example: '&laquo; Previous'
+                            active:
+                              type: boolean
+                              example: false
+                      next_page_url:
+                        type: string
+                        example: null
+                      path:
+                        type: string
+                        example: 'http://localhost/api/monitoring-ekstra'
+                      per_page:
+                        type: integer
+                        example: 10
+                      prev_page_url:
+                        type: string
+                        example: null
+                      to:
+                        type: integer
+                        example: 4
+                      total:
+                        type: integer
+                        example: 4
+      tags:
+        - Endpoints
+  /api/monitoring-ekstra/create-siswa:
+    post:
+      summary: ''
+      operationId: postApiMonitoringEkstraCreateSiswa
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                nisn:
+                  type: string
+                  description: 'The <code>nisn</code> of an existing record in the siswa table.'
+                  example: architecto
+                  nullable: false
+                id_ekstra:
+                  type: array
+                  description: 'The <code>id_ekstra</code> of an existing record in the ekstra table.'
+                  example:
+                    - architecto
+                  items:
+                    type: string
+                tanggal_mulai:
+                  type: string
+                  description: 'Must be a valid date.'
+                  example: '2025-07-14T14:54:09'
+                  nullable: false
+                tanggal_selesai:
+                  type: string
+                  description: 'Must be a valid date.'
+                  example: '2025-07-14T14:54:09'
+                  nullable: false
+                catatan:
+                  type: string
+                  description: ''
+                  example: architecto
+                  nullable: true
+              required:
+                - nisn
+                - tanggal_mulai
+                - tanggal_selesai
+  '/api/monitoring-ekstra/pembayaran/{id}':
+    get:
+      summary: ''
+      operationId: getApiMonitoringEkstraPembayaranId
+      description: ''
+      parameters: []
+      responses:
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: error
+                  message: 'Data ekstra siswa tidak ditemukan.'
+                properties:
+                  status:
+                    type: string
+                    example: error
+                  message:
+                    type: string
+                    example: 'Data ekstra siswa tidak ditemukan.'
+      tags:
+        - Endpoints
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the pembayaran.'
+        example: architecto
+        required: true
+        schema:
+          type: string
+  /api/monitoring-ekstra/pembayaran:
+    post:
+      summary: ''
+      operationId: postApiMonitoringEkstraPembayaran
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id_siswa:
+                  type: string
+                  description: 'The <code>id_siswa</code> of an existing record in the siswa table. Must not be greater than 10 characters.'
+                  example: bngzmi
+                  nullable: false
+                nama_siswa:
+                  type: string
+                  description: 'The <code>nama_siswa</code> of an existing record in the siswa table. Must not be greater than 255 characters.'
+                  example: 'y'
+                  nullable: false
+                id_ekstra_siswa:
+                  type: string
+                  description: 'The <code>id_ekstra_siswa</code> of an existing record in the ekstra_siswa table.'
+                  example: architecto
+                  nullable: false
+                tanggal_pembayaran:
+                  type: string
+                  description: 'Must be a valid date.'
+                  example: '2025-07-14T14:54:10'
+                  nullable: false
+                nominal:
+                  type: integer
+                  description: 'Must match the regex /^\d+$/.'
+                  example: '564'
+                  nullable: false
+                catatan:
+                  type: string
+                  description: ''
+                  example: architecto
+                  nullable: true
+              required:
+                - id_siswa
+                - nama_siswa
+                - id_ekstra_siswa
+                - tanggal_pembayaran
+                - nominal
+  '/api/monitoring-ekstra/detail/{id}':
+    get:
+      summary: ''
+      operationId: getApiMonitoringEkstraDetailId
+      description: ''
+      parameters: []
+      responses:
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Ekstra yang diikuti siswa tidak ditemukan'
+                properties:
+                  message:
+                    type: string
+                    example: 'Ekstra yang diikuti siswa tidak ditemukan'
+      tags:
+        - Endpoints
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the detail.'
+        example: architecto
+        required: true
+        schema:
+          type: string
+  '/api/monitoring-ekstra/detail/ekstra-siswa/{id}':
+    get:
+      summary: ''
+      operationId: getApiMonitoringEkstraDetailEkstraSiswaId
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: success
+                  data:
+                    id_ekstra_siswa: '1'
+                    id_siswa: '2'
+                    nama_siswa: 'Siti Aminah'
+                    id_ekstra: '1'
+                    nama_ekstra: Piano
+                    tanggal_mulai: '2024-07-01'
+                    tanggal_selesai: '2024-07-18'
+                    tagihan_ekstra: 300000
+                    catatan: 'Siti ikut ekstra lagi'
+                properties:
+                  status:
+                    type: string
+                    example: success
+                  data:
+                    type: object
+                    properties:
+                      id_ekstra_siswa:
+                        type: string
+                        example: '1'
+                      id_siswa:
+                        type: string
+                        example: '2'
+                      nama_siswa:
+                        type: string
+                        example: 'Siti Aminah'
+                      id_ekstra:
+                        type: string
+                        example: '1'
+                      nama_ekstra:
+                        type: string
+                        example: Piano
+                      tanggal_mulai:
+                        type: string
+                        example: '2024-07-01'
+                      tanggal_selesai:
+                        type: string
+                        example: '2024-07-18'
+                      tagihan_ekstra:
+                        type: integer
+                        example: 300000
+                      catatan:
+                        type: string
+                        example: 'Siti ikut ekstra lagi'
+      tags:
+        - Endpoints
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the ekstra siswa.'
+        example: '1'
+        required: true
+        schema:
+          type: string
+  '/api/monitoring-ekstra/update/{id}':
+    put:
+      summary: ''
+      operationId: putApiMonitoringEkstraUpdateId
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the update.'
+        example: architecto
+        required: true
+        schema:
+          type: string
+  /api/monitoring-ekstra/ekstra:
+    get:
+      summary: ''
+      operationId: getApiMonitoringEkstraEkstra
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  current_page: 1
+                  data:
+                    -
+                      id_ekstra: '1'
+                      nama_ekstra: Piano
+                      biaya_ekstra: '250.000'
+                      created_at: '2025-07-12T12:44:23.000000Z'
+                      updated_at: '2025-07-12T12:44:23.000000Z'
+                    -
+                      id_ekstra: '2'
+                      nama_ekstra: Panahan
+                      biaya_ekstra: '200.000'
+                      created_at: '2025-07-12T12:44:23.000000Z'
+                      updated_at: '2025-07-12T12:44:23.000000Z'
+                    -
+                      id_ekstra: '3'
+                      nama_ekstra: Voli
+                      biaya_ekstra: '150.000'
+                      created_at: '2025-07-12T12:44:23.000000Z'
+                      updated_at: '2025-07-12T12:44:23.000000Z'
+                    -
+                      id_ekstra: '4'
+                      nama_ekstra: Gulat
+                      biaya_ekstra: '200.000'
+                      created_at: '2025-07-13T06:40:14.000000Z'
+                      updated_at: '2025-07-13T06:40:14.000000Z'
+                  first_page_url: 'http://localhost/api/monitoring-ekstra/ekstra?page=1'
+                  from: 1
+                  last_page: 1
+                  last_page_url: 'http://localhost/api/monitoring-ekstra/ekstra?page=1'
+                  links:
+                    -
+                      url: null
+                      label: '&laquo; Previous'
+                      active: false
+                    -
+                      url: 'http://localhost/api/monitoring-ekstra/ekstra?page=1'
+                      label: '1'
+                      active: true
+                    -
+                      url: null
+                      label: 'Next &raquo;'
+                      active: false
+                  next_page_url: null
+                  path: 'http://localhost/api/monitoring-ekstra/ekstra'
+                  per_page: 10
+                  prev_page_url: null
+                  to: 4
+                  total: 4
+                properties:
+                  current_page:
+                    type: integer
+                    example: 1
+                  data:
+                    type: array
+                    example:
+                      -
+                        id_ekstra: '1'
+                        nama_ekstra: Piano
+                        biaya_ekstra: '250.000'
+                        created_at: '2025-07-12T12:44:23.000000Z'
+                        updated_at: '2025-07-12T12:44:23.000000Z'
+                      -
+                        id_ekstra: '2'
+                        nama_ekstra: Panahan
+                        biaya_ekstra: '200.000'
+                        created_at: '2025-07-12T12:44:23.000000Z'
+                        updated_at: '2025-07-12T12:44:23.000000Z'
+                      -
+                        id_ekstra: '3'
+                        nama_ekstra: Voli
+                        biaya_ekstra: '150.000'
+                        created_at: '2025-07-12T12:44:23.000000Z'
+                        updated_at: '2025-07-12T12:44:23.000000Z'
+                      -
+                        id_ekstra: '4'
+                        nama_ekstra: Gulat
+                        biaya_ekstra: '200.000'
+                        created_at: '2025-07-13T06:40:14.000000Z'
+                        updated_at: '2025-07-13T06:40:14.000000Z'
+                    items:
+                      type: object
+                      properties:
+                        id_ekstra:
+                          type: string
+                          example: '1'
+                        nama_ekstra:
+                          type: string
+                          example: Piano
+                        biaya_ekstra:
+                          type: string
+                          example: '250.000'
+                        created_at:
+                          type: string
+                          example: '2025-07-12T12:44:23.000000Z'
+                        updated_at:
+                          type: string
+                          example: '2025-07-12T12:44:23.000000Z'
+                  first_page_url:
+                    type: string
+                    example: 'http://localhost/api/monitoring-ekstra/ekstra?page=1'
+                  from:
+                    type: integer
+                    example: 1
+                  last_page:
+                    type: integer
+                    example: 1
+                  last_page_url:
+                    type: string
+                    example: 'http://localhost/api/monitoring-ekstra/ekstra?page=1'
+                  links:
+                    type: array
+                    example:
+                      -
+                        url: null
+                        label: '&laquo; Previous'
+                        active: false
+                      -
+                        url: 'http://localhost/api/monitoring-ekstra/ekstra?page=1'
+                        label: '1'
+                        active: true
+                      -
+                        url: null
+                        label: 'Next &raquo;'
+                        active: false
+                    items:
+                      type: object
+                      properties:
+                        url:
+                          type: string
+                          example: null
+                        label:
+                          type: string
+                          example: '&laquo; Previous'
+                        active:
+                          type: boolean
+                          example: false
+                  next_page_url:
+                    type: string
+                    example: null
+                  path:
+                    type: string
+                    example: 'http://localhost/api/monitoring-ekstra/ekstra'
+                  per_page:
+                    type: integer
+                    example: 10
+                  prev_page_url:
+                    type: string
+                    example: null
+                  to:
+                    type: integer
+                    example: 4
+                  total:
+                    type: integer
+                    example: 4
+      tags:
+        - Endpoints
+  /api/monitoring-ekstra/ekstra/create:
+    post:
+      summary: ''
+      operationId: postApiMonitoringEkstraEkstraCreate
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                nama_ekstra:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: b
+                  nullable: false
+                biaya_ekstra:
+                  type: integer
+                  description: 'Must match the regex /^\d+$/.'
+                  example: '564'
+                  nullable: false
+              required:
+                - nama_ekstra
+                - biaya_ekstra
+  /api/ekstra/list:
+    get:
+      summary: ''
+      operationId: getApiEkstraList
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: success
+                  data:
+                    -
+                      id_ekstra: '1'
+                      nama_ekstra: Piano
+                      biaya_ekstra: 250000
+                    -
+                      id_ekstra: '2'
+                      nama_ekstra: Panahan
+                      biaya_ekstra: 200000
+                    -
+                      id_ekstra: '3'
+                      nama_ekstra: Voli
+                      biaya_ekstra: 150000
+                    -
+                      id_ekstra: '4'
+                      nama_ekstra: Gulat
+                      biaya_ekstra: 200000
+                properties:
+                  status:
+                    type: string
+                    example: success
+                  data:
+                    type: array
+                    example:
+                      -
+                        id_ekstra: '1'
+                        nama_ekstra: Piano
+                        biaya_ekstra: 250000
+                      -
+                        id_ekstra: '2'
+                        nama_ekstra: Panahan
+                        biaya_ekstra: 200000
+                      -
+                        id_ekstra: '3'
+                        nama_ekstra: Voli
+                        biaya_ekstra: 150000
+                      -
+                        id_ekstra: '4'
+                        nama_ekstra: Gulat
+                        biaya_ekstra: 200000
+                    items:
+                      type: object
+                      properties:
+                        id_ekstra:
+                          type: string
+                          example: '1'
+                        nama_ekstra:
+                          type: string
+                          example: Piano
+                        biaya_ekstra:
+                          type: integer
+                          example: 250000
+      tags:
+        - Endpoints
+  /api/monitoring-pengeluaran:
+    get:
+      summary: ''
+      operationId: getApiMonitoringPengeluaran
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  current_page: 1
+                  data:
+                    -
+                      id_pengeluaran: '3'
+                      id_jenis_pengeluaran: '1'
+                      id_user: '1'
+                      nama_pengeluaran: A
+                      total_pengeluaran: '2'
+                      created_at: '2025-07-13T07:51:32.000000Z'
+                      updated_at: '2025-07-13T07:51:47.000000Z'
+                      jenis_pengeluaran:
+                        id_jenis_pengeluaran: '1'
+                        nama_jenis_pengeluaran: Project
+                        created_at: '2025-07-12T12:44:24.000000Z'
+                        updated_at: '2025-07-12T12:44:24.000000Z'
+                    -
+                      id_pengeluaran: '1'
+                      id_jenis_pengeluaran: '1'
+                      id_user: '1'
+                      nama_pengeluaran: 'Persiapan Lomba Nasional'
+                      total_pengeluaran: 5.500.000
+                      created_at: '2025-07-12T12:44:26.000000Z'
+                      updated_at: '2025-07-13T13:32:44.000000Z'
+                      jenis_pengeluaran:
+                        id_jenis_pengeluaran: '1'
+                        nama_jenis_pengeluaran: Project
+                        created_at: '2025-07-12T12:44:24.000000Z'
+                        updated_at: '2025-07-12T12:44:24.000000Z'
+                    -
+                      id_pengeluaran: '2'
+                      id_jenis_pengeluaran: '2'
+                      id_user: '1'
+                      nama_pengeluaran: 'Perbaikan Elektronik Sekolah'
+                      total_pengeluaran: 4.536.000
+                      created_at: '2025-07-12T12:44:26.000000Z'
+                      updated_at: '2025-07-13T21:55:14.000000Z'
+                      jenis_pengeluaran:
+                        id_jenis_pengeluaran: '2'
+                        nama_jenis_pengeluaran: 'Non project'
+                        created_at: '2025-07-12T12:44:24.000000Z'
+                        updated_at: '2025-07-12T12:44:24.000000Z'
+                  first_page_url: 'http://localhost/api/monitoring-pengeluaran?page=1'
+                  from: 1
+                  last_page: 1
+                  last_page_url: 'http://localhost/api/monitoring-pengeluaran?page=1'
+                  links:
+                    -
+                      url: null
+                      label: '&laquo; Previous'
+                      active: false
+                    -
+                      url: 'http://localhost/api/monitoring-pengeluaran?page=1'
+                      label: '1'
+                      active: true
+                    -
+                      url: null
+                      label: 'Next &raquo;'
+                      active: false
+                  next_page_url: null
+                  path: 'http://localhost/api/monitoring-pengeluaran'
+                  per_page: 10
+                  prev_page_url: null
+                  to: 3
+                  total: 3
+                properties:
+                  current_page:
+                    type: integer
+                    example: 1
+                  data:
+                    type: array
+                    example:
+                      -
+                        id_pengeluaran: '3'
+                        id_jenis_pengeluaran: '1'
+                        id_user: '1'
+                        nama_pengeluaran: A
+                        total_pengeluaran: '2'
+                        created_at: '2025-07-13T07:51:32.000000Z'
+                        updated_at: '2025-07-13T07:51:47.000000Z'
+                        jenis_pengeluaran:
+                          id_jenis_pengeluaran: '1'
+                          nama_jenis_pengeluaran: Project
+                          created_at: '2025-07-12T12:44:24.000000Z'
+                          updated_at: '2025-07-12T12:44:24.000000Z'
+                      -
+                        id_pengeluaran: '1'
+                        id_jenis_pengeluaran: '1'
+                        id_user: '1'
+                        nama_pengeluaran: 'Persiapan Lomba Nasional'
+                        total_pengeluaran: 5.500.000
+                        created_at: '2025-07-12T12:44:26.000000Z'
+                        updated_at: '2025-07-13T13:32:44.000000Z'
+                        jenis_pengeluaran:
+                          id_jenis_pengeluaran: '1'
+                          nama_jenis_pengeluaran: Project
+                          created_at: '2025-07-12T12:44:24.000000Z'
+                          updated_at: '2025-07-12T12:44:24.000000Z'
+                      -
+                        id_pengeluaran: '2'
+                        id_jenis_pengeluaran: '2'
+                        id_user: '1'
+                        nama_pengeluaran: 'Perbaikan Elektronik Sekolah'
+                        total_pengeluaran: 4.536.000
+                        created_at: '2025-07-12T12:44:26.000000Z'
+                        updated_at: '2025-07-13T21:55:14.000000Z'
+                        jenis_pengeluaran:
+                          id_jenis_pengeluaran: '2'
+                          nama_jenis_pengeluaran: 'Non project'
+                          created_at: '2025-07-12T12:44:24.000000Z'
+                          updated_at: '2025-07-12T12:44:24.000000Z'
+                    items:
+                      type: object
+                      properties:
+                        id_pengeluaran:
+                          type: string
+                          example: '3'
+                        id_jenis_pengeluaran:
+                          type: string
+                          example: '1'
+                        id_user:
+                          type: string
+                          example: '1'
+                        nama_pengeluaran:
+                          type: string
+                          example: A
+                        total_pengeluaran:
+                          type: string
+                          example: '2'
+                        created_at:
+                          type: string
+                          example: '2025-07-13T07:51:32.000000Z'
+                        updated_at:
+                          type: string
+                          example: '2025-07-13T07:51:47.000000Z'
+                        jenis_pengeluaran:
+                          type: object
+                          properties:
+                            id_jenis_pengeluaran:
+                              type: string
+                              example: '1'
+                            nama_jenis_pengeluaran:
+                              type: string
+                              example: Project
+                            created_at:
+                              type: string
+                              example: '2025-07-12T12:44:24.000000Z'
+                            updated_at:
+                              type: string
+                              example: '2025-07-12T12:44:24.000000Z'
+                  first_page_url:
+                    type: string
+                    example: 'http://localhost/api/monitoring-pengeluaran?page=1'
+                  from:
+                    type: integer
+                    example: 1
+                  last_page:
+                    type: integer
+                    example: 1
+                  last_page_url:
+                    type: string
+                    example: 'http://localhost/api/monitoring-pengeluaran?page=1'
+                  links:
+                    type: array
+                    example:
+                      -
+                        url: null
+                        label: '&laquo; Previous'
+                        active: false
+                      -
+                        url: 'http://localhost/api/monitoring-pengeluaran?page=1'
+                        label: '1'
+                        active: true
+                      -
+                        url: null
+                        label: 'Next &raquo;'
+                        active: false
+                    items:
+                      type: object
+                      properties:
+                        url:
+                          type: string
+                          example: null
+                        label:
+                          type: string
+                          example: '&laquo; Previous'
+                        active:
+                          type: boolean
+                          example: false
+                  next_page_url:
+                    type: string
+                    example: null
+                  path:
+                    type: string
+                    example: 'http://localhost/api/monitoring-pengeluaran'
+                  per_page:
+                    type: integer
+                    example: 10
+                  prev_page_url:
+                    type: string
+                    example: null
+                  to:
+                    type: integer
+                    example: 3
+                  total:
+                    type: integer
+                    example: 3
+      tags:
+        - Endpoints
+  /api/monitoring-pengeluaran/kategori-pengeluaran:
+    get:
+      summary: ''
+      operationId: getApiMonitoringPengeluaranKategoriPengeluaran
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                example:
+                  -
+                    id_kategori_pengeluaran: '1'
+                    id_jenis_pengeluaran: '1'
+                    nama_kategori_pengeluaran: Lomba
+                    created_at: '2025-07-12T12:44:25.000000Z'
+                    updated_at: '2025-07-12T12:44:25.000000Z'
+                    jenis_pengeluaran:
+                      id_jenis_pengeluaran: '1'
+                      nama_jenis_pengeluaran: Project
+                      created_at: '2025-07-12T12:44:24.000000Z'
+                      updated_at: '2025-07-12T12:44:24.000000Z'
+                  -
+                    id_kategori_pengeluaran: '2'
+                    id_jenis_pengeluaran: '1'
+                    nama_kategori_pengeluaran: Exhibition
+                    created_at: '2025-07-12T12:44:25.000000Z'
+                    updated_at: '2025-07-12T12:44:25.000000Z'
+                    jenis_pengeluaran:
+                      id_jenis_pengeluaran: '1'
+                      nama_jenis_pengeluaran: Project
+                      created_at: '2025-07-12T12:44:24.000000Z'
+                      updated_at: '2025-07-12T12:44:24.000000Z'
+                  -
+                    id_kategori_pengeluaran: '3'
+                    id_jenis_pengeluaran: '1'
+                    nama_kategori_pengeluaran: 'Alat Tulis'
+                    created_at: '2025-07-12T12:44:25.000000Z'
+                    updated_at: '2025-07-12T12:44:25.000000Z'
+                    jenis_pengeluaran:
+                      id_jenis_pengeluaran: '1'
+                      nama_jenis_pengeluaran: Project
+                      created_at: '2025-07-12T12:44:24.000000Z'
+                      updated_at: '2025-07-12T12:44:24.000000Z'
+                  -
+                    id_kategori_pengeluaran: '4'
+                    id_jenis_pengeluaran: '2'
+                    nama_kategori_pengeluaran: Elektronik
+                    created_at: '2025-07-12T12:44:25.000000Z'
+                    updated_at: '2025-07-12T12:44:25.000000Z'
+                    jenis_pengeluaran:
+                      id_jenis_pengeluaran: '2'
+                      nama_jenis_pengeluaran: 'Non project'
+                      created_at: '2025-07-12T12:44:24.000000Z'
+                      updated_at: '2025-07-12T12:44:24.000000Z'
+                  -
+                    id_kategori_pengeluaran: '5'
+                    id_jenis_pengeluaran: '2'
+                    nama_kategori_pengeluaran: Kebersihan
+                    created_at: '2025-07-12T12:44:25.000000Z'
+                    updated_at: '2025-07-12T12:44:25.000000Z'
+                    jenis_pengeluaran:
+                      id_jenis_pengeluaran: '2'
+                      nama_jenis_pengeluaran: 'Non project'
+                      created_at: '2025-07-12T12:44:24.000000Z'
+                      updated_at: '2025-07-12T12:44:24.000000Z'
+                  -
+                    id_kategori_pengeluaran: '6'
+                    id_jenis_pengeluaran: '1'
+                    nama_kategori_pengeluaran: Lomba
+                    created_at: '2025-07-13T07:50:25.000000Z'
+                    updated_at: '2025-07-13T07:50:25.000000Z'
+                    jenis_pengeluaran:
+                      id_jenis_pengeluaran: '1'
+                      nama_jenis_pengeluaran: Project
+                      created_at: '2025-07-12T12:44:24.000000Z'
+                      updated_at: '2025-07-12T12:44:24.000000Z'
+                  -
+                    id_kategori_pengeluaran: '7'
+                    id_jenis_pengeluaran: '2'
+                    nama_kategori_pengeluaran: Lomba
+                    created_at: '2025-07-13T07:50:34.000000Z'
+                    updated_at: '2025-07-13T07:50:34.000000Z'
+                    jenis_pengeluaran:
+                      id_jenis_pengeluaran: '2'
+                      nama_jenis_pengeluaran: 'Non project'
+                      created_at: '2025-07-12T12:44:24.000000Z'
+                      updated_at: '2025-07-12T12:44:24.000000Z'
+                  -
+                    id_kategori_pengeluaran: '8'
+                    id_jenis_pengeluaran: '2'
+                    nama_kategori_pengeluaran: Air
+                    created_at: '2025-07-13T20:48:57.000000Z'
+                    updated_at: '2025-07-13T20:48:57.000000Z'
+                    jenis_pengeluaran:
+                      id_jenis_pengeluaran: '2'
+                      nama_jenis_pengeluaran: 'Non project'
+                      created_at: '2025-07-12T12:44:24.000000Z'
+                      updated_at: '2025-07-12T12:44:24.000000Z'
+      tags:
+        - Endpoints
+  /api/monitoring-pengeluaran/kategori-pengeluaran/create:
+    post:
+      summary: ''
+      operationId: postApiMonitoringPengeluaranKategoriPengeluaranCreate
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                jenis_pengeluaran:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: b
+                  nullable: false
+                nama_kategori_pengeluaran:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: 'n'
+                  nullable: false
+              required:
+                - jenis_pengeluaran
+                - nama_kategori_pengeluaran
+  /api/monitoring-pengeluaran/create:
+    post:
+      summary: ''
+      operationId: postApiMonitoringPengeluaranCreate
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                jenis_pengeluaran:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: b
+                  nullable: false
+                nama_pengeluaran:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: 'n'
+                  nullable: false
+                sub_pengeluaran:
+                  type: array
+                  description: 'Must have at least 1 items.'
+                  example:
+                    - []
+                  items:
+                    type: object
+                    properties:
+                      id_kategori_pengeluaran:
+                        type: string
+                        description: ''
+                        example: architecto
+                        nullable: false
+                      nama_sub_pengeluaran:
+                        type: string
+                        description: 'Must not be greater than 255 characters.'
+                        example: 'n'
+                        nullable: false
+                      nominal:
+                        type: number
+                        description: 'Must be at least 0.'
+                        example: 84
+                        nullable: false
+                      jumlah_item:
+                        type: integer
+                        description: 'Must be at least 1.'
+                        example: 66
+                        nullable: false
+                      tanggal_pengeluaran:
+                        type: string
+                        description: 'Must be a valid date.'
+                        example: '2025-07-14T14:54:13'
+                        nullable: false
+                      file_nota:
+                        type: string
+                        description: 'Must not be greater than 10240 characters.'
+                        example: m
+                        nullable: true
+                    required:
+                      - id_kategori_pengeluaran
+                      - nama_sub_pengeluaran
+                      - nominal
+                      - jumlah_item
+                      - tanggal_pengeluaran
+              required:
+                - jenis_pengeluaran
+                - nama_pengeluaran
+                - sub_pengeluaran
+  '/api/monitoring-pengeluaran/detail/{id}':
+    get:
+      summary: ''
+      operationId: getApiMonitoringPengeluaranDetailId
+      description: ''
+      parameters: []
+      responses:
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Pengeluaran tidak ditemukan'
+                properties:
+                  message:
+                    type: string
+                    example: 'Pengeluaran tidak ditemukan'
+      tags:
+        - Endpoints
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the detail.'
+        example: architecto
+        required: true
+        schema:
+          type: string
+  '/api/monitoring-pengeluaran/pengeluaran/update/{id}':
+    put:
+      summary: ''
+      operationId: putApiMonitoringPengeluaranPengeluaranUpdateId
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                nama_pengeluaran:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: b
+                  nullable: false
+              required:
+                - nama_pengeluaran
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the update.'
+        example: architecto
+        required: true
+        schema:
+          type: string
+  '/api/monitoring-pengeluaran/pengeluaran/{id}/sub-pengeluaran':
+    post:
+      summary: ''
+      operationId: postApiMonitoringPengeluaranPengeluaranIdSubPengeluaran
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id_kategori_pengeluaran:
+                  type: string
+                  description: ''
+                  example: architecto
+                  nullable: false
+                nama_sub_pengeluaran:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: 'n'
+                  nullable: false
+                nominal:
+                  type: number
+                  description: 'Must be at least 0.'
+                  example: 84
+                  nullable: false
+                jumlah_item:
+                  type: integer
+                  description: 'Must be at least 1.'
+                  example: 66
+                  nullable: false
+                tanggal_pengeluaran:
+                  type: string
+                  description: 'Must be a valid date.'
+                  example: '2025-07-14T14:54:14'
+                  nullable: false
+                file_nota:
+                  type: string
+                  description: 'Must not be greater than 10240 characters.'
+                  example: m
+                  nullable: true
+              required:
+                - id_kategori_pengeluaran
+                - nama_sub_pengeluaran
+                - nominal
+                - jumlah_item
+                - tanggal_pengeluaran
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the pengeluaran.'
+        example: '1'
+        required: true
+        schema:
+          type: string
+  '/api/monitoring-pengeluaran/sub-pengeluaran/update/{id}':
+    post:
+      summary: ''
+      operationId: postApiMonitoringPengeluaranSubPengeluaranUpdateId
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id_kategori_pengeluaran:
+                  type: string
+                  description: ''
+                  example: architecto
+                  nullable: false
+                nama_sub_pengeluaran:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: 'n'
+                  nullable: false
+                nominal:
+                  type: number
+                  description: 'Must be at least 0.'
+                  example: 84
+                  nullable: false
+                jumlah_item:
+                  type: integer
+                  description: 'Must be at least 1.'
+                  example: 66
+                  nullable: false
+                tanggal_pengeluaran:
+                  type: string
+                  description: 'Must be a valid date.'
+                  example: '2025-07-14T14:54:14'
+                  nullable: false
+                file_nota:
+                  type: string
+                  description: 'Must not be greater than 10240 characters.'
+                  example: m
+                  nullable: true
+              required:
+                - id_kategori_pengeluaran
+                - nama_sub_pengeluaran
+                - nominal
+                - jumlah_item
+                - tanggal_pengeluaran
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the update.'
+        example: architecto
+        required: true
+        schema:
+          type: string
+  '/api/monitoring-pengeluaran/sub-pengeluaran/delete/{id}':
+    delete:
+      summary: ''
+      operationId: deleteApiMonitoringPengeluaranSubPengeluaranDeleteId
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the delete.'
+        example: architecto
+        required: true
+        schema:
+          type: string
+  /api/tagihan:
+    get:
+      summary: ''
+      operationId: getApiTagihan
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: success
+                  message: 'Data hasil tagihan berhasil diambil.'
+                  data:
+                    current_page: 1
+                    data: []
+                    first_page_url: 'http://localhost/api/tagihan?page=1'
+                    from: null
+                    last_page: 1
+                    last_page_url: 'http://localhost/api/tagihan?page=1'
+                    links:
+                      -
+                        url: null
+                        label: '&laquo; Previous'
+                        active: false
+                      -
+                        url: 'http://localhost/api/tagihan?page=1'
+                        label: '1'
+                        active: true
+                      -
+                        url: null
+                        label: 'Next &raquo;'
+                        active: false
+                    next_page_url: null
+                    path: 'http://localhost/api/tagihan'
+                    per_page: 20
+                    prev_page_url: null
+                    to: null
+                    total: 0
+                properties:
+                  status:
+                    type: string
+                    example: success
+                  message:
+                    type: string
+                    example: 'Data hasil tagihan berhasil diambil.'
+                  data:
+                    type: object
+                    properties:
+                      current_page:
+                        type: integer
+                        example: 1
+                      data:
+                        type: array
+                        example: []
+                      first_page_url:
+                        type: string
+                        example: 'http://localhost/api/tagihan?page=1'
+                      from:
+                        type: string
+                        example: null
+                      last_page:
+                        type: integer
+                        example: 1
+                      last_page_url:
+                        type: string
+                        example: 'http://localhost/api/tagihan?page=1'
+                      links:
+                        type: array
+                        example:
+                          -
+                            url: null
+                            label: '&laquo; Previous'
+                            active: false
+                          -
+                            url: 'http://localhost/api/tagihan?page=1'
+                            label: '1'
+                            active: true
+                          -
+                            url: null
+                            label: 'Next &raquo;'
+                            active: false
+                        items:
+                          type: object
+                          properties:
+                            url:
+                              type: string
+                              example: null
+                            label:
+                              type: string
+                              example: '&laquo; Previous'
+                            active:
+                              type: boolean
+                              example: false
+                      next_page_url:
+                        type: string
+                        example: null
+                      path:
+                        type: string
+                        example: 'http://localhost/api/tagihan'
+                      per_page:
+                        type: integer
+                        example: 20
+                      prev_page_url:
+                        type: string
+                        example: null
+                      to:
+                        type: string
+                        example: null
+                      total:
+                        type: integer
+                        example: 0
+      tags:
+        - Endpoints
+  '/api/tagihan/{nisn}':
+    get:
+      summary: ''
+      operationId: getApiTagihanNisn
+      description: ''
+      parameters: []
+      responses:
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'NISN siswa tidak ditemukan'
+                properties:
+                  message:
+                    type: string
+                    example: 'NISN siswa tidak ditemukan'
+      tags:
+        - Endpoints
+    parameters:
+      -
+        in: path
+        name: nisn
+        description: ''
+        example: '1'
+        required: true
+        schema:
+          type: string
+  /api/tagihan/create:
+    post:
+      summary: ''
+      operationId: postApiTagihanCreate
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                nisn:
+                  type: string
+                  description: 'The <code>nisn</code> of an existing record in the siswa table.'
+                  example: architecto
+                  nullable: false
+                file_tagihan:
+                  type: string
+                  description: 'Must not be greater than 10240 characters.'
+                  example: 'n'
+                  nullable: false
+              required:
+                - nisn
+                - file_tagihan
+  /api/tunggakan:
+    get:
+      summary: ''
+      operationId: getApiTunggakan
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: success
+                  data:
+                    current_page: 1
+                    data:
+                      -
+                        id_tunggakan: '27'
+                        nisn: SIS000002
+                        nama_siswa: 'Siti Aminah'
+                        jenis_tagihan: Umum
+                        nama_tagihan: Sumbangan
+                        nominal: 149001
+                        periode: 2025/2026
+                        status: 'Belum Lunas'
+                        catatan: null
+                        created_at: '2025-07-13T07:41:05.000000Z'
+                        updated_at: '2025-07-13T07:41:05.000000Z'
+                      -
+                        id_tunggakan: '26'
+                        nisn: SIS000002
+                        nama_siswa: 'Siti Aminah'
+                        jenis_tagihan: Umum
+                        nama_tagihan: Pemeliharaan
+                        nominal: 199000
+                        periode: 2025/2026
+                        status: 'Belum Lunas'
+                        catatan: null
+                        created_at: '2025-07-13T07:41:05.000000Z'
+                        updated_at: '2025-07-13T07:41:05.000000Z'
+                      -
+                        id_tunggakan: '25'
+                        nisn: SIS000002
+                        nama_siswa: 'Siti Aminah'
+                        jenis_tagihan: Umum
+                        nama_tagihan: KBM
+                        nominal: 499000
+                        periode: 2025/2026
+                        status: 'Belum Lunas'
+                        catatan: null
+                        created_at: '2025-07-13T07:41:05.000000Z'
+                        updated_at: '2025-07-13T07:41:05.000000Z'
+                      -
+                        id_tunggakan: '24'
+                        nisn: SIS000002
+                        nama_siswa: 'Siti Aminah'
+                        jenis_tagihan: Umum
+                        nama_tagihan: SPP
+                        nominal: 299000
+                        periode: 2025/2026
+                        status: 'Belum Lunas'
+                        catatan: null
+                        created_at: '2025-07-13T07:41:05.000000Z'
+                        updated_at: '2025-07-13T07:41:05.000000Z'
+                      -
+                        id_tunggakan: '23'
+                        nisn: SIS000005
+                        nama_siswa: 'Agus Prasetyo'
+                        jenis_tagihan: Umum
+                        nama_tagihan: Sumbangan
+                        nominal: 9999998
+                        periode: 2025/2026
+                        status: 'Belum Lunas'
+                        catatan: null
+                        created_at: '2025-07-13T07:31:08.000000Z'
+                        updated_at: '2025-07-13T07:31:08.000000Z'
+                      -
+                        id_tunggakan: '22'
+                        nisn: SIS000005
+                        nama_siswa: 'Agus Prasetyo'
+                        jenis_tagihan: Umum
+                        nama_tagihan: Pemeliharaan
+                        nominal: 1000000
+                        periode: 2025/2026
+                        status: 'Belum Lunas'
+                        catatan: null
+                        created_at: '2025-07-13T07:31:08.000000Z'
+                        updated_at: '2025-07-13T07:31:08.000000Z'
+                      -
+                        id_tunggakan: '21'
+                        nisn: SIS000005
+                        nama_siswa: 'Agus Prasetyo'
+                        jenis_tagihan: Umum
+                        nama_tagihan: KBM
+                        nominal: 10000000
+                        periode: 2025/2026
+                        status: 'Belum Lunas'
+                        catatan: null
+                        created_at: '2025-07-13T07:31:08.000000Z'
+                        updated_at: '2025-07-13T07:31:08.000000Z'
+                      -
+                        id_tunggakan: '20'
+                        nisn: SIS000005
+                        nama_siswa: 'Agus Prasetyo'
+                        jenis_tagihan: Umum
+                        nama_tagihan: SPP
+                        nominal: 1000000
+                        periode: 2025/2026
+                        status: 'Belum Lunas'
+                        catatan: null
+                        created_at: '2025-07-13T07:31:08.000000Z'
+                        updated_at: '2025-07-13T07:31:08.000000Z'
+                      -
+                        id_tunggakan: '19'
+                        nisn: SIS000002
+                        nama_siswa: 'Siti Aminah'
+                        jenis_tagihan: Ekstra
+                        nama_tagihan: Piano
+                        nominal: 250000
+                        periode: 2025/2026
+                        status: 'Belum Lunas'
+                        catatan: null
+                        created_at: '2025-07-13T06:55:21.000000Z'
+                        updated_at: '2025-07-13T06:55:21.000000Z'
+                      -
+                        id_tunggakan: '18'
+                        nisn: '1234567890'
+                        nama_siswa: 'ASSIFA KHAIRU NISA'
+                        jenis_tagihan: Ekstra
+                        nama_tagihan: Piano
+                        nominal: 200000
+                        periode: 2025/2026
+                        status: 'Belum Lunas'
+                        catatan: null
+                        created_at: '2025-07-13T06:53:59.000000Z'
+                        updated_at: '2025-07-13T06:53:59.000000Z'
+                    first_page_url: 'http://localhost/api/tunggakan?page=1'
+                    from: 1
+                    last_page: 3
+                    last_page_url: 'http://localhost/api/tunggakan?page=3'
+                    links:
+                      -
+                        url: null
+                        label: '&laquo; Previous'
+                        active: false
+                      -
+                        url: 'http://localhost/api/tunggakan?page=1'
+                        label: '1'
+                        active: true
+                      -
+                        url: 'http://localhost/api/tunggakan?page=2'
+                        label: '2'
+                        active: false
+                      -
+                        url: 'http://localhost/api/tunggakan?page=3'
+                        label: '3'
+                        active: false
+                      -
+                        url: 'http://localhost/api/tunggakan?page=2'
+                        label: 'Next &raquo;'
+                        active: false
+                    next_page_url: 'http://localhost/api/tunggakan?page=2'
+                    path: 'http://localhost/api/tunggakan'
+                    per_page: 10
+                    prev_page_url: null
+                    to: 10
+                    total: 26
+                properties:
+                  status:
+                    type: string
+                    example: success
+                  data:
+                    type: object
+                    properties:
+                      current_page:
+                        type: integer
+                        example: 1
+                      data:
+                        type: array
+                        example:
+                          -
+                            id_tunggakan: '27'
+                            nisn: SIS000002
+                            nama_siswa: 'Siti Aminah'
+                            jenis_tagihan: Umum
+                            nama_tagihan: Sumbangan
+                            nominal: 149001
+                            periode: 2025/2026
+                            status: 'Belum Lunas'
+                            catatan: null
+                            created_at: '2025-07-13T07:41:05.000000Z'
+                            updated_at: '2025-07-13T07:41:05.000000Z'
+                          -
+                            id_tunggakan: '26'
+                            nisn: SIS000002
+                            nama_siswa: 'Siti Aminah'
+                            jenis_tagihan: Umum
+                            nama_tagihan: Pemeliharaan
+                            nominal: 199000
+                            periode: 2025/2026
+                            status: 'Belum Lunas'
+                            catatan: null
+                            created_at: '2025-07-13T07:41:05.000000Z'
+                            updated_at: '2025-07-13T07:41:05.000000Z'
+                          -
+                            id_tunggakan: '25'
+                            nisn: SIS000002
+                            nama_siswa: 'Siti Aminah'
+                            jenis_tagihan: Umum
+                            nama_tagihan: KBM
+                            nominal: 499000
+                            periode: 2025/2026
+                            status: 'Belum Lunas'
+                            catatan: null
+                            created_at: '2025-07-13T07:41:05.000000Z'
+                            updated_at: '2025-07-13T07:41:05.000000Z'
+                          -
+                            id_tunggakan: '24'
+                            nisn: SIS000002
+                            nama_siswa: 'Siti Aminah'
+                            jenis_tagihan: Umum
+                            nama_tagihan: SPP
+                            nominal: 299000
+                            periode: 2025/2026
+                            status: 'Belum Lunas'
+                            catatan: null
+                            created_at: '2025-07-13T07:41:05.000000Z'
+                            updated_at: '2025-07-13T07:41:05.000000Z'
+                          -
+                            id_tunggakan: '23'
+                            nisn: SIS000005
+                            nama_siswa: 'Agus Prasetyo'
+                            jenis_tagihan: Umum
+                            nama_tagihan: Sumbangan
+                            nominal: 9999998
+                            periode: 2025/2026
+                            status: 'Belum Lunas'
+                            catatan: null
+                            created_at: '2025-07-13T07:31:08.000000Z'
+                            updated_at: '2025-07-13T07:31:08.000000Z'
+                          -
+                            id_tunggakan: '22'
+                            nisn: SIS000005
+                            nama_siswa: 'Agus Prasetyo'
+                            jenis_tagihan: Umum
+                            nama_tagihan: Pemeliharaan
+                            nominal: 1000000
+                            periode: 2025/2026
+                            status: 'Belum Lunas'
+                            catatan: null
+                            created_at: '2025-07-13T07:31:08.000000Z'
+                            updated_at: '2025-07-13T07:31:08.000000Z'
+                          -
+                            id_tunggakan: '21'
+                            nisn: SIS000005
+                            nama_siswa: 'Agus Prasetyo'
+                            jenis_tagihan: Umum
+                            nama_tagihan: KBM
+                            nominal: 10000000
+                            periode: 2025/2026
+                            status: 'Belum Lunas'
+                            catatan: null
+                            created_at: '2025-07-13T07:31:08.000000Z'
+                            updated_at: '2025-07-13T07:31:08.000000Z'
+                          -
+                            id_tunggakan: '20'
+                            nisn: SIS000005
+                            nama_siswa: 'Agus Prasetyo'
+                            jenis_tagihan: Umum
+                            nama_tagihan: SPP
+                            nominal: 1000000
+                            periode: 2025/2026
+                            status: 'Belum Lunas'
+                            catatan: null
+                            created_at: '2025-07-13T07:31:08.000000Z'
+                            updated_at: '2025-07-13T07:31:08.000000Z'
+                          -
+                            id_tunggakan: '19'
+                            nisn: SIS000002
+                            nama_siswa: 'Siti Aminah'
+                            jenis_tagihan: Ekstra
+                            nama_tagihan: Piano
+                            nominal: 250000
+                            periode: 2025/2026
+                            status: 'Belum Lunas'
+                            catatan: null
+                            created_at: '2025-07-13T06:55:21.000000Z'
+                            updated_at: '2025-07-13T06:55:21.000000Z'
+                          -
+                            id_tunggakan: '18'
+                            nisn: '1234567890'
+                            nama_siswa: 'ASSIFA KHAIRU NISA'
+                            jenis_tagihan: Ekstra
+                            nama_tagihan: Piano
+                            nominal: 200000
+                            periode: 2025/2026
+                            status: 'Belum Lunas'
+                            catatan: null
+                            created_at: '2025-07-13T06:53:59.000000Z'
+                            updated_at: '2025-07-13T06:53:59.000000Z'
+                        items:
+                          type: object
+                          properties:
+                            id_tunggakan:
+                              type: string
+                              example: '27'
+                            nisn:
+                              type: string
+                              example: SIS000002
+                            nama_siswa:
+                              type: string
+                              example: 'Siti Aminah'
+                            jenis_tagihan:
+                              type: string
+                              example: Umum
+                            nama_tagihan:
+                              type: string
+                              example: Sumbangan
+                            nominal:
+                              type: integer
+                              example: 149001
+                            periode:
+                              type: string
+                              example: 2025/2026
+                            status:
+                              type: string
+                              example: 'Belum Lunas'
+                            catatan:
+                              type: string
+                              example: null
+                            created_at:
+                              type: string
+                              example: '2025-07-13T07:41:05.000000Z'
+                            updated_at:
+                              type: string
+                              example: '2025-07-13T07:41:05.000000Z'
+                      first_page_url:
+                        type: string
+                        example: 'http://localhost/api/tunggakan?page=1'
+                      from:
+                        type: integer
+                        example: 1
+                      last_page:
+                        type: integer
+                        example: 3
+                      last_page_url:
+                        type: string
+                        example: 'http://localhost/api/tunggakan?page=3'
+                      links:
+                        type: array
+                        example:
+                          -
+                            url: null
+                            label: '&laquo; Previous'
+                            active: false
+                          -
+                            url: 'http://localhost/api/tunggakan?page=1'
+                            label: '1'
+                            active: true
+                          -
+                            url: 'http://localhost/api/tunggakan?page=2'
+                            label: '2'
+                            active: false
+                          -
+                            url: 'http://localhost/api/tunggakan?page=3'
+                            label: '3'
+                            active: false
+                          -
+                            url: 'http://localhost/api/tunggakan?page=2'
+                            label: 'Next &raquo;'
+                            active: false
+                        items:
+                          type: object
+                          properties:
+                            url:
+                              type: string
+                              example: null
+                            label:
+                              type: string
+                              example: '&laquo; Previous'
+                            active:
+                              type: boolean
+                              example: false
+                      next_page_url:
+                        type: string
+                        example: 'http://localhost/api/tunggakan?page=2'
+                      path:
+                        type: string
+                        example: 'http://localhost/api/tunggakan'
+                      per_page:
+                        type: integer
+                        example: 10
+                      prev_page_url:
+                        type: string
+                        example: null
+                      to:
+                        type: integer
+                        example: 10
+                      total:
+                        type: integer
+                        example: 26
+      tags:
+        - Endpoints
+  /api/tunggakan/create:
+    post:
+      summary: ''
+      operationId: postApiTunggakanCreate
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id_siswa:
+                  type: string
+                  description: ''
+                  example: architecto
+                  nullable: false
+                nama_siswa:
+                  type: string
+                  description: ''
+                  example: architecto
+                  nullable: false
+                jenis_tagihan:
+                  type: string
+                  description: ''
+                  example: architecto
+                  nullable: false
+                periode:
+                  type: string
+                  description: ''
+                  example: architecto
+                  nullable: false
+                tagihan:
+                  type: array
+                  description: 'Must have at least 1 items.'
+                  example:
+                    - []
+                  items:
+                    type: object
+                    properties:
+                      nama_tagihan:
+                        type: string
+                        description: ''
+                        example: architecto
+                        nullable: false
+                      nominal:
+                        type: number
+                        description: 'Must be at least 0.'
+                        example: 39
+                        nullable: false
+                    required:
+                      - nama_tagihan
+                      - nominal
+              required:
+                - id_siswa
+                - nama_siswa
+                - jenis_tagihan
+                - periode
+                - tagihan
+  '/api/tunggakan/detail/{id}':
+    get:
+      summary: ''
+      operationId: getApiTunggakanDetailId
+      description: ''
+      parameters: []
+      responses:
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: error
+                  message: 'Data tunggakan tidak ditemukan.'
+                  error_detail: 'No query results for model [App\Models\Tunggakan] architecto'
+                properties:
+                  status:
+                    type: string
+                    example: error
+                  message:
+                    type: string
+                    example: 'Data tunggakan tidak ditemukan.'
+                  error_detail:
+                    type: string
+                    example: 'No query results for model [App\Models\Tunggakan] architecto'
+      tags:
+        - Endpoints
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the detail.'
+        example: architecto
+        required: true
+        schema:
+          type: string
+  '/api/tunggakan/update/{id}':
+    put:
+      summary: ''
+      operationId: putApiTunggakanUpdateId
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                nominal:
+                  type: number
+                  description: 'Must be at least 0.'
+                  example: 27
+                  nullable: false
+                status:
+                  type: string
+                  description: ''
+                  example: Lunas
+                  nullable: false
+                  enum:
+                    - Lunas
+                    - 'Belum Lunas'
+                catatan:
+                  type: string
+                  description: ''
+                  example: architecto
+                  nullable: true
+              required:
+                - nominal
+                - status
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the update.'
+        example: architecto
+        required: true
+        schema:
+          type: string
+  '/api/tunggakan/delete/{id}':
+    delete:
+      summary: ''
+      operationId: deleteApiTunggakanDeleteId
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the delete.'
+        example: architecto
+        required: true
+        schema:
+          type: string

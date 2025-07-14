@@ -1,0 +1,2801 @@
+{
+    "variable": [
+        {
+            "id": "baseUrl",
+            "key": "baseUrl",
+            "type": "string",
+            "name": "string",
+            "value": "http:\/\/localhost"
+        }
+    ],
+    "info": {
+        "name": "Laravel API Documentation",
+        "_postman_id": "1e9bd4fa-e004-44ff-9c2b-48d3c8a58863",
+        "description": "",
+        "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
+    },
+    "item": [
+        {
+            "name": "Endpoints",
+            "description": "",
+            "item": [
+                {
+                    "name": "GET api\/test",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/test",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/test"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "59"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"message\":\"API is working\"}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Login user.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/auth\/login",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/auth\/login"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Register user.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/auth\/register",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/auth\/register"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "POST api\/auth\/logout",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/auth\/logout",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/auth\/logout"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "GET api\/auth\/users",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/auth\/users",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/auth\/users"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "58"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"user\":{\"id_user\":\"1\",\"nama\":\"Bendahara\",\"email\":\"bendahara@example.com\",\"email_verified_at\":\"2025-07-12T12:44:20.000000Z\",\"created_at\":\"2025-07-12T12:44:20.000000Z\",\"updated_at\":\"2025-07-12T12:44:20.000000Z\"}}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "GET api\/dashboard",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/dashboard",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/dashboard"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "57"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"status\":\"success\",\"message\":\"Data dashboard berhasil diambil.\",\"saldoPraxis\":\"18999\",\"saldoTechno\":\"4000379\",\"tagihanPraxis\":0,\"tagihanTechno\":\"28209620\",\"saldoEkstra\":\"311000\",\"tagihanEkstra\":\"3700000\",\"tagihanUangSaku\":\"1500000\",\"rekapSaldo\":4330378,\"rekapTagihan\":33409620}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "GET api\/cari-siswa",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/cari-siswa",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/cari-siswa"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "56"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 400,
+                            "body": "{\"status\":\"error\",\"message\":\"Query kosong\"}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "POST api\/kontrak",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/kontrak",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/kontrak"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "multipart\/form-data"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "formdata",
+                            "formdata": [
+                                {
+                                    "key": "nisn",
+                                    "value": "architecto",
+                                    "type": "text",
+                                    "description": "The <code>nisn<\/code> of an existing record in the siswa table."
+                                },
+                                {
+                                    "key": "uang_kbm",
+                                    "value": "564",
+                                    "type": "text",
+                                    "description": "Must match the regex \/^\\d+$\/."
+                                },
+                                {
+                                    "key": "uang_spp",
+                                    "value": "564",
+                                    "type": "text",
+                                    "description": "Must match the regex \/^\\d+$\/."
+                                },
+                                {
+                                    "key": "uang_pemeliharaan",
+                                    "value": "564",
+                                    "type": "text",
+                                    "description": "Must match the regex \/^\\d+$\/."
+                                },
+                                {
+                                    "key": "uang_sumbangan",
+                                    "value": "564",
+                                    "type": "text",
+                                    "description": "Must match the regex \/^\\d+$\/."
+                                },
+                                {
+                                    "key": "catatan",
+                                    "value": "architecto",
+                                    "type": "text",
+                                    "description": ""
+                                },
+                                {
+                                    "key": "file_kontrak",
+                                    "src": [],
+                                    "type": "file"
+                                }
+                            ]
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "GET api\/techno\/siswa",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/techno\/siswa",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/techno\/siswa"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "55"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"status\":\"success\",\"data\":{\"current_page\":1,\"data\":[{\"id_siswa\":\"41\",\"nama_siswa\":\"Ahmad Budie\",\"nisn\":\"1000012345\",\"level\":\"III\",\"kategori\":\"Tidak boarding\",\"akademik\":\"Techno\",\"nama_wali\":\"Budi\",\"no_hp_wali\":\"081234567001\",\"created_at\":\"2025-07-12T12:44:21.000000Z\",\"updated_at\":\"2025-07-13T07:31:52.000000Z\"},{\"id_siswa\":\"45\",\"nama_siswa\":\"Bambang Setiawan\",\"nisn\":\"100005\",\"level\":\"VIII\",\"kategori\":\"Tidak boarding\",\"akademik\":\"Techno\",\"nama_wali\":\"Setiawan\",\"no_hp_wali\":\"081234567005\",\"created_at\":\"2025-07-12T12:44:21.000000Z\",\"updated_at\":\"2025-07-12T12:44:21.000000Z\"},{\"id_siswa\":\"52\",\"nama_siswa\":\"Belda Putri\",\"nisn\":\"12345678888\",\"level\":\"V\",\"kategori\":\"Reguler\",\"akademik\":\"Techno\",\"nama_wali\":\"Pramono\",\"no_hp_wali\":\"089673384911\",\"created_at\":\"2025-07-13T11:39:57.000000Z\",\"updated_at\":\"2025-07-13T11:39:57.000000Z\"},{\"id_siswa\":\"53\",\"nama_siswa\":\"Canaya Putri\",\"nisn\":\"0000000089\",\"level\":\"VI\",\"kategori\":\"Reguler\",\"akademik\":\"Techno\",\"nama_wali\":\"Pramono\",\"no_hp_wali\":\"08999863288\",\"created_at\":\"2025-07-13T11:55:22.000000Z\",\"updated_at\":\"2025-07-13T11:55:22.000000Z\"},{\"id_siswa\":\"42\",\"nama_siswa\":\"Dewi Lestari\",\"nisn\":\"100002\",\"level\":\"VII\",\"kategori\":\"Tidak boarding\",\"akademik\":\"Techno\",\"nama_wali\":\"Lestari\",\"no_hp_wali\":\"081234567002\",\"created_at\":\"2025-07-12T12:44:21.000000Z\",\"updated_at\":\"2025-07-12T12:44:21.000000Z\"},{\"id_siswa\":\"50\",\"nama_siswa\":\"Fitriani Zahra\",\"nisn\":\"100010\",\"level\":\"IX\",\"kategori\":\"Tidak boarding\",\"akademik\":\"Techno\",\"nama_wali\":\"Zahra\",\"no_hp_wali\":\"081234567010\",\"created_at\":\"2025-07-12T12:44:22.000000Z\",\"updated_at\":\"2025-07-12T12:44:22.000000Z\"},{\"id_siswa\":\"47\",\"nama_siswa\":\"Iqbal Ramadhan\",\"nisn\":\"100007\",\"level\":\"IX\",\"kategori\":\"Tidak boarding\",\"akademik\":\"Techno\",\"nama_wali\":\"Ramadhan\",\"no_hp_wali\":\"081234567007\",\"created_at\":\"2025-07-12T12:44:21.000000Z\",\"updated_at\":\"2025-07-12T12:44:21.000000Z\"},{\"id_siswa\":\"46\",\"nama_siswa\":\"Nina Anggraini\",\"nisn\":\"100006\",\"level\":\"VIII\",\"kategori\":\"Tidak boarding\",\"akademik\":\"Techno\",\"nama_wali\":\"Anggraini\",\"no_hp_wali\":\"081234567006\",\"created_at\":\"2025-07-12T12:44:21.000000Z\",\"updated_at\":\"2025-07-12T12:44:21.000000Z\"},{\"id_siswa\":\"43\",\"nama_siswa\":\"Rudi Hartono\",\"nisn\":\"100003\",\"level\":\"VIII\",\"kategori\":\"Tidak boarding\",\"akademik\":\"Techno\",\"nama_wali\":\"Hartono\",\"no_hp_wali\":\"081234567003\",\"created_at\":\"2025-07-12T12:44:21.000000Z\",\"updated_at\":\"2025-07-12T12:44:21.000000Z\"},{\"id_siswa\":\"44\",\"nama_siswa\":\"Sari Melati\",\"nisn\":\"100004\",\"level\":\"VIII\",\"kategori\":\"Tidak boarding\",\"akademik\":\"Techno\",\"nama_wali\":\"Melati\",\"no_hp_wali\":\"081234567004\",\"created_at\":\"2025-07-12T12:44:21.000000Z\",\"updated_at\":\"2025-07-12T12:44:21.000000Z\"}],\"first_page_url\":\"http:\\\/\\\/localhost\\\/api\\\/techno\\\/siswa?page=1\",\"from\":1,\"last_page\":1,\"last_page_url\":\"http:\\\/\\\/localhost\\\/api\\\/techno\\\/siswa?page=1\",\"links\":[{\"url\":null,\"label\":\"&laquo; Previous\",\"active\":false},{\"url\":\"http:\\\/\\\/localhost\\\/api\\\/techno\\\/siswa?page=1\",\"label\":\"1\",\"active\":true},{\"url\":null,\"label\":\"Next &raquo;\",\"active\":false}],\"next_page_url\":null,\"path\":\"http:\\\/\\\/localhost\\\/api\\\/techno\\\/siswa\",\"per_page\":10,\"prev_page_url\":null,\"to\":10,\"total\":10}}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "POST api\/techno\/siswa\/create",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/techno\/siswa\/create",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/techno\/siswa\/create"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "GET api\/techno\/siswa\/detail\/{id}",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/techno\/siswa\/detail\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/techno\/siswa\/detail\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "architecto",
+                                    "description": "The ID of the detail."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "54"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 500,
+                            "body": "{\"status\":\"error\",\"message\":\"Gagal menampilkan detail siswa.\",\"error\":\"No query results for model [App\\\\Models\\\\Siswa] architecto\"}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "PUT api\/techno\/siswa\/update\/{id}",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/techno\/siswa\/update\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/techno\/siswa\/update\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "architecto",
+                                    "description": "The ID of the update."
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "DELETE api\/techno\/siswa\/delete\/{id}",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/techno\/siswa\/delete\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/techno\/siswa\/delete\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "architecto",
+                                    "description": "The ID of the delete."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "POST api\/pembayaran",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/pembayaran",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/pembayaran"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"id_siswa\":\"bngzmi\",\"tanggal_pembayaran\":\"2025-07-14T14:54:02\",\"uang_kbm\":\"564\",\"uang_pemeliharaan\":\"564\",\"uang_spp\":\"564\",\"uang_sumbangan\":\"564\",\"catatan\":\"architecto\"}"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "GET api\/monitoring-praxis",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/monitoring-praxis",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/monitoring-praxis"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "53"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"status\":\"success\",\"message\":\"Data siswa Praxis berhasil diambil\",\"data\":{\"current_page\":1,\"data\":[{\"id_siswa\":\"5\",\"nama_siswa\":\"Agus Prasetyo\",\"level\":\"-\",\"tagihan\":[]},{\"id_siswa\":\"33\",\"nama_siswa\":\"ASSIFA KHAIRU NISA\",\"level\":\"XI\",\"tagihan\":[]},{\"id_siswa\":\"16\",\"nama_siswa\":\"Atika\",\"level\":\"-\",\"tagihan\":[]},{\"id_siswa\":\"29\",\"nama_siswa\":\"Budi\",\"level\":\"X\",\"tagihan\":[]},{\"id_siswa\":\"27\",\"nama_siswa\":\"Budi\",\"level\":\"X\",\"tagihan\":[]},{\"id_siswa\":\"28\",\"nama_siswa\":\"Budi\",\"level\":\"X\",\"tagihan\":[]},{\"id_siswa\":\"17\",\"nama_siswa\":\"Budi Budiman Mandibud\",\"level\":\"XI\",\"tagihan\":[]},{\"id_siswa\":\"3\",\"nama_siswa\":\"Budi Santoso\",\"level\":\"X\",\"tagihan\":[]},{\"id_siswa\":\"4\",\"nama_siswa\":\"Dewi Lestari\",\"level\":\"X\",\"tagihan\":[]},{\"id_siswa\":\"32\",\"nama_siswa\":\"FAUZAN NASRUL\",\"level\":\"X\",\"tagihan\":[]}],\"first_page_url\":\"http:\\\/\\\/localhost\\\/api\\\/monitoring-praxis?page=1\",\"from\":1,\"last_page\":3,\"last_page_url\":\"http:\\\/\\\/localhost\\\/api\\\/monitoring-praxis?page=3\",\"links\":[{\"url\":null,\"label\":\"&laquo; Previous\",\"active\":false},{\"url\":\"http:\\\/\\\/localhost\\\/api\\\/monitoring-praxis?page=1\",\"label\":\"1\",\"active\":true},{\"url\":\"http:\\\/\\\/localhost\\\/api\\\/monitoring-praxis?page=2\",\"label\":\"2\",\"active\":false},{\"url\":\"http:\\\/\\\/localhost\\\/api\\\/monitoring-praxis?page=3\",\"label\":\"3\",\"active\":false},{\"url\":\"http:\\\/\\\/localhost\\\/api\\\/monitoring-praxis?page=2\",\"label\":\"Next &raquo;\",\"active\":false}],\"next_page_url\":\"http:\\\/\\\/localhost\\\/api\\\/monitoring-praxis?page=2\",\"path\":\"http:\\\/\\\/localhost\\\/api\\\/monitoring-praxis\",\"per_page\":10,\"prev_page_url\":null,\"to\":10,\"total\":26}}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "GET api\/monitoring-praxis\/detail-kontrak\/{id}",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/monitoring-praxis\/detail-kontrak\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/monitoring-praxis\/detail-kontrak\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "architecto",
+                                    "description": "The ID of the detail kontrak."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "52"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 404,
+                            "body": "{\"message\":\"Siswa tidak ditemukan\"}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "GET api\/monitoring-praxis\/pembayaran-siswa\/{id}",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/monitoring-praxis\/pembayaran-siswa\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/monitoring-praxis\/pembayaran-siswa\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "architecto",
+                                    "description": "The ID of the pembayaran siswa."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "51"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 404,
+                            "body": "{\"message\":\"Siswa tidak ditemukan\"}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "GET api\/monitoring-techno",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/monitoring-techno",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/monitoring-techno"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "50"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"status\":\"success\",\"message\":\"Data siswa Techno berhasil diambil\",\"data\":{\"current_page\":1,\"data\":[{\"id_siswa\":\"41\",\"nama_siswa\":\"Ahmad Budie\",\"level\":\"III\",\"tagihan\":[{\"nama_tagihan\":\"SPP\",\"nominal\":10000000},{\"nama_tagihan\":\"KBM\",\"nominal\":10000000},{\"nama_tagihan\":\"Pemeliharaan\",\"nominal\":3000000},{\"nama_tagihan\":\"Sumbangan\",\"nominal\":4000000}]},{\"id_siswa\":\"45\",\"nama_siswa\":\"Bambang Setiawan\",\"level\":\"VIII\",\"tagihan\":[]},{\"id_siswa\":\"52\",\"nama_siswa\":\"Belda Putri\",\"level\":\"V\",\"tagihan\":[]},{\"id_siswa\":\"53\",\"nama_siswa\":\"Canaya Putri\",\"level\":\"VI\",\"tagihan\":[]},{\"id_siswa\":\"42\",\"nama_siswa\":\"Dewi Lestari\",\"level\":\"VII\",\"tagihan\":[]},{\"id_siswa\":\"50\",\"nama_siswa\":\"Fitriani Zahra\",\"level\":\"IX\",\"tagihan\":[{\"nama_tagihan\":\"SPP\",\"nominal\":99877},{\"nama_tagihan\":\"KBM\",\"nominal\":99990},{\"nama_tagihan\":\"Pemeliharaan\",\"nominal\":9877},{\"nama_tagihan\":\"Sumbangan\",\"nominal\":999876}]},{\"id_siswa\":\"47\",\"nama_siswa\":\"Iqbal Ramadhan\",\"level\":\"IX\",\"tagihan\":[]},{\"id_siswa\":\"46\",\"nama_siswa\":\"Nina Anggraini\",\"level\":\"VIII\",\"tagihan\":[]},{\"id_siswa\":\"43\",\"nama_siswa\":\"Rudi Hartono\",\"level\":\"VIII\",\"tagihan\":[]},{\"id_siswa\":\"44\",\"nama_siswa\":\"Sari Melati\",\"level\":\"VIII\",\"tagihan\":[]}],\"first_page_url\":\"http:\\\/\\\/localhost\\\/api\\\/monitoring-techno?page=1\",\"from\":1,\"last_page\":1,\"last_page_url\":\"http:\\\/\\\/localhost\\\/api\\\/monitoring-techno?page=1\",\"links\":[{\"url\":null,\"label\":\"&laquo; Previous\",\"active\":false},{\"url\":\"http:\\\/\\\/localhost\\\/api\\\/monitoring-techno?page=1\",\"label\":\"1\",\"active\":true},{\"url\":null,\"label\":\"Next &raquo;\",\"active\":false}],\"next_page_url\":null,\"path\":\"http:\\\/\\\/localhost\\\/api\\\/monitoring-techno\",\"per_page\":10,\"prev_page_url\":null,\"to\":10,\"total\":10}}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "GET api\/monitoring-techno\/detail-kontrak\/{id}",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/monitoring-techno\/detail-kontrak\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/monitoring-techno\/detail-kontrak\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "architecto",
+                                    "description": "The ID of the detail kontrak."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "49"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 404,
+                            "body": "{\"message\":\"Siswa tidak ditemukan\"}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "GET api\/monitoring-techno\/pembayaran-siswa\/{id}",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/monitoring-techno\/pembayaran-siswa\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/monitoring-techno\/pembayaran-siswa\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "architecto",
+                                    "description": "The ID of the pembayaran siswa."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "48"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 404,
+                            "body": "{\"message\":\"Siswa tidak ditemukan\"}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "GET api\/monitoring-bk",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/monitoring-bk",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/monitoring-bk"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "47"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"status\":\"success\",\"data\":{\"current_page\":1,\"data\":[{\"id_siswa\":\"33\",\"nama_siswa\":\"ASSIFA KHAIRU NISA\",\"level\":\"XI\",\"akademik\":\"Praxis\",\"tagihan_boarding\":0,\"tagihan_konsumsi\":null,\"tagihan\":[]},{\"id_siswa\":\"18\",\"nama_siswa\":\"Rudi Kurniawan\",\"level\":\"XII\",\"akademik\":\"Praxis\",\"tagihan_boarding\":3500000,\"tagihan_konsumsi\":null,\"tagihan\":[{\"nama_tagihan\":\"Boarding\",\"nominal\":3500000}]},{\"id_siswa\":\"2\",\"nama_siswa\":\"Siti Aminah\",\"level\":\"X\",\"akademik\":\"Praxis\",\"tagihan_boarding\":3500000,\"tagihan_konsumsi\":800000,\"tagihan\":[{\"nama_tagihan\":\"Boarding\",\"nominal\":3500000},{\"nama_tagihan\":\"Konsumsi\",\"nominal\":800000}]},{\"id_siswa\":\"21\",\"nama_siswa\":\"Tobirama ibn Senju\",\"level\":\"XI\",\"akademik\":\"Praxis\",\"tagihan_boarding\":null,\"tagihan_konsumsi\":793000,\"tagihan\":[{\"nama_tagihan\":\"Konsumsi\",\"nominal\":793000}]}],\"first_page_url\":\"http:\\\/\\\/localhost\\\/api\\\/monitoring-bk?page=1\",\"from\":1,\"last_page\":1,\"last_page_url\":\"http:\\\/\\\/localhost\\\/api\\\/monitoring-bk?page=1\",\"links\":[{\"url\":null,\"label\":\"&laquo; Previous\",\"active\":false},{\"url\":\"http:\\\/\\\/localhost\\\/api\\\/monitoring-bk?page=1\",\"label\":\"1\",\"active\":true},{\"url\":null,\"label\":\"Next &raquo;\",\"active\":false}],\"next_page_url\":null,\"path\":\"http:\\\/\\\/localhost\\\/api\\\/monitoring-bk\",\"per_page\":10,\"prev_page_url\":null,\"to\":4,\"total\":4}}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "GET api\/monitoring-bk\/pembayaran-siswa\/{id}",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/monitoring-bk\/pembayaran-siswa\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/monitoring-bk\/pembayaran-siswa\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "architecto",
+                                    "description": "The ID of the pembayaran siswa."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "46"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 404,
+                            "body": "{\"message\":\"Siswa tidak ditemukan\"}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "GET api\/monitoring-bk\/detail-pembayaran\/{id}",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/monitoring-bk\/detail-pembayaran\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/monitoring-bk\/detail-pembayaran\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "architecto",
+                                    "description": "The ID of the detail pembayaran."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "45"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 404,
+                            "body": "{\"message\":\"Siswa tidak ditemukan\"}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "POST api\/monitoring-bk\/pembayaran",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/monitoring-bk\/pembayaran",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/monitoring-bk\/pembayaran"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"id_siswa\":\"bngzmi\",\"tanggal_pembayaran\":\"2025-07-14T14:54:06\",\"uang_boarding\":\"564\",\"uang_konsumsi\":\"564\",\"catatan\":\"architecto\"}"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "POST api\/monitoring-bk\/create-siswa\/boarding",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/monitoring-bk\/create-siswa\/boarding",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/monitoring-bk\/create-siswa\/boarding"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"nisn\":\"architecto\",\"tanggal_mulai\":\"2025-07-14T14:54:06\",\"tanggal_selesai\":\"2025-07-14T14:54:06\",\"tagihan\":\"564\",\"catatan\":\"architecto\"}"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "POST api\/monitoring-bk\/create-siswa\/konsumsi",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/monitoring-bk\/create-siswa\/konsumsi",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/monitoring-bk\/create-siswa\/konsumsi"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"nisn\":\"architecto\",\"tanggal_mulai\":\"2025-07-14T14:54:06\",\"tanggal_selesai\":\"2025-07-14T14:54:06\",\"tagihan\":\"564\",\"catatan\":\"architecto\"}"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "GET api\/monitoring-bk\/detail\/{id}",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/monitoring-bk\/detail\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/monitoring-bk\/detail\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "architecto",
+                                    "description": "The ID of the detail."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "44"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 404,
+                            "body": "{\"status\":\"error\",\"message\":\"Siswa tidak ditemukan\"}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "PUT api\/monitoring-bk\/update\/{id}",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/monitoring-bk\/update\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/monitoring-bk\/update\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "architecto",
+                                    "description": "The ID of the update."
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "GET api\/monitoring-uang-saku",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/monitoring-uang-saku",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/monitoring-uang-saku"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "43"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"status\":\"success\",\"data\":{\"current_page\":1,\"data\":[{\"id_siswa\":\"5\",\"nama_siswa\":\"Agus Prasetyo\",\"nisn\":\"SIS000005\",\"level\":\"-\",\"akademik\":\"Praxis\",\"tagihan\":[],\"uang_saku\":null},{\"id_siswa\":\"41\",\"nama_siswa\":\"Ahmad Budie\",\"nisn\":\"1000012345\",\"level\":\"III\",\"akademik\":\"Techno\",\"tagihan\":[],\"uang_saku\":null},{\"id_siswa\":\"33\",\"nama_siswa\":\"ASSIFA KHAIRU NISA\",\"nisn\":\"1234567890\",\"level\":\"XI\",\"akademik\":\"Praxis\",\"tagihan\":[],\"uang_saku\":null},{\"id_siswa\":\"16\",\"nama_siswa\":\"Atika\",\"nisn\":\"0987654\",\"level\":\"-\",\"akademik\":\"Praxis\",\"tagihan\":[],\"uang_saku\":null},{\"id_siswa\":\"45\",\"nama_siswa\":\"Bambang Setiawan\",\"nisn\":\"100005\",\"level\":\"VIII\",\"akademik\":\"Techno\",\"tagihan\":[],\"uang_saku\":null},{\"id_siswa\":\"52\",\"nama_siswa\":\"Belda Putri\",\"nisn\":\"12345678888\",\"level\":\"V\",\"akademik\":\"Techno\",\"tagihan\":[],\"uang_saku\":null},{\"id_siswa\":\"29\",\"nama_siswa\":\"Budi\",\"nisn\":\"6878679\",\"level\":\"X\",\"akademik\":\"Praxis\",\"tagihan\":[],\"uang_saku\":null},{\"id_siswa\":\"27\",\"nama_siswa\":\"Budi\",\"nisn\":\"12345678978\",\"level\":\"X\",\"akademik\":\"Praxis\",\"tagihan\":[],\"uang_saku\":null},{\"id_siswa\":\"28\",\"nama_siswa\":\"Budi\",\"nisn\":\"123456789878\",\"level\":\"X\",\"akademik\":\"Praxis\",\"tagihan\":[],\"uang_saku\":null},{\"id_siswa\":\"17\",\"nama_siswa\":\"Budi Budiman Mandibud\",\"nisn\":\"1234567898\",\"level\":\"XI\",\"akademik\":\"Praxis\",\"tagihan\":[],\"uang_saku\":null}],\"first_page_url\":\"http:\\\/\\\/localhost\\\/api\\\/monitoring-uang-saku?page=1\",\"from\":1,\"last_page\":4,\"last_page_url\":\"http:\\\/\\\/localhost\\\/api\\\/monitoring-uang-saku?page=4\",\"links\":[{\"url\":null,\"label\":\"&laquo; Previous\",\"active\":false},{\"url\":\"http:\\\/\\\/localhost\\\/api\\\/monitoring-uang-saku?page=1\",\"label\":\"1\",\"active\":true},{\"url\":\"http:\\\/\\\/localhost\\\/api\\\/monitoring-uang-saku?page=2\",\"label\":\"2\",\"active\":false},{\"url\":\"http:\\\/\\\/localhost\\\/api\\\/monitoring-uang-saku?page=3\",\"label\":\"3\",\"active\":false},{\"url\":\"http:\\\/\\\/localhost\\\/api\\\/monitoring-uang-saku?page=4\",\"label\":\"4\",\"active\":false},{\"url\":\"http:\\\/\\\/localhost\\\/api\\\/monitoring-uang-saku?page=2\",\"label\":\"Next &raquo;\",\"active\":false}],\"next_page_url\":\"http:\\\/\\\/localhost\\\/api\\\/monitoring-uang-saku?page=2\",\"path\":\"http:\\\/\\\/localhost\\\/api\\\/monitoring-uang-saku\",\"per_page\":10,\"prev_page_url\":null,\"to\":10,\"total\":36}}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "GET api\/monitoring-uang-saku\/topup\/{id}",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/monitoring-uang-saku\/topup\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/monitoring-uang-saku\/topup\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "architecto",
+                                    "description": "The ID of the topup."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "42"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 404,
+                            "body": "{\"message\":\"Siswa tidak ditemukan\"}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "GET api\/monitoring-uang-saku\/pengeluaran\/{id}",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/monitoring-uang-saku\/pengeluaran\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/monitoring-uang-saku\/pengeluaran\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "architecto",
+                                    "description": "The ID of the pengeluaran."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "41"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 404,
+                            "body": "{\"message\":\"Siswa tidak ditemukan\"}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "POST api\/monitoring-uang-saku\/topup",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/monitoring-uang-saku\/topup",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/monitoring-uang-saku\/topup"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"id_siswa\":\"bngzmi\",\"nama_siswa\":\"y\",\"tanggal_pembayaran\":\"2025-07-14T14:54:08\",\"nominal\":\"564\",\"catatan\":\"architecto\"}"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "POST api\/monitoring-uang-saku\/pengeluaran",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/monitoring-uang-saku\/pengeluaran",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/monitoring-uang-saku\/pengeluaran"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"id_siswa\":\"bngzmi\",\"nama_siswa\":\"y\",\"tanggal_pengeluaran\":\"2025-07-14T14:54:08\",\"nominal\":\"564\",\"catatan\":\"architecto\"}"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "GET api\/monitoring-uang-saku\/detail\/{id}",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/monitoring-uang-saku\/detail\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/monitoring-uang-saku\/detail\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "architecto",
+                                    "description": "The ID of the detail."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "40"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 404,
+                            "body": "{\"message\":\"Siswa tidak ditemukan\"}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "GET api\/monitoring-ekstra",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/monitoring-ekstra",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/monitoring-ekstra"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "39"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"status\":\"success\",\"data\":{\"current_page\":1,\"data\":[{\"id_siswa\":\"41\",\"nama_siswa\":\"Ahmad Budie\",\"level\":\"III\",\"akademik\":\"Techno\",\"ekstra\":[{\"id_ekstra_siswa\":\"6\",\"id_ekstra\":\"2\",\"nama_ekstra\":\"Panahan\",\"tagihan_ekstra\":\"0\"},{\"id_ekstra_siswa\":\"7\",\"id_ekstra\":\"3\",\"nama_ekstra\":\"Voli\",\"tagihan_ekstra\":\"0\"},{\"id_ekstra_siswa\":\"8\",\"id_ekstra\":\"1\",\"nama_ekstra\":\"Piano\",\"tagihan_ekstra\":\"3.000.000\"}],\"tagihan\":[{\"nama_tagihan\":\"Piano\",\"nominal\":3000000}]},{\"id_siswa\":\"33\",\"nama_siswa\":\"ASSIFA KHAIRU NISA\",\"level\":\"XI\",\"akademik\":\"Praxis\",\"ekstra\":[{\"id_ekstra_siswa\":\"3\",\"id_ekstra\":\"1\",\"nama_ekstra\":\"Piano\",\"tagihan_ekstra\":\"0\"},{\"id_ekstra_siswa\":\"4\",\"id_ekstra\":\"3\",\"nama_ekstra\":\"Voli\",\"tagihan_ekstra\":\"0\"},{\"id_ekstra_siswa\":\"5\",\"id_ekstra\":\"1\",\"nama_ekstra\":\"Piano\",\"tagihan_ekstra\":\"0\"}],\"tagihan\":[]},{\"id_siswa\":\"43\",\"nama_siswa\":\"Rudi Hartono\",\"level\":\"VIII\",\"akademik\":\"Techno\",\"ekstra\":[{\"id_ekstra_siswa\":\"10\",\"id_ekstra\":\"2\",\"nama_ekstra\":\"Panahan\",\"tagihan_ekstra\":\"100.000\"},{\"id_ekstra_siswa\":\"9\",\"id_ekstra\":\"4\",\"nama_ekstra\":\"Gulat\",\"tagihan_ekstra\":\"200.000\"}],\"tagihan\":[{\"nama_tagihan\":\"Panahan\",\"nominal\":100000},{\"nama_tagihan\":\"Gulat\",\"nominal\":200000}]},{\"id_siswa\":\"2\",\"nama_siswa\":\"Siti Aminah\",\"level\":\"X\",\"akademik\":\"Praxis\",\"ekstra\":[{\"id_ekstra_siswa\":\"1\",\"id_ekstra\":\"1\",\"nama_ekstra\":\"Piano\",\"tagihan_ekstra\":\"300.000\"},{\"id_ekstra_siswa\":\"2\",\"id_ekstra\":\"2\",\"nama_ekstra\":\"Panahan\",\"tagihan_ekstra\":\"100.000\"}],\"tagihan\":[{\"nama_tagihan\":\"Piano\",\"nominal\":300000},{\"nama_tagihan\":\"Panahan\",\"nominal\":100000}]}],\"first_page_url\":\"http:\\\/\\\/localhost\\\/api\\\/monitoring-ekstra?page=1\",\"from\":1,\"last_page\":1,\"last_page_url\":\"http:\\\/\\\/localhost\\\/api\\\/monitoring-ekstra?page=1\",\"links\":[{\"url\":null,\"label\":\"&laquo; Previous\",\"active\":false},{\"url\":\"http:\\\/\\\/localhost\\\/api\\\/monitoring-ekstra?page=1\",\"label\":\"1\",\"active\":true},{\"url\":null,\"label\":\"Next &raquo;\",\"active\":false}],\"next_page_url\":null,\"path\":\"http:\\\/\\\/localhost\\\/api\\\/monitoring-ekstra\",\"per_page\":10,\"prev_page_url\":null,\"to\":4,\"total\":4}}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "POST api\/monitoring-ekstra\/create-siswa",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/monitoring-ekstra\/create-siswa",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/monitoring-ekstra\/create-siswa"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"nisn\":\"architecto\",\"id_ekstra\":[\"architecto\"],\"tanggal_mulai\":\"2025-07-14T14:54:09\",\"tanggal_selesai\":\"2025-07-14T14:54:09\",\"catatan\":\"architecto\"}"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "GET api\/monitoring-ekstra\/pembayaran\/{id}",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/monitoring-ekstra\/pembayaran\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/monitoring-ekstra\/pembayaran\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "architecto",
+                                    "description": "The ID of the pembayaran."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "38"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 404,
+                            "body": "{\"status\":\"error\",\"message\":\"Data ekstra siswa tidak ditemukan.\"}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "POST api\/monitoring-ekstra\/pembayaran",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/monitoring-ekstra\/pembayaran",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/monitoring-ekstra\/pembayaran"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"id_siswa\":\"bngzmi\",\"nama_siswa\":\"y\",\"id_ekstra_siswa\":\"architecto\",\"tanggal_pembayaran\":\"2025-07-14T14:54:10\",\"nominal\":\"564\",\"catatan\":\"architecto\"}"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "GET api\/monitoring-ekstra\/detail\/{id}",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/monitoring-ekstra\/detail\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/monitoring-ekstra\/detail\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "architecto",
+                                    "description": "The ID of the detail."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "37"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 404,
+                            "body": "{\"message\":\"Ekstra yang diikuti siswa tidak ditemukan\"}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "GET api\/monitoring-ekstra\/detail\/ekstra-siswa\/{id}",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/monitoring-ekstra\/detail\/ekstra-siswa\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/monitoring-ekstra\/detail\/ekstra-siswa\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the ekstra siswa."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "36"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"status\":\"success\",\"data\":{\"id_ekstra_siswa\":\"1\",\"id_siswa\":\"2\",\"nama_siswa\":\"Siti Aminah\",\"id_ekstra\":\"1\",\"nama_ekstra\":\"Piano\",\"tanggal_mulai\":\"2024-07-01\",\"tanggal_selesai\":\"2024-07-18\",\"tagihan_ekstra\":300000,\"catatan\":\"Siti ikut ekstra lagi\"}}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "PUT api\/monitoring-ekstra\/update\/{id}",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/monitoring-ekstra\/update\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/monitoring-ekstra\/update\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "architecto",
+                                    "description": "The ID of the update."
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "GET api\/monitoring-ekstra\/ekstra",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/monitoring-ekstra\/ekstra",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/monitoring-ekstra\/ekstra"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "35"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"current_page\":1,\"data\":[{\"id_ekstra\":\"1\",\"nama_ekstra\":\"Piano\",\"biaya_ekstra\":\"250.000\",\"created_at\":\"2025-07-12T12:44:23.000000Z\",\"updated_at\":\"2025-07-12T12:44:23.000000Z\"},{\"id_ekstra\":\"2\",\"nama_ekstra\":\"Panahan\",\"biaya_ekstra\":\"200.000\",\"created_at\":\"2025-07-12T12:44:23.000000Z\",\"updated_at\":\"2025-07-12T12:44:23.000000Z\"},{\"id_ekstra\":\"3\",\"nama_ekstra\":\"Voli\",\"biaya_ekstra\":\"150.000\",\"created_at\":\"2025-07-12T12:44:23.000000Z\",\"updated_at\":\"2025-07-12T12:44:23.000000Z\"},{\"id_ekstra\":\"4\",\"nama_ekstra\":\"Gulat\",\"biaya_ekstra\":\"200.000\",\"created_at\":\"2025-07-13T06:40:14.000000Z\",\"updated_at\":\"2025-07-13T06:40:14.000000Z\"}],\"first_page_url\":\"http:\\\/\\\/localhost\\\/api\\\/monitoring-ekstra\\\/ekstra?page=1\",\"from\":1,\"last_page\":1,\"last_page_url\":\"http:\\\/\\\/localhost\\\/api\\\/monitoring-ekstra\\\/ekstra?page=1\",\"links\":[{\"url\":null,\"label\":\"&laquo; Previous\",\"active\":false},{\"url\":\"http:\\\/\\\/localhost\\\/api\\\/monitoring-ekstra\\\/ekstra?page=1\",\"label\":\"1\",\"active\":true},{\"url\":null,\"label\":\"Next &raquo;\",\"active\":false}],\"next_page_url\":null,\"path\":\"http:\\\/\\\/localhost\\\/api\\\/monitoring-ekstra\\\/ekstra\",\"per_page\":10,\"prev_page_url\":null,\"to\":4,\"total\":4}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "POST api\/monitoring-ekstra\/ekstra\/create",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/monitoring-ekstra\/ekstra\/create",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/monitoring-ekstra\/ekstra\/create"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"nama_ekstra\":\"b\",\"biaya_ekstra\":\"564\"}"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "GET api\/ekstra\/list",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/ekstra\/list",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/ekstra\/list"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "34"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"status\":\"success\",\"data\":[{\"id_ekstra\":\"1\",\"nama_ekstra\":\"Piano\",\"biaya_ekstra\":250000},{\"id_ekstra\":\"2\",\"nama_ekstra\":\"Panahan\",\"biaya_ekstra\":200000},{\"id_ekstra\":\"3\",\"nama_ekstra\":\"Voli\",\"biaya_ekstra\":150000},{\"id_ekstra\":\"4\",\"nama_ekstra\":\"Gulat\",\"biaya_ekstra\":200000}]}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "GET api\/monitoring-pengeluaran",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/monitoring-pengeluaran",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/monitoring-pengeluaran"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "33"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"current_page\":1,\"data\":[{\"id_pengeluaran\":\"3\",\"id_jenis_pengeluaran\":\"1\",\"id_user\":\"1\",\"nama_pengeluaran\":\"A\",\"total_pengeluaran\":\"2\",\"created_at\":\"2025-07-13T07:51:32.000000Z\",\"updated_at\":\"2025-07-13T07:51:47.000000Z\",\"jenis_pengeluaran\":{\"id_jenis_pengeluaran\":\"1\",\"nama_jenis_pengeluaran\":\"Project\",\"created_at\":\"2025-07-12T12:44:24.000000Z\",\"updated_at\":\"2025-07-12T12:44:24.000000Z\"}},{\"id_pengeluaran\":\"1\",\"id_jenis_pengeluaran\":\"1\",\"id_user\":\"1\",\"nama_pengeluaran\":\"Persiapan Lomba Nasional\",\"total_pengeluaran\":\"5.500.000\",\"created_at\":\"2025-07-12T12:44:26.000000Z\",\"updated_at\":\"2025-07-13T13:32:44.000000Z\",\"jenis_pengeluaran\":{\"id_jenis_pengeluaran\":\"1\",\"nama_jenis_pengeluaran\":\"Project\",\"created_at\":\"2025-07-12T12:44:24.000000Z\",\"updated_at\":\"2025-07-12T12:44:24.000000Z\"}},{\"id_pengeluaran\":\"2\",\"id_jenis_pengeluaran\":\"2\",\"id_user\":\"1\",\"nama_pengeluaran\":\"Perbaikan Elektronik Sekolah\",\"total_pengeluaran\":\"4.536.000\",\"created_at\":\"2025-07-12T12:44:26.000000Z\",\"updated_at\":\"2025-07-13T21:55:14.000000Z\",\"jenis_pengeluaran\":{\"id_jenis_pengeluaran\":\"2\",\"nama_jenis_pengeluaran\":\"Non project\",\"created_at\":\"2025-07-12T12:44:24.000000Z\",\"updated_at\":\"2025-07-12T12:44:24.000000Z\"}}],\"first_page_url\":\"http:\\\/\\\/localhost\\\/api\\\/monitoring-pengeluaran?page=1\",\"from\":1,\"last_page\":1,\"last_page_url\":\"http:\\\/\\\/localhost\\\/api\\\/monitoring-pengeluaran?page=1\",\"links\":[{\"url\":null,\"label\":\"&laquo; Previous\",\"active\":false},{\"url\":\"http:\\\/\\\/localhost\\\/api\\\/monitoring-pengeluaran?page=1\",\"label\":\"1\",\"active\":true},{\"url\":null,\"label\":\"Next &raquo;\",\"active\":false}],\"next_page_url\":null,\"path\":\"http:\\\/\\\/localhost\\\/api\\\/monitoring-pengeluaran\",\"per_page\":10,\"prev_page_url\":null,\"to\":3,\"total\":3}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "GET api\/monitoring-pengeluaran\/kategori-pengeluaran",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/monitoring-pengeluaran\/kategori-pengeluaran",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/monitoring-pengeluaran\/kategori-pengeluaran"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "32"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "[{\"id_kategori_pengeluaran\":\"1\",\"id_jenis_pengeluaran\":\"1\",\"nama_kategori_pengeluaran\":\"Lomba\",\"created_at\":\"2025-07-12T12:44:25.000000Z\",\"updated_at\":\"2025-07-12T12:44:25.000000Z\",\"jenis_pengeluaran\":{\"id_jenis_pengeluaran\":\"1\",\"nama_jenis_pengeluaran\":\"Project\",\"created_at\":\"2025-07-12T12:44:24.000000Z\",\"updated_at\":\"2025-07-12T12:44:24.000000Z\"}},{\"id_kategori_pengeluaran\":\"2\",\"id_jenis_pengeluaran\":\"1\",\"nama_kategori_pengeluaran\":\"Exhibition\",\"created_at\":\"2025-07-12T12:44:25.000000Z\",\"updated_at\":\"2025-07-12T12:44:25.000000Z\",\"jenis_pengeluaran\":{\"id_jenis_pengeluaran\":\"1\",\"nama_jenis_pengeluaran\":\"Project\",\"created_at\":\"2025-07-12T12:44:24.000000Z\",\"updated_at\":\"2025-07-12T12:44:24.000000Z\"}},{\"id_kategori_pengeluaran\":\"3\",\"id_jenis_pengeluaran\":\"1\",\"nama_kategori_pengeluaran\":\"Alat Tulis\",\"created_at\":\"2025-07-12T12:44:25.000000Z\",\"updated_at\":\"2025-07-12T12:44:25.000000Z\",\"jenis_pengeluaran\":{\"id_jenis_pengeluaran\":\"1\",\"nama_jenis_pengeluaran\":\"Project\",\"created_at\":\"2025-07-12T12:44:24.000000Z\",\"updated_at\":\"2025-07-12T12:44:24.000000Z\"}},{\"id_kategori_pengeluaran\":\"4\",\"id_jenis_pengeluaran\":\"2\",\"nama_kategori_pengeluaran\":\"Elektronik\",\"created_at\":\"2025-07-12T12:44:25.000000Z\",\"updated_at\":\"2025-07-12T12:44:25.000000Z\",\"jenis_pengeluaran\":{\"id_jenis_pengeluaran\":\"2\",\"nama_jenis_pengeluaran\":\"Non project\",\"created_at\":\"2025-07-12T12:44:24.000000Z\",\"updated_at\":\"2025-07-12T12:44:24.000000Z\"}},{\"id_kategori_pengeluaran\":\"5\",\"id_jenis_pengeluaran\":\"2\",\"nama_kategori_pengeluaran\":\"Kebersihan\",\"created_at\":\"2025-07-12T12:44:25.000000Z\",\"updated_at\":\"2025-07-12T12:44:25.000000Z\",\"jenis_pengeluaran\":{\"id_jenis_pengeluaran\":\"2\",\"nama_jenis_pengeluaran\":\"Non project\",\"created_at\":\"2025-07-12T12:44:24.000000Z\",\"updated_at\":\"2025-07-12T12:44:24.000000Z\"}},{\"id_kategori_pengeluaran\":\"6\",\"id_jenis_pengeluaran\":\"1\",\"nama_kategori_pengeluaran\":\"Lomba\",\"created_at\":\"2025-07-13T07:50:25.000000Z\",\"updated_at\":\"2025-07-13T07:50:25.000000Z\",\"jenis_pengeluaran\":{\"id_jenis_pengeluaran\":\"1\",\"nama_jenis_pengeluaran\":\"Project\",\"created_at\":\"2025-07-12T12:44:24.000000Z\",\"updated_at\":\"2025-07-12T12:44:24.000000Z\"}},{\"id_kategori_pengeluaran\":\"7\",\"id_jenis_pengeluaran\":\"2\",\"nama_kategori_pengeluaran\":\"Lomba\",\"created_at\":\"2025-07-13T07:50:34.000000Z\",\"updated_at\":\"2025-07-13T07:50:34.000000Z\",\"jenis_pengeluaran\":{\"id_jenis_pengeluaran\":\"2\",\"nama_jenis_pengeluaran\":\"Non project\",\"created_at\":\"2025-07-12T12:44:24.000000Z\",\"updated_at\":\"2025-07-12T12:44:24.000000Z\"}},{\"id_kategori_pengeluaran\":\"8\",\"id_jenis_pengeluaran\":\"2\",\"nama_kategori_pengeluaran\":\"Air\",\"created_at\":\"2025-07-13T20:48:57.000000Z\",\"updated_at\":\"2025-07-13T20:48:57.000000Z\",\"jenis_pengeluaran\":{\"id_jenis_pengeluaran\":\"2\",\"nama_jenis_pengeluaran\":\"Non project\",\"created_at\":\"2025-07-12T12:44:24.000000Z\",\"updated_at\":\"2025-07-12T12:44:24.000000Z\"}}]",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "POST api\/monitoring-pengeluaran\/kategori-pengeluaran\/create",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/monitoring-pengeluaran\/kategori-pengeluaran\/create",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/monitoring-pengeluaran\/kategori-pengeluaran\/create"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"jenis_pengeluaran\":\"b\",\"nama_kategori_pengeluaran\":\"n\"}"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "POST api\/monitoring-pengeluaran\/create",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/monitoring-pengeluaran\/create",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/monitoring-pengeluaran\/create"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"jenis_pengeluaran\":\"b\",\"nama_pengeluaran\":\"n\",\"sub_pengeluaran\":[{\"id_kategori_pengeluaran\":\"architecto\",\"nama_sub_pengeluaran\":\"n\",\"nominal\":84,\"jumlah_item\":66,\"tanggal_pengeluaran\":\"2025-07-14T14:54:13\",\"file_nota\":\"m\"}]}"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "GET api\/monitoring-pengeluaran\/detail\/{id}",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/monitoring-pengeluaran\/detail\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/monitoring-pengeluaran\/detail\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "architecto",
+                                    "description": "The ID of the detail."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "31"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 404,
+                            "body": "{\"message\":\"Pengeluaran tidak ditemukan\"}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "PUT api\/monitoring-pengeluaran\/pengeluaran\/update\/{id}",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/monitoring-pengeluaran\/pengeluaran\/update\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/monitoring-pengeluaran\/pengeluaran\/update\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "architecto",
+                                    "description": "The ID of the update."
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"nama_pengeluaran\":\"b\"}"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "POST api\/monitoring-pengeluaran\/pengeluaran\/{id}\/sub-pengeluaran",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/monitoring-pengeluaran\/pengeluaran\/:id\/sub-pengeluaran",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/monitoring-pengeluaran\/pengeluaran\/:id\/sub-pengeluaran",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the pengeluaran."
+                                }
+                            ]
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"id_kategori_pengeluaran\":\"architecto\",\"nama_sub_pengeluaran\":\"n\",\"nominal\":84,\"jumlah_item\":66,\"tanggal_pengeluaran\":\"2025-07-14T14:54:14\",\"file_nota\":\"m\"}"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "POST api\/monitoring-pengeluaran\/sub-pengeluaran\/update\/{id}",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/monitoring-pengeluaran\/sub-pengeluaran\/update\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/monitoring-pengeluaran\/sub-pengeluaran\/update\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "architecto",
+                                    "description": "The ID of the update."
+                                }
+                            ]
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"id_kategori_pengeluaran\":\"architecto\",\"nama_sub_pengeluaran\":\"n\",\"nominal\":84,\"jumlah_item\":66,\"tanggal_pengeluaran\":\"2025-07-14T14:54:14\",\"file_nota\":\"m\"}"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "DELETE api\/monitoring-pengeluaran\/sub-pengeluaran\/delete\/{id}",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/monitoring-pengeluaran\/sub-pengeluaran\/delete\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/monitoring-pengeluaran\/sub-pengeluaran\/delete\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "architecto",
+                                    "description": "The ID of the delete."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "GET api\/tagihan",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/tagihan",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/tagihan"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "30"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"status\":\"success\",\"message\":\"Data hasil tagihan berhasil diambil.\",\"data\":{\"current_page\":1,\"data\":[],\"first_page_url\":\"http:\\\/\\\/localhost\\\/api\\\/tagihan?page=1\",\"from\":null,\"last_page\":1,\"last_page_url\":\"http:\\\/\\\/localhost\\\/api\\\/tagihan?page=1\",\"links\":[{\"url\":null,\"label\":\"&laquo; Previous\",\"active\":false},{\"url\":\"http:\\\/\\\/localhost\\\/api\\\/tagihan?page=1\",\"label\":\"1\",\"active\":true},{\"url\":null,\"label\":\"Next &raquo;\",\"active\":false}],\"next_page_url\":null,\"path\":\"http:\\\/\\\/localhost\\\/api\\\/tagihan\",\"per_page\":20,\"prev_page_url\":null,\"to\":null,\"total\":0}}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "GET api\/tagihan\/{nisn}",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/tagihan\/:nisn",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/tagihan\/:nisn",
+                            "variable": [
+                                {
+                                    "id": "nisn",
+                                    "key": "nisn",
+                                    "value": "1",
+                                    "description": ""
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "29"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 404,
+                            "body": "{\"message\":\"NISN siswa tidak ditemukan\"}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "POST api\/tagihan\/create",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/tagihan\/create",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/tagihan\/create"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"nisn\":\"architecto\",\"file_tagihan\":\"n\"}"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "GET api\/tunggakan",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/tunggakan",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/tunggakan"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "28"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"status\":\"success\",\"data\":{\"current_page\":1,\"data\":[{\"id_tunggakan\":\"27\",\"nisn\":\"SIS000002\",\"nama_siswa\":\"Siti Aminah\",\"jenis_tagihan\":\"Umum\",\"nama_tagihan\":\"Sumbangan\",\"nominal\":149001,\"periode\":\"2025\\\/2026\",\"status\":\"Belum Lunas\",\"catatan\":null,\"created_at\":\"2025-07-13T07:41:05.000000Z\",\"updated_at\":\"2025-07-13T07:41:05.000000Z\"},{\"id_tunggakan\":\"26\",\"nisn\":\"SIS000002\",\"nama_siswa\":\"Siti Aminah\",\"jenis_tagihan\":\"Umum\",\"nama_tagihan\":\"Pemeliharaan\",\"nominal\":199000,\"periode\":\"2025\\\/2026\",\"status\":\"Belum Lunas\",\"catatan\":null,\"created_at\":\"2025-07-13T07:41:05.000000Z\",\"updated_at\":\"2025-07-13T07:41:05.000000Z\"},{\"id_tunggakan\":\"25\",\"nisn\":\"SIS000002\",\"nama_siswa\":\"Siti Aminah\",\"jenis_tagihan\":\"Umum\",\"nama_tagihan\":\"KBM\",\"nominal\":499000,\"periode\":\"2025\\\/2026\",\"status\":\"Belum Lunas\",\"catatan\":null,\"created_at\":\"2025-07-13T07:41:05.000000Z\",\"updated_at\":\"2025-07-13T07:41:05.000000Z\"},{\"id_tunggakan\":\"24\",\"nisn\":\"SIS000002\",\"nama_siswa\":\"Siti Aminah\",\"jenis_tagihan\":\"Umum\",\"nama_tagihan\":\"SPP\",\"nominal\":299000,\"periode\":\"2025\\\/2026\",\"status\":\"Belum Lunas\",\"catatan\":null,\"created_at\":\"2025-07-13T07:41:05.000000Z\",\"updated_at\":\"2025-07-13T07:41:05.000000Z\"},{\"id_tunggakan\":\"23\",\"nisn\":\"SIS000005\",\"nama_siswa\":\"Agus Prasetyo\",\"jenis_tagihan\":\"Umum\",\"nama_tagihan\":\"Sumbangan\",\"nominal\":9999998,\"periode\":\"2025\\\/2026\",\"status\":\"Belum Lunas\",\"catatan\":null,\"created_at\":\"2025-07-13T07:31:08.000000Z\",\"updated_at\":\"2025-07-13T07:31:08.000000Z\"},{\"id_tunggakan\":\"22\",\"nisn\":\"SIS000005\",\"nama_siswa\":\"Agus Prasetyo\",\"jenis_tagihan\":\"Umum\",\"nama_tagihan\":\"Pemeliharaan\",\"nominal\":1000000,\"periode\":\"2025\\\/2026\",\"status\":\"Belum Lunas\",\"catatan\":null,\"created_at\":\"2025-07-13T07:31:08.000000Z\",\"updated_at\":\"2025-07-13T07:31:08.000000Z\"},{\"id_tunggakan\":\"21\",\"nisn\":\"SIS000005\",\"nama_siswa\":\"Agus Prasetyo\",\"jenis_tagihan\":\"Umum\",\"nama_tagihan\":\"KBM\",\"nominal\":10000000,\"periode\":\"2025\\\/2026\",\"status\":\"Belum Lunas\",\"catatan\":null,\"created_at\":\"2025-07-13T07:31:08.000000Z\",\"updated_at\":\"2025-07-13T07:31:08.000000Z\"},{\"id_tunggakan\":\"20\",\"nisn\":\"SIS000005\",\"nama_siswa\":\"Agus Prasetyo\",\"jenis_tagihan\":\"Umum\",\"nama_tagihan\":\"SPP\",\"nominal\":1000000,\"periode\":\"2025\\\/2026\",\"status\":\"Belum Lunas\",\"catatan\":null,\"created_at\":\"2025-07-13T07:31:08.000000Z\",\"updated_at\":\"2025-07-13T07:31:08.000000Z\"},{\"id_tunggakan\":\"19\",\"nisn\":\"SIS000002\",\"nama_siswa\":\"Siti Aminah\",\"jenis_tagihan\":\"Ekstra\",\"nama_tagihan\":\"Piano\",\"nominal\":250000,\"periode\":\"2025\\\/2026\",\"status\":\"Belum Lunas\",\"catatan\":null,\"created_at\":\"2025-07-13T06:55:21.000000Z\",\"updated_at\":\"2025-07-13T06:55:21.000000Z\"},{\"id_tunggakan\":\"18\",\"nisn\":\"1234567890\",\"nama_siswa\":\"ASSIFA KHAIRU NISA\",\"jenis_tagihan\":\"Ekstra\",\"nama_tagihan\":\"Piano\",\"nominal\":200000,\"periode\":\"2025\\\/2026\",\"status\":\"Belum Lunas\",\"catatan\":null,\"created_at\":\"2025-07-13T06:53:59.000000Z\",\"updated_at\":\"2025-07-13T06:53:59.000000Z\"}],\"first_page_url\":\"http:\\\/\\\/localhost\\\/api\\\/tunggakan?page=1\",\"from\":1,\"last_page\":3,\"last_page_url\":\"http:\\\/\\\/localhost\\\/api\\\/tunggakan?page=3\",\"links\":[{\"url\":null,\"label\":\"&laquo; Previous\",\"active\":false},{\"url\":\"http:\\\/\\\/localhost\\\/api\\\/tunggakan?page=1\",\"label\":\"1\",\"active\":true},{\"url\":\"http:\\\/\\\/localhost\\\/api\\\/tunggakan?page=2\",\"label\":\"2\",\"active\":false},{\"url\":\"http:\\\/\\\/localhost\\\/api\\\/tunggakan?page=3\",\"label\":\"3\",\"active\":false},{\"url\":\"http:\\\/\\\/localhost\\\/api\\\/tunggakan?page=2\",\"label\":\"Next &raquo;\",\"active\":false}],\"next_page_url\":\"http:\\\/\\\/localhost\\\/api\\\/tunggakan?page=2\",\"path\":\"http:\\\/\\\/localhost\\\/api\\\/tunggakan\",\"per_page\":10,\"prev_page_url\":null,\"to\":10,\"total\":26}}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "POST api\/tunggakan\/create",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/tunggakan\/create",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/tunggakan\/create"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"id_siswa\":\"architecto\",\"nama_siswa\":\"architecto\",\"jenis_tagihan\":\"architecto\",\"periode\":\"architecto\",\"tagihan\":[{\"nama_tagihan\":\"architecto\",\"nominal\":39}]}"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "GET api\/tunggakan\/detail\/{id}",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/tunggakan\/detail\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/tunggakan\/detail\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "architecto",
+                                    "description": "The ID of the detail."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "27"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 404,
+                            "body": "{\"status\":\"error\",\"message\":\"Data tunggakan tidak ditemukan.\",\"error_detail\":\"No query results for model [App\\\\Models\\\\Tunggakan] architecto\"}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "PUT api\/tunggakan\/update\/{id}",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/tunggakan\/update\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/tunggakan\/update\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "architecto",
+                                    "description": "The ID of the update."
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"nominal\":27,\"status\":\"Lunas\",\"catatan\":\"architecto\"}"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "DELETE api\/tunggakan\/delete\/{id}",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/tunggakan\/delete\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/tunggakan\/delete\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "architecto",
+                                    "description": "The ID of the delete."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": []
+                }
+            ]
+        }
+    ],
+    "auth": {
+        "type": "bearer",
+        "bearer": [
+            {
+                "key": "Authorization",
+                "type": "string"
+            }
+        ]
+    }
+}

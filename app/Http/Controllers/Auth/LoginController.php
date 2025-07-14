@@ -14,6 +14,11 @@ use Illuminate\Support\Facades\Log;
 
 class LoginController extends Controller
 {
+    /**
+     * Login user.
+     *
+     * @unauthenticated
+     */
     public function login(Request $request)
     {
         try {
