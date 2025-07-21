@@ -8,7 +8,7 @@
 ## Tech Stack
 
 - **Framework:** Laravel 10
-- **Bahasa:** PHP 8.3.14
+- **Language:** PHP 8.3.14
 - **Authentication:** Laravel Sanctum
 - **Database:** MySQL
 
