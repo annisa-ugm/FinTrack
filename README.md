@@ -11,7 +11,6 @@
 - **Bahasa:** PHP 8.3.14
 - **Authentication:** Laravel Sanctum
 - **Database:** MySQL
-- **Deployment:** Railway.app
 
 ---
 
@@ -34,5 +33,3 @@ php artisan migrate:fresh --seed
 
 # Jalankan server lokal
 php artisan serve
----
-
