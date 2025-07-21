@@ -34,11 +34,5 @@ php artisan migrate:fresh --seed
 
 # Jalankan server lokal
 php artisan serve
-
-## Kontak
-
-**Annisa Mutia Rahman**
-[WhatsApp: 0857-1394-6691]  
-
 ---
 
