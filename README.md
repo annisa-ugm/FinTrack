@@ -29,7 +29,14 @@ cp .env.example .env
 
 # Generate key dan migrasi database
 php artisan key:generate
-php artisan migrate:fresh --seed
+php artisan migrate:fresh
 
-# Jalankan server lokal
+# Sinkronisasi data awal dari sistem akademik
+php artisan app:sync-siswa-from-akademik  
+php artisan app:sync-level-siswa-from-akademik 
+
+# Jalankan scheduler agar sinkronisasi otomatis setiap menit
+php artisan schedule:work
+
+# Jalankan server lokal di terminal lainnya
 php artisan serve
