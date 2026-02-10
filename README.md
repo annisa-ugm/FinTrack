@@ -9,7 +9,7 @@ API Documentation: https://documenter.getpostman.com/view/37959814/2sB2qfBzgk
 
 ERD & DFD Design Document: https://docs.google.com/document/d/1BdQviPdlNFQlQsyfv5RvU8HGgpr12RaaCdCZ31yqjZU/edit?usp=sharing
 ![ERD](screenshots/erd.png)
-*Entity Relation Diagram Design*
+*Entity Relationship Diagram Design*
 
 ![DFD](screenshots/dfd.png)
 *Data Flow Diagram Level 1 Design*
